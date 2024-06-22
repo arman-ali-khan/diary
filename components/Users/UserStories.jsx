@@ -1,4 +1,6 @@
-import Story from "@/Home/Stories/Story";
+import Story from "../Home/Stories/Story";
+
+
 
 function UserStories() {
     return (

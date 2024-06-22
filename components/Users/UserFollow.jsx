@@ -1,4 +1,6 @@
-import UserCard from "@/Sections/Cards/UserCard";
+import UserCard from "../Sections/Cards/UserCard";
+
+
 
 function UserFollow() {
     return (
