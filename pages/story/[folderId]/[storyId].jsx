@@ -1,5 +1,5 @@
 import Card from "@/components/Home/Stories/Card";
-import Bottombar from "@/components/shared/Bottombar";
+import BottomBar from "@/components/shared/Bottombar";
 import Navbar from "@/components/shared/Navbar";
 import { convertToBengaliNumber } from "@/lib/convertToBengaliNumber";
 import { increment } from "@/redux/features/subscribeSlice";
@@ -208,7 +208,7 @@ const handleSubscribe = data =>{
           <div className="h-16 bg-base-100 w-full">
 
           </div>
-          <div className="mx-auto py-4 space-y-6 px-2 lg:px-10 lg:rounded-md bg-gray-300 w-full">
+          <div className="mx-auto py-4 space-y-6 px-2 lg:px-10 lg:rounded-md bg-base-200 w-full">
            <div className="grid grid-cols-1 md:grid-cols-2 gap-2 2xl:grid-cols-3">
            {
             [...Array(12).keys()]?.map((i,part)=>{
@@ -219,7 +219,7 @@ const handleSubscribe = data =>{
           </div>
         </div>
       </div>
-      <Bottombar />
+      <BottomBar />
     </section>
   );
 }

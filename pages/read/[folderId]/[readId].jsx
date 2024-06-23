@@ -25,10 +25,10 @@ function readId() {
     // Access event.deltaY to determine the direction of the wheel scroll
     const scrollDirection =
       event.deltaY > 0
-        ? height < 800
+        ? height < 600
           ? setHeight(height + 40)
           : ""
-        : height >= 600
+        : height >= 400
         ? setHeight(height - 40)
         : "";
 

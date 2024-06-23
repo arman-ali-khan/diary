@@ -171,3 +171,34 @@ html {
   font-size: 1em;
   cursor: pointer;
 }
+.pagination {
+  display: flex;
+  list-style: none;
+
+  padding: 0;
+}
+
+.pagination li {
+  margin: 0 5px;
+}
+
+.pagination li a {
+  padding: 5px 10px;
+  border: 1px solid #ddd;
+  color: #007bff;
+  text-decoration: none;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.pagination li a:hover {
+  background: linear-gradient(to right, rgb(46, 46, 131), rgb(158, 85, 194));
+  animation-duration: 300ms;
+}
+
+.pagination .active a {
+  background: linear-gradient(to right, darkblue, darkorchid);
+  color: white;
+  animation-duration: 300ms;
+  border-color: darkorchid;
+}

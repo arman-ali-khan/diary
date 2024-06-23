@@ -10,7 +10,8 @@ function BottomBar() {
     const [active,setActive] = useState('1')
     
     return (
-        <section className="sticky z-50 max-w-96 mx-auto bg-gradient rounded-t-xl sm:rounded-full bottom-0 sm:bottom-2 md:bottom-4 w-full p-0.5">
+        <section className="flex justify-center">
+            <section className="fixed z-50 max-w-96 mx-auto bg-gradient rounded-t-xl sm:rounded-full bottom-0 sm:bottom-2 md:bottom-4 w-full p-0.5">
             <div className="flex items-center rounded-t-xl sm:rounded-full bg-base-100 justify-center">
                 <label htmlFor="my-drawer" className={`active w-full flex justify-center items-center flex-col py-1 border-r border-black`} href={`#`}>
                 <RiMenu4Line className="text-xl" />
@@ -33,6 +34,7 @@ function BottomBar() {
                 <span className="text-[8px]">Profile</span>
                 </Link>
             </div>
+        </section>
         </section>
     );
 }

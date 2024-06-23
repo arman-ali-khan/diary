@@ -1,7 +1,7 @@
 import { convertToBengaliNumber } from "@/lib/convertToBengaliNumber";
 import Link from "next/link";
 
-function Story() {
+function Story({story}) {
   return (
     <section className="card-container w-full relative">
         <div data-tip="Rating" className="rating gap-1 tooltip tooltip-left flex absolute top-3 z-4 right-3 bg-gradient text-white px-1 rounded-lg py-0.5 z-50 items-center">
@@ -18,7 +18,7 @@ function Story() {
         </figure></Link>
         <div className="card-body mt-1 !p-0 mb-2 !gap-0">
           <Link href={`/story/12/123`}>
-          <h2 style={{lineHeight:'22px',marginTop:'5px'}} data-tip="ভালোবাসার মানুষ" className="card-title font-[SolaimanLipi] tooltip flex justify-start text-left text-sm py-0 sm:text-base md:text-lg lg:text-lg !px-1 !m-0">{'ভালোবাসার মানুষ'.slice(0,50)+'...'}</h2>
+          <h2 style={{lineHeight:'22px',marginTop:'5px'}} data-tip="ভালোবাসার মানুষ" className="card-title font-[SolaimanLipi] tooltip flex justify-start text-left text-sm py-0 sm:text-base md:text-lg lg:text-lg !px-1 !m-0">{`${story||'ভালোবাসার মানুষ'}`}</h2>
           </Link>
           <div className="flex text-base-content items-center justify-between w-full text-center">
           <p className="text-xs py-0 sm:text-base md:text-sm lg:text-sm !px-1 !m-0">13 ঘণ্টা</p>

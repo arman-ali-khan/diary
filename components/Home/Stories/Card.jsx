@@ -9,7 +9,7 @@ function Card({ i }) {
    <Link href={`/read/123/123`}>
     <div
       key={i}
-      className="flex w-full items-center rounded-md gap-2 px-2 bg-base-100 shadow-xl"
+      className="flex w-full items-center rounded-md gap-2 px-2 bg-base-100 bg-opacity-70 shadow-xl"
     >
       <div className="w-24 flex items-center justify-center relative">
         <p className="absolute text-sm md:text-base lg:text-lg 2xl:text-xl pr-5 bengali text-[darkorchid]">

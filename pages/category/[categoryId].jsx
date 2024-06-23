@@ -1,6 +1,20 @@
 import Layout from "@/Layout/Layout";
 import Story from "@/components/Home/Stories/Story";
-
+import Pagination from "@/components/Pagination/Pagination";
+const items = [
+    'Item 1',
+    'Item 2',
+    'Item 3',
+    'Item 4',
+    'Item 5',
+    'Item 6',
+    'Item 7',
+    'Item 8',
+    'Item 9',
+    'Item 10',
+    'Item 11',
+    'Item 12',
+  ];
 function CategoryId() {
     return (
       <Layout>
@@ -37,9 +51,11 @@ function CategoryId() {
             })
         }
        </div>
+       <Pagination />
        </section>
       </Layout>
     );
 }
 
 export default CategoryId;
+
