@@ -1,25 +1,21 @@
+import Layout from "@/Layout/Layout";
 import Hero from "@/components/Home/Hero/Hero";
+import RandomStories from "@/components/Home/Offers/RandomStories";
 import Stories from "@/components/Home/Stories/Stories";
-import Bottombar from "@/components/shared/Bottombar";
-import Navbar from "@/components/shared/Navbar";
-import { useDispatch } from 'react-redux';
 
 
 export default function Home() {
-    // redux
-    const dispatch = useDispatch()
-    // const [user] = useGetUser()
-    
-    // useEffect(()=>{
-    //   dispatch(setUser(user))
-    // },[])
+  
   return (
-    <main>
-       <Navbar />
-      <Hero />
+    <Layout>
+     <div className="flex flex-col space-y-6 mt-12">
+     <Hero />
       <Stories />
       <Stories />
-      <Bottombar />
-    </main>
+            <RandomStories />
+            <Stories />
+            </div>
+     
+    </Layout>
   );
 }

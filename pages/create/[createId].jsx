@@ -1,14 +1,13 @@
-import Story from "@/components/Home/Stories/Story";
 import StoryEdit from "@/components/Home/Stories/StoryEdit";
-import StoryPart from "@/components/Sections/Story/Create/StoryPart";
 import PostHeader from "@/components/shared/PostHeader";
-import { convertToBengaliNumber } from "@/lib/convertToBengaliNumber";
+import PrivateRoutes from "@/routes/privateRoutes";
 import Link from "next/link";
 import { FaPlus } from "react-icons/fa";
 
 function createId() {
   return (
-  <section className="container mx-auto">
+ <PrivateRoutes>
+   <section className="container mx-auto">
    <PostHeader />
    <div className="flex flex-col-reverse md:flex-row w-full gap-3 mt-12 mb-12">
         {/* instruction */}
@@ -75,6 +74,7 @@ function createId() {
         </aside> */}
       </div>
   </section>
+ </PrivateRoutes>
   );
 }
 

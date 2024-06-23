@@ -1,3 +1,4 @@
+import Layout from "@/Layout/Layout";
 import { useLoginUserMutation } from "@/redux/features/api/baseApi";
 import Link from 'next/link';
 import { useRouter } from "next/router";
@@ -34,7 +35,8 @@ const login =  () =>{
       // const [getUserByToken,{isError:isErrorUser,isLoading:isLoadingUser,isSuccess:isSuccessUser}] = useGetUserByTokenMutation()
 
      
-    return <div className="w-screen h-screen flex justify-center items-center">
+    return  <Layout>
+      <div className="w-screen h-screen flex justify-center items-center">
     <form onSubmit={handleSubmit(handleLogin)} className="">
         <div className="flex flex-col gap-3">
             <input {...register('email',{required:true})} className="input rounded-full input-bordered md:w-96 z-30 input-sm" type="email" />
@@ -51,6 +53,7 @@ const login =  () =>{
         </div>
     </form>
     </div>
+    </Layout>
 }
 
 export default login

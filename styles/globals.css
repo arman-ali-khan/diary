@@ -5,17 +5,32 @@
 /* utilities */
 @layer utilities {
   .bg-gradient {
-    @apply bg-gradient-to-r from-[darkblue] to-[darkorchid] hover:from-[#1010c0]
+    @apply bg-gradient-to-r duration-300 from-[darkblue] to-[darkorchid] hover:from-[#1010c0]
     bg-gradient-to-r from-[darkblue] to-[darkorchid] hover:from-[#1010c0]
     bg-gradient-to-r from-[darkblue] to-[darkorchid] hover:from-[#1010c0] hover:to-[#8f24c5];
   }
   /* styles.css */
   .overlay {
     @apply fixed top-0 left-0 w-full h-full bg-opacity-0 pointer-events-none z-50;
-    background-color: rgba(255, 255, 255, 0.01); /* Transparent background */
+    background-color: rgba(255, 255, 255, 0.01);
+    /* Transparent background */
   }
 }
 
+/*  shadow in hero texts */
+.heading {
+  text-shadow: 2px 2px #818181;
+}
+
+.hero-text {
+  text-shadow: 1px 1px #818181;
+}
+
+/* Swiper js css */
+.swiper-pagination-bullet-active {
+  width: 30px !important;
+  border-radius: 8px !important;
+}
 @font-face {
   font-family: "SolaimanLipi";
   src: url("/fonts/solaimanlipi.woff") format("woff");
@@ -41,8 +56,6 @@ input.tab.border-black.w-full {
   color: darkblue;
   font-weight: bold;
 }
-
-
 
 /* container 2 */
 .container2 {
@@ -145,7 +158,7 @@ html {
 
 .card-container {
   /* background: linear-gradient(transparent, transparent) padding-box, */
-    /* linear-gradient(to right, darkblue, darkorchid) border-box; */
+  /* linear-gradient(to right, darkblue, darkorchid) border-box; */
   border-radius: 12px;
   border: 4px solid transparent;
 }

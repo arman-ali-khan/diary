@@ -16,23 +16,27 @@ import { Navigation } from 'swiper/modules';
 function Stories() {
     return (
        <section className="relative container mx-auto">
-        <div className="bg-base-300 flex items-center border-t-2 rounded-t-md border-[darkorchid] mb-2 justify-between px-4 mt-6">
-          <Link href={`/`} className="text-sm md:py-3 px-4 py-2 font-[SolaimanLipi] font-bold sm:text-lg md:text-xl lg:text-2xl">ভৌতিক গল্প</Link>
-          <Link href={`/`} className="px-5 inline-block md:py-3 py-2">
+        <div className="bg-base-300 flex items-center border-t-2 rounded-t-md border-[darkorchid] mb-2 justify-between px-2 md:px-4 mt-6">
+          <Link href={`/category/12`} className="text-sm md:py-3 px-4 py-2 font-[SolaimanLipi] font-bold sm:text-lg md:text-xl lg:text-2xl">ভৌতিক গল্প</Link>
+          <Link href={`/category/12`} className="px-5 inline-block md:py-3 py-2">
           <MdOutlineDoubleArrow />
           </Link>
         </div>
          <Swiper
-        slidesPerView={1}
-        spaceBetween={10}
+        slidesPerView={2}
+        spaceBetween={2}
         navigation={true}
         breakpoints={{
-          640: {
-            slidesPerView: 2,
+          360: {
+            slidesPerView: 3,
+            spaceBetween: 1,
+          },
+           640: {
+            slidesPerView: 4,
             spaceBetween: 1,
           },
           768: {
-            slidesPerView: 3,
+            slidesPerView: 4,
             spaceBetween: 2,
           },
           1024: {
