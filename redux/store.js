@@ -1,6 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import baseApi from "./features/api/baseApi";
 import storiesSlice from "./features/storiesSlice";
+import storyStateSlice from "./features/story/storyStateSlice";
 import subscribeSlice from "./features/subscribeSlice";
 import usersSlice from "./features/usersSlice";
 
@@ -9,6 +10,7 @@ export default configureStore({
     subscribe: subscribeSlice,
     stories: storiesSlice,
     user: usersSlice,
+    storyState:storyStateSlice,
     [baseApi.reducerPath]:baseApi.reducer
   },
   middleware: (getDefaultMiddleware) =>

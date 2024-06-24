@@ -40,6 +40,7 @@ const ProgressBar = () => {
         left: '0',
         right: '0',
         overflow: 'hidden',
+        zIndex:99999999999999
       }}
     >
       <div

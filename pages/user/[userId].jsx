@@ -17,7 +17,7 @@ function userId() {
       </svg>
     </div>
   </section>
-  <section className="relative py-16 bg-blue-200">
+  <section className="relative py-16 bg-base-200">
     <div className="md:container w-full mx-auto px-4">
       <div className="relative flex flex-col break-words bg-base-100 w-full mb-6 shadow-xl rounded-lg -mt-64">
         <div className="md:px-6">
