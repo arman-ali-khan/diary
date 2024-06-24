@@ -20,9 +20,9 @@ function UserLibrary() {
        <section className=" w-full">
         <div role="tablist" className="tabs w-full tabs-lifted">
           {/* tab library */}
-  <input type="radio" name="my_tabs_2" role="tab lg:px-12" className="tab border-black w-full" aria-label={`লাইব্রেরী`} defaultChecked />
-  <div role="tabpanel" className="tab-content w-full bg-base-100 border-base-300 rounded-box p-2 md:p-6">
-<UserStories />
+  <input type="radio" name="my_tabs_2" role="tab lg:px-12" className="tab border-black w-full" aria-label={`Library`} defaultChecked />
+  <div role="tabpanel" className="tab-content w-full bg-base-100 border-base-300 rounded-box p-2">
+
     </div>
 {/* tab follow */}
   <input type="radio" name="my_tabs_2" role="tab" className="tab border-black px-12" aria-label={`অনুসরণ`}  />

@@ -1,12 +1,16 @@
+import Layout from "@/Layout/Layout";
+import Pagination from "@/components/Pagination/Pagination";
 import UserLibrary from "@/components/Users/UserLibrary";
+import UserStories from "@/components/Users/UserStories";
 import Navbar from "@/components/shared/Navbar";
+import { useState } from "react";
 
 
 function userId() {
+  const [info,setInfo] = useState('story')
     return (
-        <section>
-<Navbar />
-  <section className="relative block h-[500px]">
+        <Layout>
+  <section className="relative block h-[300px]">
     <div className="absolute top-0 w-full h-full bg-center bg-cover" style={{
             backgroundImage: "url('https://images.unsplash.com/photo-1499336315816-097655dcfbda?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=2710&amp;q=80')"}}>
       <span id="blackOverlay" className="w-full h-full absolute opacity-50 bg-black"></span>
@@ -51,29 +55,27 @@ function userId() {
               </div>
             </div>
           </div>
-          <div className="text-center mt-12">
-            <h3 className="text-4xl font-semibold leading-normal mb-2 text-blue-700">
-              Jenna Stones
-            </h3>
-            <div className="text-sm leading-normal mt-0 mb-2 text-blue-400 font-bold uppercase">
-              <i className="fas fa-map-marker-alt mr-2 text-lg text-blue-400"></i>
-              Los Angeles, California
-            </div>
-            <div className="mb-2 text-blue-600 mt-10">
-              <i className="fas fa-briefcase mr-2 text-lg text-blue-400"></i>Solution Manager - Creative Tim Officer
-            </div>
-            <div className="mb-2 text-blue-600">
-              <i className="fas fa-university mr-2 text-lg text-blue-400"></i>University of Computer Science
-            </div>
-          </div>
+          <section className="flex flex-col max-w-96 mx-auto text-center justify-center">
+          <h2 className="text-3xl flex justify-center font-bold">Hello Name</h2>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet praesentium illum quasi, et molestiae aliquam nostrum quidem magni perspiciatis eius beatae voluptates quae iure sunt. Commodi mollitia quis voluptates voluptatum?</p>
+          </section>
+          <section className="text-center gap-2 mt-12">
+            {/* Information section */}
+        <div className="flex max-w-72 gap-1 justify-between px-3"> 
+          <button onClick={()=>setInfo('story')} className={`w-full py-2 border rounded-t-xl border-b-0 ${info === 'story' ? 'bg-gradient':'' } text-white`}>Stories</button>
+          <button onClick={()=>setInfo('about')} className={`w-full py-2 border rounded-t-xl border-b-0 ${info === 'about' ? 'bg-gradient':'' } text-white`}>About</button>
+          <button onClick={()=>setInfo('folowers')} className={`w-full py-2 border rounded-t-xl border-b-0 ${info === 'folowers' ? 'bg-gradient':'' } text-white`}>Folowers</button>
+        </div>
+          </section>
           <div className="pb-10 text-center">
-           <UserLibrary />
+          <UserStories />
+  <Pagination />
           </div>
         </div>
       </div>
     </div>
   </section>
-        </section>
+        </Layout>
     );
 }
 

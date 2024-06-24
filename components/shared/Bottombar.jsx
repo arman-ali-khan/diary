@@ -21,7 +21,7 @@ function BottomBar() {
                 <LuBell className="text-xl" />
                 <span className="text-[8px]">Notify</span>
                 </Link>
-                <Link className={`active w-full flex justify-center items-center flex-col py-1 border-r border-black`} href={`#`}>
+                <Link className={`active w-full flex justify-center items-center flex-col py-1 border-r border-black`} href={`/`}>
                 <RiHome2Line className="text-xl" />
                 <span className="text-[8px]">Home</span>
                 </Link>
@@ -29,7 +29,7 @@ function BottomBar() {
                 <IoBookmarkOutline className="text-xl" />
                 <span className="text-[8px]">Saved</span>
                 </Link>
-                <Link className={`active w-full flex justify-center items-center flex-col py-1`} href={`#`}>
+                <Link className={`active w-full flex justify-center items-center flex-col py-1`} href={`/user/12`}>
                 <CgProfile className="text-xl" />
                 <span className="text-[8px]">Profile</span>
                 </Link>
