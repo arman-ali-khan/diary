@@ -8,7 +8,7 @@ const baseApi= createApi({
     baseQuery: fetchBaseQuery({baseUrl:'http://localhost:3001/api'}),
     endpoints:(build) => ({
         getUsers:build.query({
-            query:'/users'
+            query:'https://jsonplaceholder.typicode.com/photos'
         }),
         // getUserByEmail:build.query({
 

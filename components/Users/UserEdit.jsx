@@ -43,130 +43,91 @@ console.log(location,'location')
   const districts = district?.data;
 
   return (
-    <section className="flex h-full items-center justify-center p-12">
-      <div className="mx-auto w-full ">
-        <form action="https://formbold.com/s/FORM_ID" method="POST">
-          <div className="-mx-3 flex flex-wrap">
-            <div className="w-full px-3 sm:w-1/2">
-              <div className="">
-                <label
-                  for="fName"
-                  className="mb-3 block text-base font-medium text-[#07074D]"
-                >
-                  First Name
-                </label>
-                <input
-                  type="text"
-                  name="fName"
-                  id="fName"
-                  placeholder="First Name"
-                  className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
-                />
-              </div>
-            </div>
-            <div className="w-full px-3 sm:w-1/2">
-              <div className="">
-                <label
-                  for="lName"
-                  className="mb-3 block text-base font-medium text-[#07074D]"
-                >
-                  Last Name
-                </label>
-                <input
-                  type="text"
-                  name="lName"
-                  id="lName"
-                  placeholder="Last Name"
-                  className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
-                />
-              </div>
-            </div>
-          </div>
-          <div className="">
-            <label
-              for="guest"
-              className="mb-3 block text-base font-medium text-[#07074D]"
-            >
-              How many guest are you bringing?
-            </label>
-            <input
-              type="number"
-              name="guest"
-              id="guest"
-              placeholder="5"
-              min="0"
-              className="w-full appearance-none rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
-            />
-          </div>
-          {/* location */}
-          <div>
-            {/* divisions */}
-            <select
-              className="px-4 py-2 border"
-              onChange={(e) => {
-                setSelectDivision(e.target.value)
-                setLocation(e.target.name)
-            }}
-              name="location"
-              id="location"
-            >
-              {divisions?.map((div) => {
-                return (
-                  <option key={div?._id} value={div?.division}>
-                    {div?.divisionbn}
-                  </option>
-                );
-              })}
-            </select>
-            {/* districts */}
-            {districts?.length ? (
-              <select
-                className="px-4 py-2 border"
-                onChange={(e) => {
-                    setUpazillas(e.target.value)
-                    setLocation(e.target.key)
-                }}
-                id="location2"
-              >
-                {districts?.map((dis) => {
-                  return (
-                    <option key={dis?._id} value={dis?.upazilla}>
-                      {dis?.district}
-                    </option>
-                  );
-                })}
-              </select>
-            ) : (
-              ""
-            )}
-            {/* upazillas */}
-            {upazillas?.length ? (
-              <select
-                className="px-4 py-2 border"
-                  onChange={(e) => setLocation(e.target.value)}
-                name="location2"
-                id="location2"
-              >
-                {!upazillas?.length
-                  ? ""
-                  : upazillas?.split(",")?.map((upazilla) => {
-                      return (
-                        <option key={upazilla} value={upazilla}>
-                          {upazilla}
-                        </option>
-                      );
-                    })}
-              </select>
-            ) : (
-              ""
-            )}
-          </div>
-          <div>
-            <button className="hover:shadow-form inline-block rounded-md bg-[#6A64F1] py-3 px-8 text-center text-base font-semibold text-white outline-none">
-              Submit
-            </button>
-          </div>
-        </form>
+    <section className="flex h-full items-center justify-center">
+      <div className="mx-auto w-full">
+      <form className="card-body w-full ">
+       <div className="sm:flex items-center gap-3 w-full justify-between">  
+       <div className="form-control w-full">
+          <label htmlFor="fullName" className="label">
+            <span className="label-text">Full Name</span>
+          </label>
+          <input id="fullName" type="text" placeholder="Full Name" className="input input-bordered" required />
+        </div>
+        <div className="form-control w-full">
+          <label className="label">
+            <span className="label-text">Email</span>
+          </label>
+          <input type="email" disabled value={'email'} className="input input-bordered" required />
+        </div>
+       </div>
+       <div className="sm:flex items-center gap-3">
+          {/* form */}
+          <div className="form-control w-full">
+          <label htmlFor="Gender" className="label">
+            <span className="label-text">Gender</span>
+          </label>
+         <select className="select select-bordered" name="" id="">
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="others">Others</option>
+         </select>
+        </div>
+         {/* form */}
+         <div className="form-control w-full">
+          <label htmlFor="photo" className="label">
+            <span className="label-text">Profile Photo</span>
+          </label>
+          <input id="photo" type="file" placeholder="photo" className="file-input w-full file-input-bordered" required />
+        </div>
+       </div>
+        {/* form */}
+        <div className="form-control w-full">
+          <label htmlFor="bio" className="label">
+            <span className="label-text">Bio</span>
+          </label>
+          <textarea id="bio" type="text" placeholder="BIO" className="textarea textarea-bordered" required />
+        </div>
+       <div className="sm:flex items-center gap-3">
+          {/* form */}
+          <div className="form-control w-full">
+          <label htmlFor="username" className="label">
+            <span className="label-text">username</span>
+          </label>
+          <input id="username" type="text" placeholder="username" className="input input-bordered" required />
+        </div>
+         {/* form */}
+         <div className="form-control w-full">
+          <label htmlFor="phone" className="label">
+            <span className="label-text">Phone</span>
+          </label>
+          <input id="phone" type="text" placeholder="Phone" className="input input-bordered" required />
+        </div>
+       </div>
+       <div className="sm:flex items-center gap-3">
+          {/* form */}
+          <div className="form-control w-full">
+          <label htmlFor="education" className="label">
+            <span className="label-text">Education</span>
+          </label>
+          <input id="education" type="text" placeholder="education" className="input input-bordered" required />
+        </div>
+         {/* form */}
+         <div className="form-control w-full">
+          <label htmlFor="work" className="label">
+            <span className="label-text">Work</span>
+          </label>
+          <input id="work" type="text" placeholder="work" className="input input-bordered" required />
+        </div>
+       </div>
+
+
+
+
+
+        <div className="form-control mt-6">
+          <button className="btn btn-primary">Login</button>
+        </div>
+      </form>
       </div>
     </section>
   );
