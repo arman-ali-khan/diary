@@ -13,7 +13,7 @@ function Story({story}) {
           <img
           className="h-44 sm:h-56 md:h-72 object-cover w-full"
             src={story?.thumbnailUrl}
-            alt="Shoes"
+            alt={story?.title}
           />
         </figure></Link>
         <div className="card-body truncate mt-1 !p-0 mb-2 !gap-0">
