@@ -3,6 +3,7 @@ import Pagination from "@/components/Pagination/Pagination";
 import UserEdit from "@/components/Users/UserEdit";
 import UserFollow from "@/components/Users/UserFollow";
 import UserFollowers from "@/components/Users/UserFollowers";
+import UserInfo from "@/components/Users/UserInfo";
 import UserLibrary from "@/components/Users/UserLibrary";
 import UserStories from "@/components/Users/UserStories";
 import Navbar from "@/components/shared/Navbar";
@@ -67,10 +68,11 @@ function userId() {
           </section>
           <section className="text-center gap-2 mt-12">
             {/* Information section */}
-        <div className="flex max-w-72 justify-between px-3"> 
+        <div className="flex max-w-96 justify-between px-3"> 
           <button onClick={()=>setInfo('story')} className={`w-full py-2 border rounded-tl-xl border-b-0 ${info === 'story' ? 'bg-gradient':'' }`}>Stories</button>
           <button onClick={()=>setInfo('about')} className={`w-full py-2 border border-b-0 ${info === 'about' ? 'bg-gradient':'' }`}>About</button>
-          <button onClick={()=>setInfo('folowers')} className={`w-full py-2 border rounded-tr-xl border-b-0 ${info === 'folowers' ? 'bg-gradient':'' }`}>Folowers</button>
+          <button onClick={()=>setInfo('followers')} className={`w-full py-2 border border-b-0 ${info === 'followers' ? 'bg-gradient':'' }`}>Followers</button>
+          <button onClick={()=>setInfo('following')} className={`w-full py-2 border rounded-tr-xl border-b-0 ${info === 'following' ? 'bg-gradient':'' }`}>Following</button>
         </div>
           </section>
           <div className="pb-10 text-center">
@@ -81,10 +83,13 @@ function userId() {
           </>
          }
          {
-          info === 'about' && <UserStories />
+          info === 'about' && <UserInfo />
          }
          {
-          info === 'folowers' && <UserFollow />
+          info === 'followers' && <UserFollow />
+         }
+         {
+          info === 'following' && <UserFollow />
          }
          {
           info === 'edit' && <UserEdit />

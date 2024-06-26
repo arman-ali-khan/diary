@@ -57,7 +57,7 @@ function Stories() {
         {  isLoading || isFetching ?[...Array(6).keys()]?.map((i)=>{ return <SwiperSlide key={i}> <SkeletonStory />
                 </SwiperSlide>}) 
                 :
-           stories?.map((i,story)=>{
+                stories?.slice(0,12)?.map((i,story)=>{
                 return   <SwiperSlide> <Story story={story} key={i} />
                 </SwiperSlide>
             })
