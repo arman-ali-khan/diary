@@ -1,5 +1,5 @@
 const UserInfo = () =>{
-    return <div class="bg-base-100 shadow overflow-hidden sm:rounded-lg">
+    return <section class="bg-base-100 shadow overflow-hidden sm:rounded-lg">
     <div class="py-5 px-4 text-left">
         <h3 class="text-lg leading-6 font-medium text-left">
             User Information
@@ -86,7 +86,7 @@ const UserInfo = () =>{
            
         </dl>
     </div>
-</div>
+</section>
 }
 
 export default UserInfo
