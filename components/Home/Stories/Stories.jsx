@@ -12,8 +12,11 @@ import 'swiper/css/navigation';
 import Link from "next/link";
 import { MdOutlineDoubleArrow } from "react-icons/md";
 import { Navigation } from 'swiper/modules';
+import { useGetStoryQuery } from "@/redux/features/api/storyApi";
+import SkeletonStory from "@/components/Spinner/SkeletonStory";
 
 function Stories() {
+  const {isError,isFetching,isLoading,isSuccess,data:stories,error} = useGetStoryQuery()
     return (
        <section className="relative container mx-auto">
         <div className="bg-base-300 flex items-center border-t-2 rounded-t-md border-[darkorchid] mb-2 justify-between px-2 md:px-4 mt-6">
@@ -51,9 +54,11 @@ function Stories() {
         modules={[Navigation]}
         className="mySwiper"
       >
-        {
-            [...Array(12).keys()].map((i,story)=>{
-                return   <SwiperSlide> <Story key={i} />
+        {  isLoading || isFetching ?[...Array(6).keys()]?.map((i)=>{ return <SwiperSlide key={i}> <SkeletonStory />
+                </SwiperSlide>}) 
+                :
+           stories?.map((i,story)=>{
+                return   <SwiperSlide> <Story story={story} key={i} />
                 </SwiperSlide>
             })
         }
