@@ -52,7 +52,7 @@ function partId() {
       </div>
       <div className="flex justify-end my-3 w-full">
       {/* You can open the modal using document.getElementById('ID').showModal() method */}
-    <button className="px-4 py-2 bg-gradient text-white font-bold rounded-md w-fit" onClick={()=>document.getElementById('my_modal_3').showModal()}> Create New Part</button>
+    <button className="px-4 py-2 bg-gradient text-white font-bold rounded-full w-fit" onClick={()=>document.getElementById('my_modal_3').showModal()}> Create New Part</button>
 
       </div>
       <section className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-1 my-4 w-full">
@@ -62,7 +62,7 @@ function partId() {
               key={i}
               className="max-h-44 relative min-h-44 w-full h-full border border-zinc-400 rounded-md p-2"
             >
-              <Link href={`/create/story/12`}>
+              <Link href={`/create/story/12/12`}>
              
                 <h2 className="truncate text-lg font-bold">
                   পর্ব ১ । আমার সোনার বাংলা ।
@@ -72,9 +72,9 @@ function partId() {
                 </p>
               </Link>
               <div className="flex left-0 absolute bottom-0 justify-between w-full">
-                <button className="bg-blue-100 text-blue-600 w-full py-1 rounded-l-full hover:bg-blue-200">
+                <Link href='/create/story/12/12' className="bg-blue-100 flex justify-center text-blue-600 w-full py-1 rounded-l-full hover:bg-blue-200">
                   Edit
-                </button>
+                </Link>
                 <button className="bg-rose-100 text-rose-600 w-full py-1 rounded-r-full hover:bg-rose-200">
                   Delete
                 </button>
@@ -97,8 +97,20 @@ const ModalNewPart = () =>{
           {/* if there is a button in form, it will close the modal */}
           <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
         </form>
-        <h3 className="font-bold text-lg">Hello!</h3>
-        <p className="py-4">Press ESC key or click on ✕ button to close</p>
+        <h3 className="font-bold text-lg mb-4">Create New Part</h3>
+        <div>
+          <label htmlFor="title">
+            Title
+          </label>
+            <input id="title" type="text" placeholder="Title" className=" input input-bordered w-full" />
+          <label htmlFor="summary">
+            Summary
+          </label>
+            <textarea id="summary" type="text" placeholder="Summary" className="textarea textarea-bordered w-full" />
+            <div className="flex justify-end items-end p-2">
+            <button className="px-4 py-2 rounded-full bg-gradient font-bold">Create</button>
+            </div>
+        </div>
       </div>
     </dialog>
 }

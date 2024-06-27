@@ -64,7 +64,7 @@ function userId() {
           </div>
           <section className="flex flex-col max-w-96 mx-auto text-center justify-center">
           <h2 className="text-3xl flex justify-center font-bold">Hello Name</h2>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet praesentium illum quasi, et molestiae aliquam nostrum quidem magni perspiciatis eius beatae voluptates quae iure sunt. Commodi mollitia quis voluptates voluptatum?</p>
+          <p className="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet praesentium illum quasi, et molestiae aliquam nostrum quidem magni perspiciatis eius beatae voluptates quae iure sunt. Commodi mollitia quis voluptates voluptatum?</p>
           </section>
           <section className="text-center gap-2 mt-12">
             {/* Information section */}

@@ -1,6 +1,39 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@font-face {
+  font-family: "SolaimanLipi";
+  src: url("/fonts/solaimanlipi.woff") format("woff");
+  font-weight: 400;
+}
+@layer base {
+  *{
+    font-family: "SolaimanLipi", "Ubuntu"!important;
+  }
+  h2{
+    font-family: "SolaimanLipi", "Ubuntu"!important;
+  }
+  p{
+    font-family: "SolaimanLipi", "Ubuntu"!important;
+  }
+  a{
+    font-family: "SolaimanLipi", "Ubuntu"!important;
+  }
+  button{
+    font-family: "SolaimanLipi", "Ubuntu"!important;
+  }
+  label{
+    font-family: "SolaimanLipi", "Ubuntu"!important;
+  }
+  input{
+    font-family: "SolaimanLipi", "Ubuntu"!important;
+  }
+  textarea{
+    font-family: "SolaimanLipi", "Ubuntu"!important;
+  }
+
+}
+
 
 /* utilities */
 @layer utilities {
@@ -15,7 +48,7 @@
     background-color: rgba(255, 255, 255, 0.01);
     /* Transparent background */
   }
-}
+
 
 /*  shadow in hero texts */
 .heading {
@@ -26,16 +59,14 @@
   text-shadow: 1px 1px #818181;
 }
 
+
+
 /* Swiper js css */
 .swiper-pagination-bullet-active {
   width: 30px !important;
   border-radius: 8px !important;
 }
-@font-face {
-  font-family: "SolaimanLipi";
-  src: url("/fonts/solaimanlipi.woff") format("woff");
-  font-weight: 400;
-}
+
 .ql-editor {
   font-family: "SolaimanLipi";
 }
@@ -201,4 +232,5 @@ html {
   color: white;
   animation-duration: 300ms;
   border-color: darkorchid;
+}
 }

@@ -9,7 +9,7 @@ function StoryEdit() {
      {convertToBengaliNumber(3.5)} <input type="radio" name="rating-3" className="mask text-xs w-4 inline-block mask-star bg-orange-400" defaultChecked />
 </div>
       <div className="card card-compact border rounded-lg w-full shadow-xl">
-      <Link href={`/create/part/123`} className="rounded-t-lg overflow-hidden">
+      <Link href={`/create/story/123`} className="rounded-t-lg overflow-hidden">
         <figure>
           <img
           className="h-72 object-cover w-full"

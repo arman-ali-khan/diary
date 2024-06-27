@@ -7,7 +7,8 @@ function PostHeader() {
         <section className="flex items-center sticky top-0 z-50 gap-12 justify-between px-6 h-12 bg-base-300">
             <div className="w-full md:w-full">
             <Link href={'/'}>
-                <img src="/logo.svg" className="w-12 h-12" alt="" />
+                {/* <img src="/logo.svg" className="w-12 h-12" alt="" /> */}
+                <h2 className="text-2xl">Logo</h2>
                 </Link>
             </div>
             
