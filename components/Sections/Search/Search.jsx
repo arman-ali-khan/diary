@@ -7,28 +7,28 @@ import { IoReceiptOutline } from "react-icons/io5";
 
 function Search({showSearch,setShowSearch,input,setInput}) {
     return (
-        <section onMouseEnter={()=>setShowSearch(true)} className="absolute shadow-xl border-2 border-zinc-300 w-full -bottom-96 overflow-hidden overflow-y-auto h-96 bg-white rounded-xl p-2">
+        <section onMouseEnter={()=>setShowSearch(true)} className="absolute shadow-xl border-2 w-full -bottom-96 overflow-hidden overflow-y-auto h-96 bg-base-100 rounded-xl p-2">
                 {/* Last search */}
                 <div className="flex flex-col space-y-2">
                   <h2 className="px-2 py-1 font-bold flex items-center gap-2"> <IoReceiptOutline /> Recent</h2>
                   <li className="flex items-center justify-between w-full">
 
-                  <Link className="border-b w-full truncate border-zinc-300 link-hover flex items-center justify-between text-xs md:text-sm px-3 py-1" href={`/`}>ভৌতিক গল্প ভৌতিক গল্পভৌতিক গল্প ভৌতিক গল্প ভৌতিক গল্প ভৌতিক গল্প ভৌতিক গল্প </Link>
+                  <Link className="border-b w-full mr-4 truncate link-hover flex items-center justify-between text-xs md:text-sm px-3 py-1" href={`/`}>ভৌতিক গল্প ভৌতিক গল্পভৌতিক গল্প ভৌতিক গল্প ভৌতিক গল্প ভৌতিক গল্প ভৌতিক গল্প </Link>
                   <span className="px-2 rounded hover:text-white py-1 hover:bg-rose-500 duration-300"><CgClose /></span>
                   </li>
                   <li className="flex items-center justify-between w-full">
 
-                  <Link className="border-b w-full truncate border-zinc-300 link-hover flex items-center justify-between text-xs md:text-sm px-3 py-1" href={`/`}>ভৌতিক গল্প ভৌতিক গল্প ভৌতিক গল্প ভৌতিক গল্প ভৌতিক গল্প </Link>
+                  <Link className="border-b w-full mr-4 truncate link-hover flex items-center justify-between text-xs md:text-sm px-3 py-1" href={`/`}>ভৌতিক গল্প ভৌতিক গল্প ভৌতিক গল্প ভৌতিক গল্প ভৌতিক গল্প </Link>
                   <span className="px-2 rounded hover:text-white py-1 hover:bg-rose-500 duration-300"><CgClose /></span>
                   </li>
                   <li className="flex items-center justify-between w-full">
 
-                  <Link className="border-b w-full truncate border-zinc-300 link-hover flex items-center justify-between text-xs md:text-sm px-3 py-1" href={`/`}>Hello World </Link>
+                  <Link className="border-b w-full mr-4 truncate link-hover flex items-center justify-between text-xs md:text-sm px-3 py-1" href={`/`}>Hello World </Link>
                   <span className="px-2 rounded hover:text-white py-1 hover:bg-rose-500 duration-300"><CgClose /></span>
                   </li>
                   <li className="flex items-center justify-between w-full">
 
-                  <Link className="border-b w-full truncate border-zinc-300 link-hover flex items-center justify-between text-xs md:text-sm px-3 py-1" href={`/`}>Hello World </Link>
+                  <Link className="border-b w-full mr-4 truncate link-hover flex items-center justify-between text-xs md:text-sm px-3 py-1" href={`/`}>Hello World </Link>
                   <span className="px-2 rounded hover:text-white py-1 hover:bg-rose-500 duration-300"><CgClose /></span>
                   </li>
                 </div>

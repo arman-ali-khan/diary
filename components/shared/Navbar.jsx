@@ -88,6 +88,7 @@ function Navbar() {
               onChange={(e) => setInput(e.target.value)}
               onFocus={() => setShowSearch(true)}
               placeholder="Search..."
+              autoComplete="off"
               className="input rounded-full input-bordered md:w-96 z-30 input-sm"
               type="search"
               name="search"
