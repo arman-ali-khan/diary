@@ -97,7 +97,7 @@ function Navbar() {
             href={"/blog"}
             className="duration-300 hover:underline px-4 rounded-full"
           >
-            ব্লোগ
+            ব্লগ
           </Link>
           <Link
             href={"/ebook"}

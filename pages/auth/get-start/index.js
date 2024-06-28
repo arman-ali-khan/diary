@@ -24,7 +24,7 @@ const index = () => {
     useCreateUserMutation();
   const handleCreateUser = async (data) => {
     const user = {
-      email: data?.username,
+      email: data?.email,
       username: data?.name,
       password: data?.password,
       fullName: data?.fullName,
@@ -49,7 +49,7 @@ const index = () => {
       
           {/* email */}
         <input
-            {...register("username", { required: true })}
+            {...register("email", { required: true })}
             id="email"
             placeholder="Email"
             className="input rounded-full input-bordered md:w-96 z-30 input-sm"
