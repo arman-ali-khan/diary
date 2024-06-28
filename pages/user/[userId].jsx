@@ -2,15 +2,20 @@ import Layout from "@/Layout/Layout";
 import Pagination from "@/components/Pagination/Pagination";
 import UserEdit from "@/components/Users/UserEdit";
 import UserFollow from "@/components/Users/UserFollow";
-import UserFollowers from "@/components/Users/UserFollowers";
 import UserInfo from "@/components/Users/UserInfo";
-import UserLibrary from "@/components/Users/UserLibrary";
 import UserStories from "@/components/Users/UserStories";
-import Navbar from "@/components/shared/Navbar";
+import { useRouter } from "next/router";
 import { useState } from "react";
 
 
 function userId() {
+  //next router
+const router = useRouter()
+
+const {tab} = router.query
+const userId = router.asPath.split('/')[2]?.split('?')[0]
+console.log(tab,'tab')
+
   const [info,setInfo] = useState('story')
     return (
         <Layout>
@@ -43,7 +48,7 @@ function userId() {
                 <button className="bg-gradient mx-2 text-white uppercase font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-n  one sm:mr-2 mb-1 ease-linear transition-all duration-150" type="button">
                   Follow
                 </button>
-                <button onClick={()=>setInfo('edit')} className="bg-gradient mx-2 text-white uppercase font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-n  one sm:mr-2 mb-1 ease-linear transition-all duration-150" type="button">
+                <button  onClick={()=>(router.push(`/user/${userId}?tab=edit`))} className="bg-gradient mx-2 text-white uppercase font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-n  one sm:mr-2 mb-1 ease-linear transition-all duration-150" type="button">
                   Edit
                 </button>
               </div>
@@ -68,31 +73,38 @@ function userId() {
           </section>
           <section className="text-center gap-2 mt-12">
             {/* Information section */}
-        <div className="flex max-w-96 justify-between px-3"> 
-          <button onClick={()=>setInfo('story')} className={`w-full py-2 border rounded-tl-xl border-b-0 ${info === 'story' ? 'bg-gradient':'' }`}>Stories</button>
-          <button onClick={()=>setInfo('about')} className={`w-full py-2 border border-b-0 ${info === 'about' ? 'bg-gradient':'' }`}>About</button>
-          <button onClick={()=>setInfo('followers')} className={`w-full py-2 border border-b-0 ${info === 'followers' ? 'bg-gradient':'' }`}>Followers</button>
-          <button onClick={()=>setInfo('following')} className={`w-full py-2 border rounded-tr-xl border-b-0 ${info === 'following' ? 'bg-gradient':'' }`}>Following</button>
+        <div className="flex max-w-fit justify-between px-3"> 
+          <button onClick={()=>(router.push(`/user/${userId}?tab=timeline`))} className={`w-full py-1 sm:py-2 border px-2 sm:px-4 rounded-tl-xl border-b-0 ${tab === undefined||tab==='timeline' ? 'bg-gradient':'' }`}>Stories</button>
+          <button onClick={()=>(router.push(`/user/${userId}?tab=about`))} className={`w-full py-1 sm:py-2 border px-2 sm:px-4 border-b-0 ${tab === 'about' ? 'bg-gradient':'' }`}>About</button>
+          <button onClick={()=>(router.push(`/user/${userId}?tab=followers`))} className={`w-full py-1 sm:py-2 border px-2 sm:px-4 border-b-0 ${tab === 'followers' ? 'bg-gradient':'' }`}>Followers</button>
+          <button onClick={()=>(router.push(`/user/${userId}?tab=saved`))} className={`w-full py-1 sm:py-2 border px-2 sm:px-4 border-b-0 ${tab === 'saved' ? 'bg-gradient':'' }`}>Saved</button>
+          <button onClick={()=>(router.push(`/user/${userId}?tab=following`))} className={`w-full py-1 sm:py-2 border px-2 sm:px-4 rounded-tr-xl border-b-0 ${tab === 'following' ? 'bg-gradient':'' }`}>Following</button>
         </div>
           </section>
           <div className="pb-10 text-center">
          {
-          info === 'story' && <>
+          tab === undefined||tab==='timeline'  ? <>
+          <UserStories />
+          <Pagination />
+          </>:''
+         }
+         {
+          tab === 'about' && <UserInfo />
+         }
+         {
+          tab === 'followers' && <UserFollow />
+         }
+         {
+          tab === 'following' && <UserFollow />
+         }
+         {
+          tab === 'saved' && <>
           <UserStories />
           <Pagination />
           </>
          }
          {
-          info === 'about' && <UserInfo />
-         }
-         {
-          info === 'followers' && <UserFollow />
-         }
-         {
-          info === 'following' && <UserFollow />
-         }
-         {
-          info === 'edit' && <UserEdit />
+          tab === 'edit' && <UserEdit />
          }
           </div>
         </div>
