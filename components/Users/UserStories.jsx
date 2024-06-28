@@ -7,7 +7,7 @@ import SkeletonStory from "../Spinner/SkeletonStory";
 
 
 function UserStories() {
-  const {isError,isFetching,isLoading,isSuccess,data:stories,error} = useGetStoryQuery()
+  const {isError,isFetching,isLoading,isSuccess,data:stories,error} = useGetStoryQuery('/photos')
   console.log(stories,'stories',isLoading,isError,error)
     return (
         <section className="relative w-full">

@@ -1,6 +1,8 @@
 import Layout from "@/Layout/Layout";
 import Story from "@/components/Home/Stories/Story";
 import Pagination from "@/components/Pagination/Pagination";
+import SkeletonStory from "@/components/Spinner/SkeletonStory";
+import { useGetStoryQuery } from "@/redux/features/api/storyApi";
 const items = [
     'Item 1',
     'Item 2',
@@ -16,6 +18,7 @@ const items = [
     'Item 12',
   ];
 function CategoryId() {
+  const {isError,isFetching,isLoading,isSuccess,data:stories,error} = useGetStoryQuery('/photos')
     return (
       <Layout>
       {/* category banner */}
@@ -46,8 +49,10 @@ function CategoryId() {
           <section className="relative -mt-12 container mx-auto">
        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
        {
-            [...Array(12).keys()].map((i,story)=>{
-                return    <Story key={i} />
+           isFetching ? [...Array(6).keys()]?.map((i)=>{ return <SkeletonStory />}) 
+           :
+            stories?.slice(0,12)?.map((story,i)=>{
+                return    <Story key={i} story={story} />
             })
         }
        </div>

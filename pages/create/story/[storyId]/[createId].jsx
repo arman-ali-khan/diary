@@ -1,14 +1,15 @@
 "use client";
 import { useQuill } from "react-quilljs";
 
-import StoryPart from "@/components/Sections/Story/Create/StoryPart";
+import CreateCategory from "@/components/Create/CreateCategory";
+import CreateTags from "@/components/Create/CreateTags";
 import PostHeader from "@/components/shared/PostHeader";
+import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useRouter } from "next/router";
 import "quill/dist/quill.bubble.css"; // Add css for snow theme
 import { useEffect, useState } from "react";
-import { FaPlus } from "react-icons/fa";
-import { BsUpload } from "react-icons/bs";
+import { BsReply, BsUpload } from "react-icons/bs";
 import { CgClose } from "react-icons/cg";
 // or import 'quill/dist/quill.bubble.css'; // Add css for bubble theme
 
@@ -73,42 +74,54 @@ const page = () => {
   // create id
   const params = useParams();
   const id = params?.createId;
+
+  // get routes id
+  const pathId = router.asPath;
+  const storyId = pathId?.split("/")[3];
+
   // create new part
   const handleCreateNewPart = () => {
-    router.push(`/create/part/${parseInt(id) + 1}`);
+    router.push(`/create/story/${storyId}`);
   };
 
+  const [imageUrl, setImageUrl] = useState("");
 
-  const [imageUrl, setImageUrl] = useState('');
-  
   const handleImageUpload = (event) => {
     const file = event.target.files[0];
     const blobUrl = URL.createObjectURL(file);
     setImageUrl(blobUrl);
   };
-  const [tags,setTags] = useState(['hhh'])
-  const [tagValue,setTagValue] = useState('')
-  // tags 
-  const handleTagAdd = (e) =>{
-    if(e?.key === ','||e?.key === "Enter"){
-      setTags([...tags,tagValue])
-      setTagValue('')
+  const [tags, setTags] = useState(["hhh"]);
+  const [tagValue, setTagValue] = useState("");
+  // tags
+  const handleTagAdd = (e) => {
+    if (e?.key === "," || e?.key === "Enter") {
+      setTags([...tags, tagValue]);
+      setTagValue("");
     }
-  }
+  };
 
-  // handle remove tag
-  const handleRemoveTag = (e) =>{
-    const data = e.target.value
-    tags.filter(tag=>setTags([tag!==data]))
-  }
   return (
     <section className="container mx-auto">
       {/* Story header */}
       <PostHeader />
       {/* Story header  end */}
-      <div className="flex flex-col-reverse md:flex-row w-full gap-3 mt-12 mb-12">
+
+      <div className="flex flex-col md:flex-row w-full gap-3 mt-12 mb-12">
         {/* instruction */}
-        <div className=" md:w-[900px] md:max-w-full md:min-w-[300px] md:ml-12">
+        <div className=" md:w-[900px] px-2 md:max-w-full md:min-w-[300px] md:ml-12">
+          <div className="flex truncate items-center px-2 gap-3 my-3 sm:my-5 md:my-12">
+            <Link href={`/create/story/${storyId}`} className="px-3 md:px-4 md:py-2 py-1 rounded-md bg-base-100 shadow-xl border flex items-center gap-2">
+              <BsReply />
+              Back
+            </Link>
+            <h2 className="truncate text-xl font-bold">
+              {" "}
+              গল্প সম্পুর্ন বাংলা ভাষায় লিখতে হবে । ছবি আপলোড করার আগে যে কোন
+              কিছু (দরকারি কিছু নয় এমন) লিখে সিলেক্ট করুন তার পর ছবির আইকনে
+              ক্লিক করে ছবি বাছাই করুন ।
+            </h2>
+          </div>
           <h2 className="font-bold text-xl">নির্দেশনাঃ</h2>
           <div className="w-full p-2">
             <ul className="trun">
@@ -143,51 +156,68 @@ const page = () => {
 
           {/* post box */}
           <div className="md:container bg-gradient p-0.5 md:p-1 rounded-md md:rounded-xl h-[400px] md:h-[600px] md:min-h-[500px] md:max-h-[900px] md:w-[800px] md:max-w-full md:min-w-[300px]">
-            <div className="text-xs md:text-base bg-base-100 md:min-h-[500px] md:max-h-[800px] h-[400px] md:h-[600px] border rounded md:rounded-lg"
+            <div
+              className="text-xs md:text-base bg-base-100 md:min-h-[500px] md:max-h-[800px] h-[400px] md:h-[600px] border rounded md:rounded-lg"
               ref={quillRef}
             />
           </div>
         </div>
         {/* aside */}
-        <aside className="w-96 max-w-full min-w-56 space-y-2 h-fit px-4 md:px-2 ">
-          {/* <StoryPart /> */}
-          <div className="w-full rounded-md border border-zinc-400 p-2">
-            <button
-              onClick={() => handleCreateNewPart()}
-              className="font-bold w-full py-2 text-center flex justify-center items-center gap-2"
-            >
-              <FaPlus /> নতুন পর্ব তৈরি করুন
-            </button>
-          </div>
+        <aside className="md:w-96 w-full gap-4 flex flex-col sm:flex-row md:flex-col max-w-full min-w-56 space-y-4 h-fit px-4 md:px-2 ">
           {/* Featured Image */}
+          <div className="w-full">
+          <h2>কভার ছবি আপলোড করুন</h2>
+            {/* Image */}
+            {imageUrl ? (
+              <div className="flex w-full relative">
+                <button
+                  onClick={() => setImageUrl("")}
+                  className="absolute bg-base-200 text-rose-500 hover:bg-red-200 rounded-full p-2 duration-300 text-xl right-4 top-4"
+                >
+                  <CgClose />
+                </button>
+                <img
+                  src={imageUrl}
+                  alt="Uploaded"
+                  className="border border-blue-400 border-dotted p-1"
+                  style={{ maxWidth: "100%" }}
+                />
+              </div>
+            ) : (
+              ""
+            )}
+            {imageUrl ? (
+              ""
+            ) : (
+              <label className="bg-base-100 flex items-center flex-col cursor-pointer duration-300 justify-center border-2 hover:border-dashed rounded-md border-blue-300 h-44 w-full">
+                <span className="text-4xl flex justify-center">
+                  <BsUpload />
+                </span>
+                <input
+                  accept="image/*"
+                  onChange={handleImageUpload}
+                  hidden
+                  type="file"
+                />
+                <p>কভার ছবি আপলোড করুন</p>
+              </label>
+            )}
+          </div>
+          <div className="w-full">
+            {/* Categories */}
           <div>
-         {/* Image */}
-         {
-          imageUrl ? <div className="flex w-full relative">
-         <button onClick={()=>setImageUrl('')} className="absolute bg-white text-rose-500 hover:bg-red-200 rounded-full p-2 duration-300 text-xl right-4 top-4"><CgClose /></button>
-         <img src={imageUrl} alt="Uploaded" className="border border-blue-400 border-dotted p-1" style={{ maxWidth: '100%' }} />
-         </div>:''
-         }
-           {
-            imageUrl ? '': <label className="bg-blue-100 flex items-center flex-col cursor-pointer duration-300 justify-center border-2 hover:border-dashed rounded-md border-blue-300 h-44 w-full">
-              <span className="text-4xl flex justify-center"><BsUpload /></span>
-              <input  accept="image/*" 
-        onChange={handleImageUpload}  hidden type="file" />
-              <p>কভার ছবি আপলোড করুন</p>
-            </label>
-           }
+            <h2>ক্যাটাগরি পছন্দ করুনঃ</h2>
+            <div className="flex flex-wrap items-center">
+              <CreateCategory />
+            </div>
           </div>
           {/* Tags */}
           <div>
             <h2>ট্যাগ লিখুনঃ</h2>
             <div className="flex flex-wrap items-center">
-            {tags?.length &&
-              tags?.map((tag,i)=>{
-                return <div className="px-2 flex items-center gap-1 py-1 w-fit border border-zinc-300 rounded-md" key={i}>{tag}<span value={tag} onClick={(e)=>handleRemoveTag(e)} className="cursor-pointer hover:text-rose-500 hover:bg-rose-100 rounded-full p-1"><CgClose /></span></div>
-              })
-            }
-              <input className="w-full border-zinc-300 py-2 px-2 rounded-md border" onKeyDown={handleTagAdd} placeholder="ট্যাগ লিখুন..." value={tagValue} onChange={(e)=>setTagValue(e.target.value)} type="text" />
+              <CreateTags />
             </div>
+          </div>
           </div>
         </aside>
       </div>

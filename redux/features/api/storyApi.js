@@ -8,7 +8,7 @@ const storyApi= createApi({
     baseQuery: fetchBaseQuery({baseUrl:'https://jsonplaceholder.typicode.com'}),
     endpoints:(builder) => ({
         getStory:builder.query({
-            query:()=> '/photos',
+            query:(query)=> query,
         }),
     }),
 })

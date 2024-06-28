@@ -1,13 +1,15 @@
 import Layout from "@/Layout/Layout";
 import StoryEdit from "@/components/Home/Stories/StoryEdit";
+import SkeletonStory from "@/components/Spinner/SkeletonStory";
 import PostHeader from "@/components/shared/PostHeader";
+import { useGetStoryQuery } from "@/redux/features/api/storyApi";
 import PrivateRoutes from "@/routes/privateRoutes";
 import Link from "next/link";
 import { FaPlus } from "react-icons/fa";
 
 
 function index() {
-    
+  const {isError,isFetching,isLoading,isSuccess,data:stories,error} = useGetStoryQuery('/photos')
     return (
         <PrivateRoutes>
        <Layout>
@@ -19,18 +21,28 @@ function index() {
              
      
                {/* post box */}
-             <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-2">
-             {
-               [...Array(4).keys()]?.map((story,i)=>{
-                 return <StoryEdit />
-               })
-              }
-              <div className="card-container min-w-48 max-h-96 max-w-56 w-64 flex justify-center relative">
-             <Link className="card card-compact border rounded-lg items-center shadow-xl justify-center flex h-full text-center w-full" href={'/create/story/123'}>
-               <FaPlus size={55} />
+             <section className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+             <div className="card-container flex justify-center items-center w-full relative rounded-t-lg overflow-hidden">
+             <Link className="card card-compact border rounded-lg w-full flex flex-col justify-center items-center h-full shadow-xl" href={'/create/story/123'}>
+                <img
+      className="h-44 opacity-0 sm:h-56 md:h-72 object-cover w-full"
+        src={'https://static-assets.pratilipi.com/pratilipi_premium/data/135959/cover_image/135959.jpg?quality=high&type=webp'}
+      />
+      <div className="absolute">
+        
+      <FaPlus size={55} />
                <p>নতুন গল্প</p>
+      </div>
              </Link>
            </div>
+             {
+                isFetching ? [...Array(6).keys()]?.map((i)=>{ return <SkeletonStory />}) 
+                :
+                 stories?.slice(0,4)?.map((story,i)=>{
+                 return <StoryEdit story={story} key={i} />
+               })
+              }
+             
              </section>
             
              </div>

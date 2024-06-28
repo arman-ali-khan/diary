@@ -16,7 +16,7 @@ import { useGetStoryQuery } from "@/redux/features/api/storyApi";
 import SkeletonStory from "@/components/Spinner/SkeletonStory";
 
 function Stories() {
-  const {isError,isFetching,isLoading,isSuccess,data:stories,error} = useGetStoryQuery()
+  const {isError,isFetching,isLoading,isSuccess,data:stories,error} = useGetStoryQuery('/photos')
     return (
        <section className="relative container mx-auto">
         <div className="bg-base-300 flex items-center border-t-2 rounded-t-md border-[darkorchid] mb-2 justify-between px-2 md:px-4 mt-6">
@@ -54,10 +54,10 @@ function Stories() {
         modules={[Navigation]}
         className="mySwiper"
       >
-        {  isLoading || isFetching ?[...Array(6).keys()]?.map((i)=>{ return <SwiperSlide key={i}> <SkeletonStory />
+        {  isLoading || isFetching ? [...Array(6).keys()]?.map((i)=>{ return <SwiperSlide key={i}> <SkeletonStory />
                 </SwiperSlide>}) 
                 :
-                stories?.slice(0,12)?.map((i,story)=>{
+                stories?.slice(0,12)?.map((story,i)=>{
                 return   <SwiperSlide> <Story story={story} key={i} />
                 </SwiperSlide>
             })
