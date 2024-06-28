@@ -33,29 +33,7 @@ function Navbar() {
               />
             </svg>
           </label>
-          <ul
-            tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] shadow bg-base-100 rounded-box w-52"
-          >
-          <Link
-            href={"/create/23"}
-            className="duration-300 hover:underline px-4 py-2 rounded-full"
-          >
-            দিনলিপি
-          </Link>
-          <Link
-            href={"/create/23"}
-            className="duration-300 hover:underline px-4 py-2 rounded-full"
-          >
-            পাঠাগার
-          </Link>
-          <Link
-            href={"/create/23"}
-            className="duration-300 hover:underline px-4 py-2 rounded-full"
-          >
-            অডিও
-          </Link>
-        </ul>
+         
         </div>
         <Link href="/" className="btn btn-sm md:btn-md btn-ghost text">
           daisyUI
@@ -116,19 +94,19 @@ function Navbar() {
         </div>
         <ul className="menu menu-horizontal hidden lg:flex gap-4 px-1">
           <Link
-            href={"/create/23"}
+            href={"/blog"}
             className="duration-300 hover:underline px-4 rounded-full"
           >
             ব্লোগ
           </Link>
           <Link
-            href={"/create/23"}
+            href={"/ebook"}
             className="duration-300 hover:underline px-4 rounded-full"
           >
             ই-বুক
           </Link>
           <Link
-            href={"/create/23"}
+            href={"/audio"}
             className="duration-300 hover:underline px-4 rounded-full"
           >
             অডিও গল্প
