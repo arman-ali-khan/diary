@@ -21,34 +21,27 @@ function partId() {
     const {isError,isFetching,isLoading,isSuccess,data:stories,error} = useGetStoryQuery('/posts')
 
 
-      // premium
-  const [isPremium, setIsPremium] = useState(false);
-  const [writeAmount, setWriteAmount] = useState(isPremium);
   return (
     <section className="container mx-auto">
       <PostHeader />
       {/* parts */}
       <div className="p-4 bg-gradient">
         <h2 className="text-left flex-col sm:flex-row font-black flex items-center gap-3">
-         <div className="flex items-center gap-2">
-         <input type="text" disabled={!writeTitle} className="w-72 px-4 rounded-md truncate disabled:text-white" defaultValue={'গল্পের নাম । আমার সোনার বাংলা'} />
+         <div className="flex w-full items-center gap-2">
+         {
+          !writeTitle ? <p onDoubleClick={()=>setWriteTitle(true)} className="w-full border sm:w-96 px-4 rounded-md truncate" >গল্পের নাম । আমার সোনার বাংলা</p>:
+          <input type="text" disabled={!writeTitle} className="w-full sm:w-96 px-4 rounded-md truncate disabled:text-white" defaultValue={'গল্পের নাম । আমার সোনার বাংলা'} />
+         }
           <span onClick={()=>setWriteTitle(!writeTitle)} className="px-4 cursor-pointer rounded-md  text-white w-12 py-2 inline-block">
-            {writeTitle? <BsCheck2 />:<CgPen />}
+          <span onClick={()=>setWriteTitle(!writeTitle)} className="px-4 cursor-pointer rounded-md  text-white w-24 py-2 inline-block">
+          {writeTitle? <span className="flex items-center gap-2"><BsCheck2 /> Save</span>: <span className="flex items-center gap-2"><CgPen />Edit</span>}
+          </span>
           </span>
          </div>
-          {/* Premium */}
-          <div className="flex mb-2 items-center gap-3">
-            <h2>প্রিমিয়ামঃ</h2>
-            <div className="flex gap-3 items-center">
-            <input onChange={(e)=>setIsPremium(e.target.checked?true:false)} type="checkbox" className="toggle" />
-          {
-            isPremium ?   <div className="flex items-center rounded-md gap-2 relative"><input type="number" placeholder="Your Amount" disabled={writeAmount} className="px-4 pl-8 w-full bg-base-100 disabled:bg-transparent border rounded" /><span className="absolute left-3">৳</span> <span onClick={()=>setWriteAmount(!writeAmount)}> {!writeAmount? <BsCheck2 />:<CgPen />}</span></div>: <input type="text"  disabled defaultValue={'Free'} className="px-4 w-full rounded-md" />
-          }
-            </div>
-          </div>
         </h2>
-        <p className="flex flex-col">
-         <textarea style={{ height }} onChange={handleChange} disabled={!writeSummary} className="px-3 h-fit py-2 rounded-md min-h-44 overflow-hidden text-sm disabled:text-white"> গল্পের সামারি ছবি আপলোড করার আগে যে কোন কিছু (দরকারি কিছু নয় এমন) লিখে
+        <div className="flex flex-col z-40">
+        {writeSummary ? <textarea style={{ height }} onChange={handleChange}  className="px-3 h-fit py-2 rounded-md min-h-44 overflow-hidden text-sm disabled:text-white"> 
+         গল্পের সামারি ছবি আপলোড করার আগে যে কোন কিছু (দরকারি কিছু নয় এমন) লিখে
           সিলেক্ট করুন তার পর ছবির আইকনে ক্লিক করে ছবি বাছাই করুন । লিখে সিলেক্ট
           করুন তার পর ছবির আইকনে ক্লিক করে ছবি বাছাই করুন ।
           গল্পের সামারি ছবি আপলোড করার আগে যে কোন কিছু (দরকারি কিছু নয় এমন) লিখে
@@ -65,10 +58,30 @@ function partId() {
           সিলেক্ট করুন তার পর ছবির আইকনে ক্লিক করে ছবি বাছাই করুন । লিখে সিলেক্ট
           করুন তার পর ছবির আইকনে ক্লিক করে ছবি বাছাই করুন ।
           </textarea>
-          <span onClick={()=>setWriteSummary(!writeSummary)} className="px-4 cursor-pointer rounded-md  text-white w-12 py-2 inline-block">
-          {writeSummary? <BsCheck2 />:<CgPen />}
+          :
+           <p style={{ height }} onDoubleClick={()=>setWriteSummary(true)} className="px-3 h-fit border py-2 rounded-md min-h-44 overflow-hidden cursor-pointer text-sm disabled:text-white"> 
+         গল্পের সামারি ছবি আপলোড করার আগে যে কোন কিছু (দরকারি কিছু নয় এমন) লিখে
+          সিলেক্ট করুন তার পর ছবির আইকনে ক্লিক করে ছবি বাছাই করুন । লিখে সিলেক্ট
+          করুন তার পর ছবির আইকনে ক্লিক করে ছবি বাছাই করুন ।
+          গল্পের সামারি ছবি আপলোড করার আগে যে কোন কিছু (দরকারি কিছু নয় এমন) লিখে
+          সিলেক্ট করুন তার পর ছবির আইকনে ক্লিক করে ছবি বাছাই করুন । লিখে সিলেক্ট
+          করুন তার পর ছবির আইকনে ক্লিক করে ছবি বাছাই করুন ।
+          গল্পের সামারি ছবি আপলোড করার আগে যে কোন কিছু (দরকারি কিছু নয় এমন) লিখে
+          সিলেক্ট করুন তার পর ছবির আইকনে ক্লিক করে ছবি বাছাই করুন । লিখে সিলেক্ট
+          করুন তার পর ছবির আইকনে ক্লিক করে ছবি বাছাই করুন ।
+          গল্পের সামারি ছবি আপলোড করার আগে যে কোন কিছু (দরকারি কিছু নয় এমন) লিখে
+          সিলেক্ট করুন তার পর ছবির আইকনে ক্লিক করে ছবি বাছাই করুন । লিখে সিলেক্ট
+          করুন তার পর ছবির আইকনে ক্লিক করে ছবি বাছাই করুন ।গল্পের সামারি ছবি আপলোড করার আগে যে কোন কিছু (দরকারি কিছু নয় এমন) লিখে
+          সিলেক্ট করুন তার পর ছবির আইকনে ক্লিক করে ছবি বাছাই করুন । লিখে সিলেক্ট
+          করুন তার পর ছবির আইকনে ক্লিক করে ছবি বাছাই করুন ।গল্পের সামারি ছবি আপলোড করার আগে যে কোন কিছু (দরকারি কিছু নয় এমন) লিখে
+          সিলেক্ট করুন তার পর ছবির আইকনে ক্লিক করে ছবি বাছাই করুন । লিখে সিলেক্ট
+          করুন তার পর ছবির আইকনে ক্লিক করে ছবি বাছাই করুন ।
+          </p>
+           }
+          <span onClick={()=>setWriteSummary(!writeSummary)} className="px-4 cursor-pointer rounded-md  text-white w-24 py-2 inline-block">
+          {writeSummary? <span className="flex items-center gap-2"><BsCheck2 /> Save</span>: <span className="flex items-center gap-2"><CgPen />Edit</span>}
           </span>
-        </p>
+        </div>
       </div>
       <div className="flex justify-end my-3 w-full">
       {/* You can open the modal using document.getElementById('ID').showModal() method */}

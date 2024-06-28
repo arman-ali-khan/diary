@@ -41,14 +41,18 @@ const dispatch = useDispatch()
         <Link className="px-4 py-2 inline-block" href={"/"}>
           <CgArrowLeft />
         </Link>
-        <select className="px-4 bg-transparent py-2 w-full max-w-xs">
-          <option disabled selected>
-            Small
+        <div className="">
+        <select defaultValue={'3'} id="styledSelect" className="select rounded-none w-56 max-w-sm bg-base-200">
+          <option disabled value="0">
+            All Story Parts:
           </option>
-          <option>Small Apple</option>
-          <option>Small Orange</option>
-          <option>Small Tomato</option>
+          <option value="1">Part 1</option>
+          <option value="2">Part 2</option>
+          <option value="3">Part 3</option>
+          <option value="4">Part 4</option>
+          <option value="5">Part 5</option>
         </select>
+</div>
       </div>
 
       {/* Story */}

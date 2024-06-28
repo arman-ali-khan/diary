@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useState } from "react";
 
 import { useForm } from "react-hook-form";
+import { BsCheck } from "react-icons/bs";
 import { CgSpinner } from "react-icons/cg";
 import { IoMdEye, IoMdEyeOff } from "react-icons/io";
 
@@ -45,7 +46,9 @@ const index = () => {
             className="input rounded-full input-bordered md:w-96 z-30 input-sm"
             type="text"
           />
-          <input
+      
+          {/* email */}
+        <input
             {...register("username", { required: true })}
             id="email"
             placeholder="Email"
@@ -53,6 +56,10 @@ const index = () => {
             type="email"
             autoComplete="off"
           />
+         
+       
+        <div className="relative flex items-center">
+        {/* Username */}
           <input
             {...register("name", { required: true })}
             id="name"
@@ -60,7 +67,8 @@ const index = () => {
             className="input rounded-full input-bordered md:w-96 z-30 input-sm"
             type="text"
             autoComplete="false"
-          />
+          /> <span className="bg-green-500 rounded-full w-5 z-50 h-5 absolute right-2 flex items-center justify-center"><BsCheck color="white" /></span>
+           </div>
           <div className="relative flex items-center">
             <input
               autocomplete="off"

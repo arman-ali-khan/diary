@@ -111,7 +111,10 @@ const page = () => {
         {/* instruction */}
         <div className=" md:w-[900px] px-2 md:max-w-full md:min-w-[300px] md:ml-12">
           <div className="flex truncate items-center px-2 gap-3 my-3 sm:my-5 md:my-12">
-            <Link href={`/create/story/${storyId}`} className="px-3 md:px-4 md:py-2 py-1 rounded-md bg-base-100 shadow-xl border flex items-center gap-2">
+            <Link
+              href={`/create/story/${storyId}`}
+              className="px-3 md:px-4 md:py-2 py-1 rounded-md bg-base-100 shadow-xl border flex items-center gap-2"
+            >
               <BsReply />
               Back
             </Link>
@@ -166,7 +169,7 @@ const page = () => {
         <aside className="md:w-96 w-full gap-4 flex flex-col sm:flex-row md:flex-col max-w-full min-w-56 space-y-4 h-fit px-4 md:px-2 ">
           {/* Featured Image */}
           <div className="w-full">
-          <h2>কভার ছবি আপলোড করুন</h2>
+            <h2>কভার ছবি আপলোড করুন</h2>
             {/* Image */}
             {imageUrl ? (
               <div className="flex w-full relative">
@@ -205,19 +208,19 @@ const page = () => {
           </div>
           <div className="w-full">
             {/* Categories */}
-          <div>
-            <h2>ক্যাটাগরি পছন্দ করুনঃ</h2>
-            <div className="flex flex-wrap items-center">
-              <CreateCategory />
+            <div>
+              <h2>ক্যাটাগরি পছন্দ করুনঃ</h2>
+              <div className="flex flex-wrap items-center">
+                <CreateCategory />
+              </div>
             </div>
-          </div>
-          {/* Tags */}
-          <div>
-            <h2>ট্যাগ লিখুনঃ</h2>
-            <div className="flex flex-wrap items-center">
-              <CreateTags />
+            {/* Tags */}
+            <div>
+              <h2>ট্যাগ লিখুনঃ</h2>
+              <div className="flex flex-wrap items-center">
+                <CreateTags />
+              </div>
             </div>
-          </div>
           </div>
         </aside>
       </div>

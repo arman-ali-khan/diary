@@ -32,17 +32,13 @@ const login =  () =>{
         })
       }
 
-      // const [getUserByToken,{isError:isErrorUser,isLoading:isLoadingUser,isSuccess:isSuccessUser}] = useGetUserByTokenMutation()
-
-     
     return  <Layout>
       <div className="w-screen h-screen flex justify-center items-center">
     <form onSubmit={handleSubmit(handleLogin)} className="">
         <div className="flex flex-col gap-3">
-            <input {...register('email',{required:true})} className="input rounded-full input-bordered md:w-96 z-30 input-sm" type="email" />
-            {/* <input className="input rounded-full input-bordered md:w-96 z-30 input-sm" type="phone" /> */}
+            <input placeholder="Email" {...register('email',{required:true})} className="input rounded-full input-bordered md:w-96 z-30 input-sm" type="email" />
             <div className="relative flex items-center">
-            <input {...register('password',{required:true})} className="input rounded-full input-bordered md:w-96 z-30 input-sm" type={showPassword ? 'text':'password'} />
+            <input placeholder="Password" {...register('password',{required:true})} className="input rounded-full input-bordered md:w-96 z-30 input-sm" type={showPassword ? 'text':'password'} />
             <span onClick={()=>setShowPassword(!showPassword)} className="px-2 z-40 absolute right-3">{!showPassword ? <IoMdEye />:<IoMdEyeOff />}</span>
             </div>
 
