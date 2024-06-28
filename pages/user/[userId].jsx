@@ -74,11 +74,11 @@ console.log(tab,'tab')
           <section className="text-center gap-2 mt-12">
             {/* Information section */}
         <div className="flex max-w-fit justify-between px-3"> 
-          <button onClick={()=>(router.push(`/user/${userId}?tab=timeline`))} className={`w-full py-1 sm:py-2 border px-2 sm:px-4 rounded-tl-xl border-b-0 ${tab === undefined||tab==='timeline' ? 'bg-gradient':'' }`}>Stories</button>
-          <button onClick={()=>(router.push(`/user/${userId}?tab=about`))} className={`w-full py-1 sm:py-2 border px-2 sm:px-4 border-b-0 ${tab === 'about' ? 'bg-gradient':'' }`}>About</button>
-          <button onClick={()=>(router.push(`/user/${userId}?tab=followers`))} className={`w-full py-1 sm:py-2 border px-2 sm:px-4 border-b-0 ${tab === 'followers' ? 'bg-gradient':'' }`}>Followers</button>
-          <button onClick={()=>(router.push(`/user/${userId}?tab=saved`))} className={`w-full py-1 sm:py-2 border px-2 sm:px-4 border-b-0 ${tab === 'saved' ? 'bg-gradient':'' }`}>Saved</button>
-          <button onClick={()=>(router.push(`/user/${userId}?tab=following`))} className={`w-full py-1 sm:py-2 border px-2 sm:px-4 rounded-tr-xl border-b-0 ${tab === 'following' ? 'bg-gradient':'' }`}>Following</button>
+          <button onClick={()=>(router.push(`/user/${userId}?tab=timeline`))} className={`w-full py-1 sm:py-2 border px-2 sm:px-4 rounded-tl-xl border-b-0 ${tab === undefined||tab==='timeline' ? 'bg-gradient text-white':'' }`}>Stories</button>
+          <button onClick={()=>(router.push(`/user/${userId}?tab=about`))} className={`w-full py-1 sm:py-2 border px-2 sm:px-4 border-b-0 ${tab === 'about' ? 'bg-gradient text-white':'' }`}>About</button>
+          <button onClick={()=>(router.push(`/user/${userId}?tab=followers`))} className={`w-full py-1 sm:py-2 border px-2 sm:px-4 border-b-0 ${tab === 'followers' ? 'bg-gradient text-white':'' }`}>Followers</button>
+          <button onClick={()=>(router.push(`/user/${userId}?tab=saved`))} className={`w-full py-1 sm:py-2 border px-2 sm:px-4 border-b-0 ${tab === 'saved' ? 'bg-gradient text-white':'' }`}>Saved</button>
+          <button onClick={()=>(router.push(`/user/${userId}?tab=following`))} className={`w-full py-1 sm:py-2 border px-2 sm:px-4 rounded-tr-xl border-b-0 ${tab === 'following' ? 'bg-gradient text-white':'' }`}>Following</button>
         </div>
           </section>
           <div className="pb-10 text-center">
