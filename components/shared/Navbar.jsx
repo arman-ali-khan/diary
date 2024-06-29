@@ -36,7 +36,7 @@ function Navbar() {
          
         </div>
         <Link href="/" className="btn btn-sm md:btn-md btn-ghost text">
-          daisyUI
+          Logo
         </Link>
       </div>
       <div className="navbar-center hidden sm:flex">
@@ -123,14 +123,17 @@ function Navbar() {
             >
               লিখুন
             </Link>
-            <div className="bg-gradient w-12 h-12 text-white rounded-full p-0.5">
-              <Link href={`/user/12`}>
+            <div className="w-fit flex items-center justify-center h-6 text-white rounded-full p-0.5">
+            <div className="bg-gradient z-30 w-fit flex items-center justify-center gap-1 h-12 rounded-full p-0.5">
+              <Link className="rounded-full w-12 h-12" href={`/user/12`}>
                 <img
-                  className="rounded-full w-full h-full"
+                  className="rounded-full w-12 h-12"
                   src="https://vojislavd.com/ta-template-demo/assets/img/profile.jpg"
                   alt=""
                 />
               </Link>
+            </div>
+             <p className="pr-2 bg-gradient text-xs rounded-r-full py-1 pl-3 -ml-2 z-10 sm:text-sm font-bold"> $1000</p>
             </div>
           </div>
            <Link
