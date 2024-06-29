@@ -1,12 +1,11 @@
 import ReadLayout from "@/Layout/ReadLayout";
 import Reviews from "@/components/Sections/Comments/Reviews";
+import ReadBottomBar from "@/components/shared/ReadBottomBar";
 import ProgressBar from "@/lib/ProgressBar";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { BsStarFill, BsStarHalf } from "react-icons/bs";
 import { CgClose } from "react-icons/cg";
-import { TbPremiumRights } from "react-icons/tb";
-import { TiArrowBackOutline, TiArrowForwardOutline } from "react-icons/ti";
 import { useSelector } from 'react-redux';
 
 function readId() {
@@ -60,7 +59,7 @@ function readId() {
   return (
     <ReadLayout>
       <section
-        className="max-h-[200vh] bg-base-100 h-full min-h-[100%]"
+        className="max-h-[200vh] relative bg-base-100 h-full min-h-[100%]"
       >
         <ProgressBar />
         <div
@@ -68,7 +67,7 @@ function readId() {
             e.preventDefault();
             toast.error("Copy don't allowed");
           }}
-          className="h-full px-3 sm:px-4 md:px-5 lg:px-6 max-w-3xl mx-auto"
+          className="h-full px-3 sm:px-4 relative md:px-5 lg:px-6 max-w-3xl mx-auto"
         >
           {showOverlay && (
             <div
@@ -115,26 +114,7 @@ function readId() {
 কিছু করেবনই।`}
           </div>
           {/* Post footer */}
-          <div className="my-12 w-full">
-            <div className="flex w-full rounded-md p-3 gap-4 justify-between text-left float-left">
-              {/* Prev btn */}
-              <button className="text-lfet truncate flex items-center gap-1">
-                <TiArrowBackOutline className="w-12" size={24} />
-                আগের পর্ব
-              </button>
-              <div className="flex items-center">
-                {/* Next btn */}
-                <button className="text-right  flex truncate items-center gap-1">
-                  পরের পর্ব
-                  <TiArrowForwardOutline className="w-12" size={24} />
-                </button>
-                {/* Premium btn */}
-                <button className="text-right bg-gradient text-white px-2 py-1 rounded flex truncate items-center gap-1">
-                  প্যাকেজ কিনুন <TbPremiumRights className="" size={24} />
-                </button>
-              </div>
-            </div>
-          </div>
+        <ReadBottomBar />
           {/* Rating */}
 
           <div className="flex z-50 justify-center w-full">

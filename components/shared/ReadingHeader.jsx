@@ -42,7 +42,7 @@ const dispatch = useDispatch()
           <CgArrowLeft />
         </Link>
         <div className="">
-        <select defaultValue={'3'} id="styledSelect" className="select rounded-none w-56 max-w-sm bg-base-200">
+        <select defaultValue={'3'} id="styledSelect" className="select rounded-none sm:w-56 max-w-sm bg-base-200">
           <option disabled value="0">
             All Story Parts:
           </option>

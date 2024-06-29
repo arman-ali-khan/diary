@@ -13,9 +13,9 @@ export default function Home() {
      <Hero />
       <Stories />
       <Stories />
+            <Pricing />
             <RandomStories />
             <Stories />
-            <Pricing />
             </div>
      
     </Layout>
