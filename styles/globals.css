@@ -234,3 +234,22 @@ input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+
+.reading-navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: top 0.3s;
+}
+
+.reading-navbar.hidden {
+  top: -60px; /* Adjust according to the reading-navbar height */
+}
+
+.reading-navbar.active {
+  top: 0;
+}

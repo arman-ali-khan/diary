@@ -4,7 +4,7 @@ import { TiArrowBackOutline, TiArrowForwardOutline } from "react-icons/ti";
 function ReadBottomBar() {
   return (
     <div className="fixed bg-base-100 z-50 bottom-0 w-full">
-      <div className="flex w-full p-3 gap-4 justify-between text-left float-left">
+      <div className="flex w-full p-3 gap-4 justify-center text-left float-left">
         {/* Prev btn */}
         <button className="border rounded-full flex truncate px-4 justify-center items-center gap-1">
           <TiArrowBackOutline className="" size={24} />

@@ -11,7 +11,7 @@ import { SlVolumeOff } from "react-icons/sl";
 import { TbMinus, TbPlus } from "react-icons/tb";
 import { useDispatch, useSelector } from 'react-redux';
 
-function ReadingHeader() {
+function ReadingHeader({show}) {
 // redux
 const storyState = useSelector((state)=>state.storyState)
 const dispatch = useDispatch()
@@ -35,14 +35,16 @@ const dispatch = useDispatch()
     localStorage.setItem('theme', newTheme);
   };
 
+
+
   return (
-    <nav className="w-full px-4 sticky top-0 h-12 flex items-center justify-between bg-base-300 mb-3">
+    <nav style={{display:show?'':'none'}} className="w-full reading-navbar px-4 sticky duration-300 h-12 flex items-center z-50 justify-between bg-base-300 mb-3">
       <div className="flex items-center gap-2 w-full max-w-xs">
-        <Link className="px-4 py-2 inline-block" href={"/"}>
-          <CgArrowLeft />
+        <Link className="px-4 py-2 flex items-center gap-1" href={"/"}>
+          <CgArrowLeft /> Back
         </Link>
         <div className="">
-        <select defaultValue={'3'} id="styledSelect" className="select rounded-none sm:w-56 max-w-sm bg-base-200">
+        <select defaultValue={'3'} id="styledSelect" className="select hidden sm:block rounded-none sm:w-56 max-w-sm bg-base-200">
           <option disabled value="0">
             All Story Parts:
           </option>
