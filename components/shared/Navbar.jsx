@@ -127,7 +127,7 @@ function Navbar() {
           </ul>
         </div>
         <div className="navbar-end gap-1 md:gap-3">
-          {!user?.username ? (
+          {user?.username ? (
             <>
               <div className="flex items-center gap-1 md:gap-3">
                 <Link
@@ -158,12 +158,6 @@ function Navbar() {
                   </Link>
                 </div>
               </div>
-              <Link
-                href={"/auth/login"}
-                className="bg-gradient text-white px-4 py-1 rounded-full"
-              >
-                Login
-              </Link>
             </>
           ) : (
             <Link

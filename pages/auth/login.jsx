@@ -26,14 +26,14 @@ const login =  () =>{
       
           loginUser(data).then(res=>{
           localStorage.setItem("token", res?.data?.token);
-          if(localStorage.getItem('token')){
+          if(localStorage.getItem('token')!=='undefined'){
             router.push('/')
           }
         })
       }
 
-    return  <Layout>
-      <div className="w-screen h-screen flex justify-center items-center">
+    return  <Layout title={'Login' }>
+      <div className="w-full h-screen flex justify-center items-center">
     <form onSubmit={handleSubmit(handleLogin)} className="">
         <div className="flex flex-col gap-3">
             <input placeholder="Email" {...register('email',{required:true})} className="input rounded-full input-bordered md:w-96 z-30 input-sm" type="email" />

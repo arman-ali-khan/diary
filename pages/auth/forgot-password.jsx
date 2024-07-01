@@ -18,7 +18,7 @@ const ForgotPassword = () => {
 
   const [loading, setLoading] = useState(false);
   return (
-    <Layout>
+    <Layout title={"Forgot Password"}>
       <div className="h-screen flex justify-center items-center">
         <form onSubmit={handleSubmit(handleForgot)}>
           <h2 className="px-4 py-2 my-6 border-b text-white  text-2xl font-bold">

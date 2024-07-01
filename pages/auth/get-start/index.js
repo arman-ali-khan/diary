@@ -1,3 +1,4 @@
+import Layout from "@/Layout/Layout";
 import { useCreateUserMutation } from "@/redux/features/api/baseApi";
 import Link from "next/link";
 import { useState } from "react";
@@ -35,7 +36,8 @@ const index = () => {
   };
 
   return (
-    <div className="w-screen h-screen flex justify-center items-center">
+   <Layout title={'Register'}>
+     <div className="w-full h-screen flex justify-center items-center">
       <form onSubmit={handleSubmit(handleCreateUser)} className="">
         <div className="flex flex-col gap-3">
           <input
@@ -106,6 +108,7 @@ const index = () => {
         </div>
       </form>
     </div>
+   </Layout>
   );
 };
 

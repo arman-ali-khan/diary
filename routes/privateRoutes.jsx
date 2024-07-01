@@ -12,11 +12,11 @@ const PrivateRoutes = ({ children }) => {
 
 
 
-  if (!isError) {
+  if (isError) {
     router.push('/auth/login'); 
   }
 
-  if (user?.username) {
+  if (!user?.username) {
     router.push('/auth/login'); 
   }
 
