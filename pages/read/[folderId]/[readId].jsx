@@ -8,7 +8,6 @@ import toast from "react-hot-toast";
 import { BsStarFill, BsStarHalf } from "react-icons/bs";
 import { CgClose } from "react-icons/cg";
 import { useSelector } from 'react-redux';
-import { RemoveScroll } from "react-remove-scroll";
 
 function readId() {
   // redux
@@ -245,7 +244,7 @@ function readId() {
         </div>
           {/* Rating */}
 
-          <RemoveScroll>
+          <>
           <div className="flex z-50 justify-center w-full">
             <div className="">
               {/* Page content here */}
@@ -339,7 +338,7 @@ function readId() {
               </div>
             </div>
           </div>
-            </RemoveScroll>
+            </>
         </div>
       </section>
     </ReadLayout>

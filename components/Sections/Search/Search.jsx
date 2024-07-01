@@ -9,7 +9,7 @@ function Search({ showSearch, setShowSearch, input, setInput }) {
   return (
     <section
       onMouseEnter={() => setShowSearch(true)}
-      className="absolute shadow-xl border-2 w-full -bottom-96 overflow-hidden overflow-y-auto h-96 bg-base-100 rounded-xl p-2"
+      className="absolute w-full z-50 -bottom-96 overflow-hidden overflow-y-auto h-96 bg-base-100 rounded-xl p-2"
     >
       {/* Last search */}
       <div className="flex flex-col space-y-2">

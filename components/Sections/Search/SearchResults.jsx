@@ -9,7 +9,7 @@ function SearchResults() {
     const [search,setSearch] = useState('story')
     
   return (
-    <RemoveScroll className="absolute shadow-xl border-2 w-full -bottom-96 overflow-hidden overflow-y-auto h-96 bg-base-100 rounded-xl p-2">
+    <RemoveScroll className="absolute z-50 w-full -bottom-96 overflow-hidden overflow-y-auto h-96 bg-base-100 rounded-xl p-2">
       <div>
         <div className="flex scroll flex-col gap-2">
           <div className="flex justify-between sticky z-50 -top-2 bg-base-100 border-b">

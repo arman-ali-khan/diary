@@ -1,12 +1,14 @@
 import useGetUser from "@/hooks/useGetUser";
 import Link from "next/link";
 import { useState } from "react";
+import { BsSearch } from "react-icons/bs";
 import { CgClose } from "react-icons/cg";
 import { CiCirclePlus } from "react-icons/ci";
 import { FaBangladeshiTakaSign } from "react-icons/fa6";
 import Search from "../Sections/Search/Search";
 import SearchResults from "../Sections/Search/SearchResults";
 import Drawer from "./Drawer";
+import SearchModal from "./SearchModal";
 
 function Navbar() {
   const [showSearch, setShowSearch] = useState(false);
@@ -165,8 +167,11 @@ function Navbar() {
               Login
             </Link>
           )}
+          
+    <button className="sm:hidden px-3 rounded-full text-white py-2 bg-gradient" onClick={()=>document.getElementById('my_modal_2').showModal()}><BsSearch /></button>
         </div>
       </div>
+      <SearchModal />
       <Drawer />
     </>
   );

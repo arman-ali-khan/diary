@@ -239,7 +239,6 @@ input[type="number"]::-webkit-outer-spin-button {
   position: fixed;
   top: 0;
   width: 100%;
-  color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
