@@ -99,7 +99,13 @@ function Navbar() {
               </button>
             </div>
           </div>
-          <ul className="menu menu-horizontal hidden lg:flex gap-4 px-1">
+          <ul className="menu menu-horizontal hidden lg:flex gap-2 px-1">
+          <Link
+              href={"/"}
+              className="duration-300 hover:underline px-4 rounded-full"
+            >
+              হোম
+            </Link>
             <Link
               href={"/blog"}
               className="duration-300 hover:underline px-4 rounded-full"

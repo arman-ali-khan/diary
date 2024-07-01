@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const Pricing = () => {
   return (
     <section
@@ -95,8 +97,8 @@ const Pricing = () => {
                     Instant customar support
                   </p>
                 </div>
-                <a
-                  href="javascript:void(0)"
+                <Link
+                  href="/payment?sub=personal"
                   class="
                       w-full
                       block font-semibold
@@ -112,7 +114,7 @@ const Pricing = () => {
                       "
                 >
                   Choose Personal
-                </a>
+                </Link>
                 <div>
                   <span class="absolute right-0 top-7 z-[-1]">
                   <img src='/images/pricing2.svg' />
@@ -185,8 +187,8 @@ const Pricing = () => {
                     Instant customar support
                   </p>
                 </div>
-                <a
-                  href="javascript:void(0)"
+                <Link
+                  href="/payment?sub=personal"
                   class="
                       w-full
                       block font-semibold
@@ -202,7 +204,7 @@ const Pricing = () => {
                       "
                 >
                   Choose Personal
-                </a>
+                </Link>
                 <div>
                   <span class="absolute right-0 top-7 z-[-1]">
                   <img src='/images/pricing2.svg' />
@@ -275,8 +277,8 @@ const Pricing = () => {
                     Instant customar support
                   </p>
                 </div>
-                <a
-                  href="javascript:void(0)"
+                <Link
+                  href="/payment?sub=personal"
                   class="
                       w-full
                       block font-semibold
@@ -292,7 +294,7 @@ const Pricing = () => {
                       "
                 >
                   Choose Personal
-                </a>
+                </Link>
                 <div>
                   <span class="absolute right-0 top-7 z-[-1]">
                   <img src='/images/pricing2.svg' />

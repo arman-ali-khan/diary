@@ -1,4 +1,5 @@
 import Layout from "@/Layout/Layout";
+import Link from "next/link";
 
 const pricing = () => {
   return (
@@ -104,8 +105,8 @@ const pricing = () => {
                     Instant customar support
                   </p>
                 </div>
-                <a
-                  href="javascript:void(0)"
+                <Link
+                  href="/payment?sub=personal"
                   class="
                       w-full
                       block
@@ -122,7 +123,7 @@ const pricing = () => {
                       "
                 >
                   Choose Personal
-                </a>
+                </Link>
                 <div>
                   <span class="absolute right-0 top-7 z-[-1]">
                   <img src='/images/pricing2.svg' />
@@ -199,8 +200,8 @@ const pricing = () => {
                     Instant customar support
                   </p>
                 </div>
-                <a
-                  href="javascript:void(0)"
+                <Link
+                  href="/payment?sub=personal"
                   class="
                       w-full
                       block
@@ -217,7 +218,7 @@ const pricing = () => {
                       "
                 >
                   Choose Family
-                </a>
+                </Link>
                 <div>
                   <span class="absolute right-0 top-7 z-[-1]">
                   
@@ -293,8 +294,8 @@ const pricing = () => {
                     Instant customar support
                   </p>
                 </div>
-                <a
-                  href="javascript:void(0)"
+                <Link
+                  href="/payment?sub=personal"
                   class="
                       w-full
                       block
@@ -311,7 +312,7 @@ const pricing = () => {
                       "
                 >
                   Choose Enterprise
-                </a>
+                </Link>
                 <div>
                   <span class="absolute right-0 top-7 z-[-1]">
                   <img src='/images/pricing2.svg' />

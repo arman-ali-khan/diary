@@ -4,7 +4,6 @@ import { CgClose } from "react-icons/cg";
 import Search from "../Sections/Search/Search";
 import SearchResults from "../Sections/Search/SearchResults";
 
-// Suggested code may be subject to a license. Learn more: ~LicenseLog:1598187468.
 const SearchModal = () => {
   const [showSearch, setShowSearch] = useState(false);
   // user
