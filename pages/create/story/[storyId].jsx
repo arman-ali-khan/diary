@@ -23,14 +23,15 @@ function partId() {
 
   return (
     <section className="container mx-auto">
+    <title>Create Story</title>
       <PostHeader />
       {/* parts */}
       <div className="p-4 bg-gradient">
         <h2 className="text-left flex-col sm:flex-row font-black flex items-center gap-3">
          <div className="flex w-full items-center flex-wrap gap-2">
          {
-          !writeTitle ? <p onDoubleClick={()=>setWriteTitle(true)} className="w-44 min-w-fit max-w-96 sm:tooltip border md:w-96 px-4 rounded-md text-left tooltip-top" data-tip="Double click to edit" >গল্পের নাম । আমার সোনার বাংলা</p>:
-          <input type="text" disabled={!writeTitle} onBlur={()=>setWriteTitle(false)} className="w-44 min-w-fit max-w-96 md:w-96 px-4 rounded-md truncate disabled:text-white" defaultValue={'গল্পের নাম । আমার সোনার বাংলা'} />
+          !writeTitle ? <p onDoubleClick={()=>setWriteTitle(true)} className="w-44 min-w-fit text-white max-w-96 sm:tooltip border md:w-96 px-4 rounded-md text-left tooltip-top" data-tip="Double click to edit" >গল্পের নাম । আমার সোনার বাংলা</p>:
+          <input type="text" disabled={!writeTitle} onBlur={()=>setWriteTitle(false)} className="w-44 min-w-fit max-w-96 md:w-96 px-4 rounded-md truncate  disabled:text-white" defaultValue={'গল্পের নাম । আমার সোনার বাংলা'} />
          }
           <span onClick={()=>setWriteTitle(!writeTitle)} className="px-4 cursor-pointer rounded-md  text-white w-12 py-2 inline-block">
           <span onClick={()=>setWriteTitle(!writeTitle)} className="px-4 cursor-pointer rounded-md  text-white w-24 py-2 inline-block">
@@ -40,7 +41,7 @@ function partId() {
          </div>
         </h2>
         <div className="flex flex-col z-40">
-        {writeSummary ? <textarea onBlur={()=>setWriteSummary(false)} style={{ height }} onChange={handleChange}  className="px-3 h-fit py-2 rounded-md min-h-44 overflow-hidden text-sm disabled:text-white"> 
+        {writeSummary ? <textarea onBlur={()=>setWriteSummary(false)} style={{ height }} onChange={handleChange}  className="px-3 h-fit py-2 rounded-md min-h-44 overflow-hidden  text-sm disabled:text-white"> 
          গল্পের সামারি ছবি আপলোড করার আগে যে কোন কিছু (দরকারি কিছু নয় এমন) লিখে
           সিলেক্ট করুন তার পর ছবির আইকনে ক্লিক করে ছবি বাছাই করুন । লিখে সিলেক্ট
           করুন তার পর ছবির আইকনে ক্লিক করে ছবি বাছাই করুন ।
@@ -59,7 +60,7 @@ function partId() {
           করুন তার পর ছবির আইকনে ক্লিক করে ছবি বাছাই করুন ।
           </textarea>
           :
-           <p  data-tip="Double click to edit" style={{ height }} onDoubleClick={()=>setWriteSummary(true)} className="px-3 h-fit border py-2 rounded-md min-h-44 sm:tooltip tooltip-top text-left cursor-pointer text-sm disabled:text-white"> 
+           <p  data-tip="Double click to edit" style={{ height }} onDoubleClick={()=>setWriteSummary(true)} className="px-3 h-fit border py-2 rounded-md min-h-44 sm:tooltip tooltip-top text-left cursor-pointer text-sm text-white disabled:text-white"> 
          গল্পের সামারি ছবি আপলোড করার আগে যে কোন কিছু (দরকারি কিছু নয় এমন) লিখে
           সিলেক্ট করুন তার পর ছবির আইকনে ক্লিক করে ছবি বাছাই করুন । লিখে সিলেক্ট
           করুন তার পর ছবির আইকনে ক্লিক করে ছবি বাছাই করুন ।
@@ -116,7 +117,7 @@ const ModalNewPart = () =>{
           </label>
             <textarea id="summary" type="text" placeholder="Summary" className="textarea textarea-bordered w-full" />
             <div className="flex justify-end items-end p-2">
-            <button className="px-4 py-2 rounded-full bg-gradient font-bold">Create</button>
+            <button className="px-4 py-2 rounded-full bg-gradient text-white font-bold">Create</button>
             </div>
         </div>
       </div>

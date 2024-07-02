@@ -100,7 +100,7 @@ function Navbar() {
             </div>
           </div>
           <ul className="menu menu-horizontal hidden lg:flex gap-2 px-1">
-          <Link
+            <Link
               href={"/"}
               className="duration-300 hover:underline px-4 rounded-full"
             >
@@ -134,9 +134,11 @@ function Navbar() {
                   href={"/create"}
                   className="bg-gradient fixed bottom-14 right-3 sm:relative sm:right-0 sm:bottom-0 ml-1 text-white sm:px-4 sm:py-1 rounded-full"
                 >
-                  
-                 <p className="hidden sm:block">  লিখুন</p>
-                 <p className="sm:hidden p-1 text-3xl">  <CiCirclePlus /></p>
+                  <p className="hidden sm:block"> লিখুন</p>
+                  <p className="sm:hidden p-1 text-3xl">
+                    {" "}
+                    <CiCirclePlus />
+                  </p>
                 </Link>
                 <div className="w-fit flex items-center justify-center h-6 text-white rounded-full p-0.5">
                   <div className="bg-gradient z-30 w-fit flex items-center justify-center gap-1 h-12 rounded-full p-0.5">
@@ -167,8 +169,13 @@ function Navbar() {
               Login
             </Link>
           )}
-          
-    <button className="sm:hidden px-3 rounded-full text-white py-2 bg-gradient" onClick={()=>document.getElementById('my_modal_2').showModal()}><BsSearch /></button>
+
+          <button
+            className="sm:hidden px-3 rounded-full text-white py-2 bg-gradient"
+            onClick={() => document.getElementById("my_modal_2").showModal()}
+          >
+            <BsSearch />
+          </button>
         </div>
       </div>
       <SearchModal />

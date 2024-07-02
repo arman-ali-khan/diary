@@ -1,7 +1,6 @@
 import Layout from "@/Layout/Layout";
 import StoryEdit from "@/components/Home/Stories/StoryEdit";
 import SkeletonStory from "@/components/Spinner/SkeletonStory";
-import PostHeader from "@/components/shared/PostHeader";
 import { useGetStoryQuery } from "@/redux/features/api/storyApi";
 import PrivateRoutes from "@/routes/privateRoutes";
 import Link from "next/link";
@@ -12,7 +11,7 @@ function index() {
   const {isError,isFetching,isLoading,isSuccess,data:stories,error} = useGetStoryQuery('/photos')
     return (
         <PrivateRoutes>
-       <Layout>
+       <Layout title={'Create'}>
        <section className="container mx-auto">
         <div className="flex flex-col-reverse md:flex-row w-full gap-3 mt-12 mb-12">
              {/* instruction */}

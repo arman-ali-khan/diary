@@ -3,6 +3,7 @@ import Reviews from "@/components/Sections/Comments/Reviews";
 import ReadBottomBar from "@/components/shared/ReadBottomBar";
 import ReadingHeader from "@/components/shared/ReadingHeader";
 import ProgressBar from "@/lib/ProgressBar";
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { BsStarFill, BsStarHalf } from "react-icons/bs";
@@ -80,9 +81,16 @@ function readId() {
       };
     }, [lastScrollY]);
 
+    // router
+    const router = useRouter()
+
+    // get id
+    const storyId = router.asPath
+    const id = storyId?.split('/')[2]
+
   return (
-    <ReadLayout>
-       <ReadingHeader show={show}/>
+    <ReadLayout title={'Part - 3 || অঘোর তান্ত্রিকের অঘোর তান্ত্রিকের অভিশাপ খন্ডনের কাহিনি || Diary'}>
+       <ReadingHeader show={show} storyId={id} />
       <section
         className="max-h-[200vh] relative mt-14 mb-44 bg-base-100 h-full min-h-[100%]"
       >

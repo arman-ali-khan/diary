@@ -24,7 +24,7 @@ function RandomStories() {
             বস্ত্রে আজ প্রস্তুত হয়েছেন পুজোর জন্য । বেলে পাথরের তৈরি এই ...
           </p>
           <div className="card-actions justify-end">
-            <Link href={`/story/12/12`} className="bg-gradient px-6 py-2 rounded-full text-white">পড়ুন</Link>
+            <Link href={`/story/12`} className="bg-gradient px-6 py-2 rounded-full text-white">পড়ুন</Link>
           </div>
         </div>
       </div>
@@ -43,7 +43,7 @@ function RandomStories() {
           একটা সাদামাটা বছর বত্রিশের না বুড়ি না ছুরি রাশি সেন আর তার স্বার্থপর পরিবারের থোর বড়ি খাড়া আর খাড়া বড়ি থোর জীবনে হঠাৎ করেই আগমন ঘটে অগ্নিদেব ব্যানার্জি নামক এক ফুড চেন ব্যাবসায়ীর। বছর ...
           </p>
           <div className="card-actions justify-end">
-            <Link href={`/story/12/12`} className="bg-gradient px-6 py-2 rounded-full text-white">পড়ুন</Link>
+            <Link href={`/story/12`} className="bg-gradient px-6 py-2 rounded-full text-white">পড়ুন</Link>
           </div>
         </div>
       </div>

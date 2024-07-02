@@ -5,10 +5,10 @@ const token = typeof window !== 'undefined' && localStorage.getItem('token')
 
 const baseApi= createApi({
     reducerPath:'users',
-    baseQuery: fetchBaseQuery({baseUrl:'https://3001-idx-diary-1719202681407.cluster-nx3nmmkbnfe54q3dd4pfbgilpc.cloudworkstations.dev/api'}),
+    baseQuery: fetchBaseQuery({baseUrl:process.env.BASE_API}),
     endpoints:(build) => ({
         getUsers:build.query({
-            query:'https://jsonplaceholder.typicode.com/photos'
+            query:'/users'
         }),
         // getUserByEmail:build.query({
 
@@ -30,10 +30,9 @@ const baseApi= createApi({
         getUserByToken:build.mutation({
             query:()=>({
                 url:'/users/token',
-                mode: 'no-cors',
                 method:'POST',
                 body:'',
-                headers: {'Content-Type':'application/json',Authorization:`Bearer ${token},Access-Control-Allow-Origin:'https://9000-idx-diary-1719202681407.cluster-nx3nmmkbnfe54q3dd4pfbgilpc.cloudworkstations.dev'`}
+                headers: {'Content-Type':'application/json',Authorization:`Bearer ${token}`}
             })
         })
     }),

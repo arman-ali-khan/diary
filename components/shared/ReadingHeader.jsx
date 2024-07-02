@@ -11,7 +11,7 @@ import { SlVolumeOff } from "react-icons/sl";
 import { TbMinus, TbPlus } from "react-icons/tb";
 import { useDispatch, useSelector } from 'react-redux';
 
-function ReadingHeader({show}) {
+function ReadingHeader({show,storyId}) {
 // redux
 const storyState = useSelector((state)=>state.storyState)
 const dispatch = useDispatch()
@@ -40,7 +40,7 @@ const dispatch = useDispatch()
   return (
     <nav style={{display:show?'':'none'}} className="w-full reading-navbar px-4 sticky duration-300 h-12 flex items-center z-50 justify-between bg-base-300 mb-3">
       <div className="flex items-center gap-2 w-full max-w-xs">
-        <Link className="px-4 py-2 flex items-center gap-1" href={"/"}>
+        <Link className="px-4 py-2 flex items-center gap-1" href={`/story/${storyId}`}>
           <CgArrowLeft /> Back
         </Link>
         <div className="">

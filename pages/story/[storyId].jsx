@@ -39,9 +39,8 @@ function storyId() {
   };
 
   return (
-    <Layout>
+    <Layout title="অঘোর তান্ত্রিকের অঘোর তান্ত্রিকের অভিশাপ খন্ডনের কাহিনি || Diary">
       <section className="md:p-5 mx-auto relative h-56 rounded-t-xl bg-[darkblue]">
-        
           {/* <span className="h-1/2 bg-[darkblue] w-full absolute -z-20"></span> */}
           <div className="flex flex-col mx-auto overflow-hidden rounded-xl">
             <div className="w-full bg-base-300 md:flex p-3 justify-between flex-row-reverse">

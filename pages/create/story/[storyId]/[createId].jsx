@@ -103,8 +103,9 @@ const page = () => {
 
   return (
     <section className="container mx-auto">
+    <title>Create Story</title>
       {/* Story header */}
-      <PostHeader />
+      <PostHeader  />
       {/* Story header  end */}
 
       <div className="flex flex-col md:flex-row w-full gap-3 mt-12 mb-12">
