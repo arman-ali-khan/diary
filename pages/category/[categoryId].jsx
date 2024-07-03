@@ -7,7 +7,7 @@ import { useGetStoryQuery } from "@/redux/features/api/storyApi";
 function CategoryId() {
   const {isError,isFetching,isLoading,isSuccess,data:stories,error} = useGetStoryQuery('/photos')
     return (
-      <Layout>
+      <Layout title={'Category "Horror Stories"'}>
       {/* category banner */}
       <div className="">
       <div className="relative">

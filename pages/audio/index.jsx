@@ -2,7 +2,7 @@ import Layout from "@/Layout/Layout"
 import Audios from "@/components/Audio/Audios"
 
 const audio = () =>{
-    return <Layout>
+    return <Layout title={'Audio Book'}>
         <div>
            <Audios />
         </div>  

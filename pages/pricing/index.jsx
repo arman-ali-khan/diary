@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const pricing = () => {
   return (
-    <Layout>
+    <Layout title={'Pricing'}>
       <section
         class="
        pt-20

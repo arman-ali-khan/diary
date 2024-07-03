@@ -1,0 +1,1164 @@
+[
+  {
+    "id": "1",
+    "title": "কুয়াশার আড়ালে",
+    "read": [
+      {
+        "id": "1",
+        "name": "samrat",
+        "date": "1 day ago"
+      }
+    ],
+    "rating": [
+      {
+        "id": "1",
+        "name": "samrat",
+        "message": "nice story need improve",
+        "rating": "4 star",
+        "date": "1 day ago"
+      }
+    ],
+    "thumbnail": [
+      {
+        "id": "12",
+        "url": "https://static-assets.pratilipi.com/series/cover?seriesId=234959&version=69f25b62-8251-475e-a35e-338c0ff1520f"
+      }
+    ],
+    "cover": [
+      {
+        "id": "12",
+        "url": "https://static-assets.pratilipi.com/series/cover?seriesId=234959&version=69f25b62-8251-475e-a35e-338c0ff1520f"
+      }
+    ],
+    "subscribers": [
+      {
+        "id": "12",
+        "usernames": "samrat"
+      }
+    ],
+    "likes": [
+      {
+        "id": "12",
+        "usernames": "samrat"
+      }
+    ],
+    "tags": [
+      {
+        "label": "ভয়",
+        "value": "horror"
+      },
+      {
+        "label": "সাসপেন্স - থ্রিলার",
+        "value": "mystery - thriller"
+      },
+      {
+        "label": "গোয়েন্দা",
+        "value": "detective"
+      }
+    ],
+    "parts": ["121", "233", "444", "534"],
+    "description": "খুব সকাল সকাল দোকান খোলার অভ্যেস মন্টু দার। শীতকাল হোক বা গরম কাল ঠিক ৬ টার সময়েই দোকান টি খোলা চাইই চাই। আসানসোলের কোর্ট মোর এলাকাতে ছোট্ট একটি চায়ের দোকান আছে ওনার। মন্টু টি স্টল। সকাল সকাল",
+    "author": [],
+    "name": "arman",
+    "username": "arman",
+    "reports": [
+      {
+        "id": "3",
+        "message": "Copied another story",
+        "reporter": "12"
+      }
+    ],
+    "blocked": [
+      {
+        "id": "12"
+      }
+    ],
+    "comments": [
+      {
+        "id": "3",
+        "comment": "Nice Story",
+        "author": "12"
+      }
+    ],
+    "published": {}
+  },
+  {
+    "id": "2",
+    "title": "নূপুর ভিলা",
+    "read": [
+      {
+        "id": "1",
+        "name": "samrat",
+        "date": "1 day ago"
+      }
+    ],
+    "rating": [
+      {
+        "id": "1",
+        "name": "samrat",
+        "message": "nice story need improve",
+        "rating": "4 star",
+        "date": "1 day ago"
+      }
+    ],
+    "thumbnail": [
+      {
+        "id": "12",
+        "url": "https://static-assets.pratilipi.com/pratilipi/cover?pratilipiId=6755373535387437&version=82d7aad2-8754-4367-85b5-d0d5ff67fef3"
+      }
+    ],
+    "cover": [
+      {
+        "id": "12",
+        "url": "https://static-assets.pratilipi.com/pratilipi/cover?pratilipiId=6755373535387437&version=82d7aad2-8754-4367-85b5-d0d5ff67fef3"
+      }
+    ],
+    "subscribers": [
+      {
+        "id": "12",
+        "usernames": "samrat"
+      }
+    ],
+    "likes": [
+      {
+        "id": "12",
+        "usernames": "samrat"
+      }
+    ],
+    "tags": [
+      {
+        "label": "ভয়",
+        "value": "horror"
+      },
+      {
+        "label": "সাসপেন্স - থ্রিলার",
+        "value": "mystery - thriller"
+      },
+      {
+        "label": "গোয়েন্দা",
+        "value": "detective"
+      }
+    ],
+    "parts": ["121", "233", "444", "534"],
+    "description": "এটি একটি ভৌতিক ঘটনা অবলম্বনে লেখা আমার প্রথম ধারাবাহিক। কলেজ পড়ুয়া একটি মেয়ে ভাড়া নিয়ে ওঠে পড়াশোনার জন্য একটি বাড়িতে তারপর তার সাথে ঘটতে থাকে ভৌতিক সব আচরণ এবং কার্যকলাপ। গৃহিনীর অদ্ভুত",
+    "author": [],
+    "name": "arman",
+    "username": "arman",
+    "reports": [
+      {
+        "id": "3",
+        "message": "Copied another story",
+        "reporter": "12"
+      }
+    ],
+    "blocked": [
+      {
+        "id": "12"
+      }
+    ],
+    "comments": [
+      {
+        "id": "3",
+        "comment": "Nice Story",
+        "author": "12"
+      }
+    ],
+    "published": {}
+  },
+  {
+    "id": "3",
+    "title": "জাদুকর হাসনেওলা",
+    "read": [
+      {
+        "id": "1",
+        "name": "samrat",
+        "date": "1 day ago"
+      }
+    ],
+    "rating": [
+      {
+        "id": "1",
+        "name": "samrat",
+        "message": "nice story need improve",
+        "rating": "4 star",
+        "date": "1 day ago"
+      }
+    ],
+    "thumbnail": [
+      {
+        "id": "12",
+        "url": "https://static-assets.pratilipi.com/series/cover?seriesId=546661&version=46d28217-cdc6-40a8-8c5d-c2fcb4fd3994"
+      }
+    ],
+    "cover": [
+      {
+        "id": "12",
+        "url": "https://static-assets.pratilipi.com/series/cover?seriesId=546661&version=46d28217-cdc6-40a8-8c5d-c2fcb4fd3994"
+      }
+    ],
+    "subscribers": [
+      {
+        "id": "12",
+        "usernames": "samrat"
+      }
+    ],
+    "likes": [
+      {
+        "id": "12",
+        "usernames": "samrat"
+      }
+    ],
+    "tags": [
+      {
+        "label": "ভয়",
+        "value": "horror"
+      },
+      {
+        "label": "সাসপেন্স - থ্রিলার",
+        "value": "mystery - thriller"
+      },
+      {
+        "label": "গোয়েন্দা",
+        "value": "detective"
+      }
+    ],
+    "parts": ["121", "233", "444", "534"],
+    "description": "গোয়েন্দা অরুণাংশুর জালে এবার ড্রাগ মাফিয়ারা ৷ কিভাবে মানুষের মনে অন্ধো বিশ্বাসকে জাগিয়ে দিয়ে দিনের আলোতেই কাজ সারছে তারা ? কলোনীর এক মেয়ের মৃত্যু রহস্য আর এক বনেদী ঘরের ছেলের অন্তর্ধান রহস্য, এই",
+    "author": [],
+    "name": "arman",
+    "username": "arman",
+    "reports": [
+      {
+        "id": "3",
+        "message": "Copied another story",
+        "reporter": "12"
+      }
+    ],
+    "blocked": [
+      {
+        "id": "12"
+      }
+    ],
+    "comments": [
+      {
+        "id": "3",
+        "comment": "Nice Story",
+        "author": "12"
+      }
+    ],
+    "published": {}
+  },
+  {
+    "id": "4",
+    "title": "ঘোস্ট হান্টার",
+    "read": [
+      {
+        "id": "1",
+        "name": "samrat",
+        "date": "1 day ago"
+      }
+    ],
+    "rating": [
+      {
+        "id": "1",
+        "name": "samrat",
+        "message": "nice story need improve",
+        "rating": "4 star",
+        "date": "1 day ago"
+      }
+    ],
+    "thumbnail": [
+      {
+        "id": "12",
+        "url": "https://static-assets.pratilipi.com/pratilipi/cover?pratilipiId=6755373535387437&version=82d7aad2-8754-4367-85b5-d0d5ff67fef3"
+      }
+    ],
+    "cover": [
+      {
+        "id": "12",
+        "url": "https://static-assets.pratilipi.com/pratilipi/cover?pratilipiId=6755373535387437&version=82d7aad2-8754-4367-85b5-d0d5ff67fef3"
+      }
+    ],
+    "subscribers": [
+      {
+        "id": "12",
+        "usernames": "samrat"
+      }
+    ],
+    "likes": [
+      {
+        "id": "12",
+        "usernames": "samrat"
+      }
+    ],
+    "tags": [
+      {
+        "label": "ভয়",
+        "value": "horror"
+      },
+      {
+        "label": "সাসপেন্স - থ্রিলার",
+        "value": "mystery - thriller"
+      },
+      {
+        "label": "গোয়েন্দা",
+        "value": "detective"
+      }
+    ],
+    "parts": ["121", "233", "444", "534"],
+    "description": "ফোন কল ১ :  শনিবার । সকাল ১১.৩৫ মিনিট। তাপসের ফোন অর্পিতাকে “ওর্পি...” তাপস নিচু স্বরে বলে “অফিসে কি অবস্থা?” “ব্যাপার কি তাপস?” অর্পিতা গম্ভিরভাবে জবাব দেয় “ব্যাপার দারুন“ তাপস কৌতুক করে বলে",
+    "author": [],
+    "name": "arman",
+    "username": "arman",
+    "reports": [
+      {
+        "id": "3",
+        "message": "Copied another story",
+        "reporter": "12"
+      }
+    ],
+    "blocked": [
+      {
+        "id": "12"
+      }
+    ],
+    "comments": [
+      {
+        "id": "3",
+        "comment": "Nice Story",
+        "author": "12"
+      }
+    ],
+    "published": {}
+  },
+  {
+    "id": "5",
+    "title": "আয়না। এক অদ্ভুত আয়না ভূতের গল্প।",
+    "read": [
+      {
+        "id": "1",
+        "name": "samrat",
+        "date": "1 day ago"
+      }
+    ],
+    "rating": [
+      {
+        "id": "1",
+        "name": "samrat",
+        "message": "nice story need improve",
+        "rating": "4 star",
+        "date": "1 day ago"
+      }
+    ],
+    "thumbnail": [
+      {
+        "id": "12",
+        "url": "https://static-assets.pratilipi.com/series/cover?seriesId=582724&version=2d58502e-80a2-4bd7-a3ac-3e579196a6c9"
+      }
+    ],
+    "cover": [
+      {
+        "id": "12",
+        "url": "https://static-assets.pratilipi.com/series/cover?seriesId=582724&version=2d58502e-80a2-4bd7-a3ac-3e579196a6c9"
+      }
+    ],
+    "subscribers": [
+      {
+        "id": "12",
+        "usernames": "samrat"
+      }
+    ],
+    "likes": [
+      {
+        "id": "12",
+        "usernames": "samrat"
+      }
+    ],
+    "tags": [
+      {
+        "label": "ভয়",
+        "value": "horror"
+      },
+      {
+        "label": "সাসপেন্স - থ্রিলার",
+        "value": "mystery - thriller"
+      },
+      {
+        "label": "গোয়েন্দা",
+        "value": "detective"
+      }
+    ],
+    "parts": ["121", "233", "444", "534"],
+    "description": "প্রতিদিন রাত্রে কে আসে বলুন তো আমার ঘরে? আমার সারা শরীর জুড়ে সে খেলতে থাকে আমি চাইলেও তাকে ছাড়াতে পারি না। আসলে ছাড়াতে চাই না।",
+    "author": [],
+    "name": "arman",
+    "username": "arman",
+    "reports": [
+      {
+        "id": "3",
+        "message": "Copied another story",
+        "reporter": "12"
+      }
+    ],
+    "blocked": [
+      {
+        "id": "12"
+      }
+    ],
+    "comments": [
+      {
+        "id": "3",
+        "comment": "Nice Story",
+        "author": "12"
+      }
+    ],
+    "published": {}
+  },
+  {
+    "id": "6",
+    "title": "অভিশাপ",
+    "read": [
+      {
+        "id": "1",
+        "name": "samrat",
+        "date": "1 day ago"
+      }
+    ],
+    "rating": [
+      {
+        "id": "1",
+        "name": "samrat",
+        "message": "nice story need improve",
+        "rating": "4 star",
+        "date": "1 day ago"
+      }
+    ],
+    "thumbnail": [
+      {
+        "id": "12",
+        "url": "https://static-assets.pratilipi.com/pratilipi/cover?pratilipiId=6755373539784611&version=49ca7a6b-74b6-4ed6-87b4-fbe22a942e65"
+      }
+    ],
+    "cover": [
+      {
+        "id": "12",
+        "url": "https://static-assets.pratilipi.com/pratilipi/cover?pratilipiId=6755373539784611&version=49ca7a6b-74b6-4ed6-87b4-fbe22a942e65"
+      }
+    ],
+    "subscribers": [
+      {
+        "id": "12",
+        "usernames": "samrat"
+      }
+    ],
+    "likes": [
+      {
+        "id": "12",
+        "usernames": "samrat"
+      }
+    ],
+    "tags": [
+      {
+        "label": "ভয়",
+        "value": "horror"
+      },
+      {
+        "label": "সাসপেন্স - থ্রিলার",
+        "value": "mystery - thriller"
+      },
+      {
+        "label": "গোয়েন্দা",
+        "value": "detective"
+      }
+    ],
+    "parts": ["121", "233", "444", "534"],
+    "description": "ফরেস্ট অফিসার সন্দীপ ও তার স্ত্রী নম্র ,ভদ্র সুশ্রী তনুজা ।তনুজা দেখে বিয়ের পর থেকেই প্রত্যেক রাত বারোটার সময় সন্দীপ বাড়ি থেকে বেরিয়ে যায়। কোথায় যায় ?কি করে? কেনই বা যায়? এই সব প্রশ্ন",
+    "author": [],
+    "name": "arman",
+    "username": "arman",
+    "reports": [
+      {
+        "id": "3",
+        "message": "Copied another story",
+        "reporter": "12"
+      }
+    ],
+    "blocked": [
+      {
+        "id": "12"
+      }
+    ],
+    "comments": [
+      {
+        "id": "3",
+        "comment": "Nice Story",
+        "author": "12"
+      }
+    ],
+    "published": {}
+  },
+  {
+    "id": "8",
+    "title": "ব্যানটনি ক্যাসল",
+    "read": [
+      {
+        "id": "1",
+        "name": "samrat",
+        "date": "1 day ago"
+      }
+    ],
+    "rating": [
+      {
+        "id": "1",
+        "name": "samrat",
+        "message": "nice story need improve",
+        "rating": "4 star",
+        "date": "1 day ago"
+      }
+    ],
+    "thumbnail": [
+      {
+        "id": "12",
+        "url": "https://static-assets.pratilipi.com/series/cover?seriesId=414508&version=c5a7d917-9735-49e8-bb73-c18819ddce81"
+      }
+    ],
+    "cover": [
+      {
+        "id": "12",
+        "url": "https://static-assets.pratilipi.com/series/cover?seriesId=414508&version=c5a7d917-9735-49e8-bb73-c18819ddce81"
+      }
+    ],
+    "subscribers": [
+      {
+        "id": "12",
+        "usernames": "samrat"
+      }
+    ],
+    "likes": [
+      {
+        "id": "12",
+        "usernames": "samrat"
+      }
+    ],
+    "tags": [
+      {
+        "label": "ভয়",
+        "value": "horror"
+      },
+      {
+        "label": "সাসপেন্স - থ্রিলার",
+        "value": "mystery - thriller"
+      },
+      {
+        "label": "গোয়েন্দা",
+        "value": "detective"
+      }
+    ],
+    "parts": ["121", "233", "444", "534"],
+    "description": "এ পথে একদম ঘুটঘুটে অন্ধকার। হাতের মোবাইলের টর্চের আলোয় পথ খুঁজে এগিয়ে চলে। খানিক টা এগোতেই এসে পড়ল সেই বাড়ি টা। পথের ডান দিকে পাঁচিলে ঘেরা একটা পুরানো বাড়ি। গেটের ধারে নেম প্লেটে অস্পষ্ট হয়ে",
+    "author": [],
+    "name": "arman",
+    "username": "arman",
+    "reports": [
+      {
+        "id": "3",
+        "message": "Copied another story",
+        "reporter": "12"
+      }
+    ],
+    "blocked": [
+      {
+        "id": "12"
+      }
+    ],
+    "comments": [
+      {
+        "id": "3",
+        "comment": "Nice Story",
+        "author": "12"
+      }
+    ],
+    "published": {}
+  },
+  {
+    "id": "9",
+    "title": "ভৌতিক ও অলৌকিক গল্প সম্ভার",
+    "read": [
+      {
+        "id": "1",
+        "name": "samrat",
+        "date": "1 day ago"
+      }
+    ],
+    "rating": [
+      {
+        "id": "1",
+        "name": "samrat",
+        "message": "nice story need improve",
+        "rating": "4 star",
+        "date": "1 day ago"
+      }
+    ],
+    "thumbnail": [
+      {
+        "id": "12",
+        "url": "https://static-assets.pratilipi.com/pratilipi/cover?pratilipiId=6755373537516947&version=151ee5ce-e91f-4399-ae6c-b0dd6c3fa17d"
+      }
+    ],
+    "cover": [
+      {
+        "id": "12",
+        "url": "https://static-assets.pratilipi.com/pratilipi/cover?pratilipiId=6755373537516947&version=151ee5ce-e91f-4399-ae6c-b0dd6c3fa17d"
+      }
+    ],
+    "subscribers": [
+      {
+        "id": "12",
+        "usernames": "samrat"
+      }
+    ],
+    "likes": [
+      {
+        "id": "12",
+        "usernames": "samrat"
+      }
+    ],
+    "tags": [
+      {
+        "label": "ভয়",
+        "value": "horror"
+      },
+      {
+        "label": "সাসপেন্স - থ্রিলার",
+        "value": "mystery - thriller"
+      },
+      {
+        "label": "গোয়েন্দা",
+        "value": "detective"
+      }
+    ],
+    "parts": ["121", "233", "444", "534"],
+    "description": "পৃথিবীতে এমন অনেক ঘটনা প্রতিনিয়ত ঘটে, যা আমাদের বিচার, বিবেচনার বাইরে। সেগুলির স্বাভাবিক মীমাংসা করতে গিয়ে অক্ষম হয়ে যখন আমাদের যুক্তিবাদী মন রণে ভঙ্গ দেয়, তখনই সেসব ঘটনার গায়ে অনায়াসে আমরা",
+    "author": [],
+    "name": "arman",
+    "username": "arman",
+    "reports": [
+      {
+        "id": "3",
+        "message": "Copied another story",
+        "reporter": "12"
+      }
+    ],
+    "blocked": [
+      {
+        "id": "12"
+      }
+    ],
+    "comments": [
+      {
+        "id": "3",
+        "comment": "Nice Story",
+        "author": "12"
+      }
+    ],
+    "published": {}
+  },
+  {
+    "id": "10",
+    "title": "ভৌতিক তন্ত্রের খেলা",
+    "read": [
+      {
+        "id": "1",
+        "name": "samrat",
+        "date": "1 day ago"
+      }
+    ],
+    "rating": [
+      {
+        "id": "1",
+        "name": "samrat",
+        "message": "nice story need improve",
+        "rating": "4 star",
+        "date": "1 day ago"
+      }
+    ],
+    "thumbnail": [
+      {
+        "id": "12",
+        "url": "https://static-assets.pratilipi.com/series/cover?seriesId=869686&version=f00e2db0-e057-4014-8ccf-24a6215140c9"
+      }
+    ],
+    "cover": [
+      {
+        "id": "12",
+        "url": "https://static-assets.pratilipi.com/series/cover?seriesId=869686&version=f00e2db0-e057-4014-8ccf-24a6215140c9"
+      }
+    ],
+    "subscribers": [
+      {
+        "id": "12",
+        "usernames": "samrat"
+      }
+    ],
+    "likes": [
+      {
+        "id": "12",
+        "usernames": "samrat"
+      }
+    ],
+    "tags": [
+      {
+        "label": "ভয়",
+        "value": "horror"
+      },
+      {
+        "label": "সাসপেন্স - থ্রিলার",
+        "value": "mystery - thriller"
+      },
+      {
+        "label": "গোয়েন্দা",
+        "value": "detective"
+      }
+    ],
+    "parts": ["121", "233", "444", "534"],
+    "description": "দীপ ছিল মধ্যবিত্ত পরিবারের একটি ছেলে। পরিবারে ছিল পাঁচ ভাই, এক বোন, মা, বাবা। প্রথম জীবন তার বাংলাদেশের খুলনা শহরে কাটে, সেখানে তারা বনেদী বংশ বলে পরিচিত ছিল। এবং সচ্ছল ও বিষয়ে সম্পত্তি ও তাদের ",
+    "author": [],
+    "name": "arman",
+    "username": "arman",
+    "reports": [
+      {
+        "id": "3",
+        "message": "Copied another story",
+        "reporter": "12"
+      }
+    ],
+    "blocked": [
+      {
+        "id": "12"
+      }
+    ],
+    "comments": [
+      {
+        "id": "3",
+        "comment": "Nice Story",
+        "author": "12"
+      }
+    ],
+    "published": {}
+  },
+  {
+    "id": "11",
+    "title": "কুইন্সির বিভীষিকা ও ভ্যাম্পায়াররাণী",
+    "read": [
+      {
+        "id": "1",
+        "name": "samrat",
+        "date": "1 day ago"
+      }
+    ],
+    "rating": [
+      {
+        "id": "1",
+        "name": "samrat",
+        "message": "nice story need improve",
+        "rating": "4 star",
+        "date": "1 day ago"
+      }
+    ],
+    "thumbnail": [
+      {
+        "id": "12",
+        "url": "https://static-assets.pratilipi.com/series/cover?seriesId=343767&version=2b2ffd70-361f-4af4-8a2a-be97edd73b2b"
+      }
+    ],
+    "cover": [
+      {
+        "id": "12",
+        "url": "https://static-assets.pratilipi.com/series/cover?seriesId=343767&version=2b2ffd70-361f-4af4-8a2a-be97edd73b2b"
+      }
+    ],
+    "subscribers": [
+      {
+        "id": "12",
+        "usernames": "samrat"
+      }
+    ],
+    "likes": [
+      {
+        "id": "12",
+        "usernames": "samrat"
+      }
+    ],
+    "tags": [
+      {
+        "label": "ভয়",
+        "value": "horror"
+      },
+      {
+        "label": "সাসপেন্স - থ্রিলার",
+        "value": "mystery - thriller"
+      },
+      {
+        "label": "গোয়েন্দা",
+        "value": "detective"
+      }
+    ],
+    "parts": ["121", "233", "444", "534"],
+    "description": "ছোট্ট শহর কুইন্সি। শান্ত জনপদ। কিন্তু আশেপাশে বড় কোন শহর নেই। একটানা একভাবে সবার জীবন চলে যাচ্ছিল। কিন্তু এই শহরেই আচমকা এক অবিশ্বাস্য ঘটনা শুরু হল",
+    "author": [],
+    "name": "arman",
+    "username": "arman",
+    "reports": [
+      {
+        "id": "3",
+        "message": "Copied another story",
+        "reporter": "12"
+      }
+    ],
+    "blocked": [
+      {
+        "id": "12"
+      }
+    ],
+    "comments": [
+      {
+        "id": "3",
+        "comment": "Nice Story",
+        "author": "12"
+      }
+    ],
+    "published": {}
+  },
+  {
+    "id": "12",
+    "title": "সত্যিই কি কেউ আসে",
+    "read": [
+      {
+        "id": "1",
+        "name": "samrat",
+        "date": "1 day ago"
+      }
+    ],
+    "rating": [
+      {
+        "id": "1",
+        "name": "samrat",
+        "message": "nice story need improve",
+        "rating": "4 star",
+        "date": "1 day ago"
+      }
+    ],
+    "thumbnail": [
+      {
+        "id": "12",
+        "url": "https://static-assets.pratilipi.com/series/cover?seriesId=267569&version=42876271-0a76-4514-bda1-54e4c5dbf53d"
+      }
+    ],
+    "cover": [
+      {
+        "id": "12",
+        "url": "https://static-assets.pratilipi.com/series/cover?seriesId=267569&version=42876271-0a76-4514-bda1-54e4c5dbf53d"
+      }
+    ],
+    "subscribers": [
+      {
+        "id": "12",
+        "usernames": "samrat"
+      }
+    ],
+    "likes": [
+      {
+        "id": "12",
+        "usernames": "samrat"
+      }
+    ],
+    "tags": [
+      {
+        "label": "ভয়",
+        "value": "horror"
+      },
+      {
+        "label": "সাসপেন্স - থ্রিলার",
+        "value": "mystery - thriller"
+      },
+      {
+        "label": "গোয়েন্দা",
+        "value": "detective"
+      }
+    ],
+    "parts": ["121", "233", "444", "534"],
+    "description": "তাড়াতাড়ি কিছু  একটা করো জয়। নন্দিনীকে আমি আর সামলাতে পারছি না। দেখতে দেখতে প্রায় এক বছর হতে চলল, কিন্তু আমার ছোট্ট মেয়েটা কেমন আছে সেটাও জানতে পারছি না আমরা ... দেখ রুদ্র , আমি যথাসাধ্য",
+    "author": [],
+    "name": "arman",
+    "username": "arman",
+    "reports": [
+      {
+        "id": "3",
+        "message": "Copied another story",
+        "reporter": "12"
+      }
+    ],
+    "blocked": [
+      {
+        "id": "12"
+      }
+    ],
+    "comments": [
+      {
+        "id": "3",
+        "comment": "Nice Story",
+        "author": "12"
+      }
+    ],
+    "published": {}
+  },
+  {
+    "id": "13",
+    "title": "নূপুরের আওয়াজ",
+    "read": [
+      {
+        "id": "1",
+        "name": "samrat",
+        "date": "1 day ago"
+      }
+    ],
+    "rating": [
+      {
+        "id": "1",
+        "name": "samrat",
+        "message": "nice story need improve",
+        "rating": "4 star",
+        "date": "1 day ago"
+      }
+    ],
+    "thumbnail": [
+      {
+        "id": "12",
+        "url": "https://static-assets.pratilipi.com/series/cover?seriesId=529290&version=7d8e1898-d6b8-46eb-9b20-fe07a8a0649c"
+      }
+    ],
+    "cover": [
+      {
+        "id": "12",
+        "url": "https://static-assets.pratilipi.com/series/cover?seriesId=529290&version=7d8e1898-d6b8-46eb-9b20-fe07a8a0649c"
+      }
+    ],
+    "subscribers": [
+      {
+        "id": "12",
+        "usernames": "samrat"
+      }
+    ],
+    "likes": [
+      {
+        "id": "12",
+        "usernames": "samrat"
+      }
+    ],
+    "tags": [
+      {
+        "label": "ভয়",
+        "value": "horror"
+      },
+      {
+        "label": "সাসপেন্স - থ্রিলার",
+        "value": "mystery - thriller"
+      },
+      {
+        "label": "গোয়েন্দা",
+        "value": "detective"
+      }
+    ],
+    "parts": ["121", "233", "444", "534"],
+    "description": "দরজাটা খুলতেই একগাল হাসির সাথে বাড়ির ভেতরে প্রবেশ করলো গৌতম ।। মা: কী ব্যাপার আজ এত খুশি কেনো?? গৌতম: কী বলছো মা?? খুশি হবো না?? এখনই তো খুশি হওয়ার সময়।। মা: হেঁয়ালি করিস না বাবু।। সত্যি ",
+    "author": [],
+    "name": "arman",
+    "username": "arman",
+    "reports": [
+      {
+        "id": "3",
+        "message": "Copied another story",
+        "reporter": "12"
+      }
+    ],
+    "blocked": [
+      {
+        "id": "12"
+      }
+    ],
+    "comments": [
+      {
+        "id": "3",
+        "comment": "Nice Story",
+        "author": "12"
+      }
+    ],
+    "published": {}
+  },
+  {
+    "id": "13",
+    "title": "কালরাত্রি",
+    "read": [
+      {
+        "id": "1",
+        "name": "samrat",
+        "date": "1 day ago"
+      }
+    ],
+    "rating": [
+      {
+        "id": "1",
+        "name": "samrat",
+        "message": "nice story need improve",
+        "rating": "4 star",
+        "date": "1 day ago"
+      }
+    ],
+    "thumbnail": [
+      {
+        "id": "12",
+        "url": "https://static-assets.pratilipi.com/series/cover?seriesId=297564&version=eae32cca-4fbe-4e93-816c-a348fd208ec4"
+      }
+    ],
+    "cover": [
+      {
+        "id": "12",
+        "url": "https://static-assets.pratilipi.com/series/cover?seriesId=297564&version=eae32cca-4fbe-4e93-816c-a348fd208ec4"
+      }
+    ],
+    "subscribers": [
+      {
+        "id": "12",
+        "usernames": "samrat"
+      }
+    ],
+    "likes": [
+      {
+        "id": "12",
+        "usernames": "samrat"
+      }
+    ],
+    "tags": [
+      {
+        "label": "ভয়",
+        "value": "horror"
+      },
+      {
+        "label": "সাসপেন্স - থ্রিলার",
+        "value": "mystery - thriller"
+      },
+      {
+        "label": "গোয়েন্দা",
+        "value": "detective"
+      }
+    ],
+    "parts": ["121", "233", "444", "534"],
+    "description": "কালরাত্রিদেবালোক, মানস ও অনীকের খ্যাতি প্রথম হাড়ের কেসের সাফল্যের পর বেশ ছড়িয়ে গেছে। যদিও ওরা আর এসব ঝুটঝামেলায় থাকতে চায়না, কিন্তু যখন পাশের অন্য একটি মেডিকেল কলেজের প্রিন্সিপাল স্যার ওদের ডেকে পাঠায়",
+    "author": [],
+    "name": "arman",
+    "username": "arman",
+    "reports": [
+      {
+        "id": "3",
+        "message": "Copied another story",
+        "reporter": "12"
+      }
+    ],
+    "blocked": [
+      {
+        "id": "12"
+      }
+    ],
+    "comments": [
+      {
+        "id": "3",
+        "comment": "Nice Story",
+        "author": "12"
+      }
+    ],
+    "published": {}
+  },
+  {
+    "id": "14",
+    "title": "গ্যাংস্টার",
+    "read": [
+      {
+        "id": "1",
+        "name": "samrat",
+        "date": "1 day ago"
+      }
+    ],
+    "rating": [
+      {
+        "id": "1",
+        "name": "samrat",
+        "message": "nice story need improve",
+        "rating": "4 star",
+        "date": "1 day ago"
+      }
+    ],
+    "thumbnail": [
+      {
+        "id": "12",
+        "url": "https://static-assets.pratilipi.com/series/cover?seriesId=55102&version=f9e4e19f-7300-4e9a-b44e-290ce0da6017"
+      }
+    ],
+    "cover": [
+      {
+        "id": "12",
+        "url": "https://static-assets.pratilipi.com/series/cover?seriesId=55102&version=f9e4e19f-7300-4e9a-b44e-290ce0da6017"
+      }
+    ],
+    "subscribers": [
+      {
+        "id": "12",
+        "usernames": "samrat"
+      }
+    ],
+    "likes": [
+      {
+        "id": "12",
+        "usernames": "samrat"
+      }
+    ],
+    "tags": [
+      {
+        "label": "ভয়",
+        "value": "horror"
+      },
+      {
+        "label": "সাসপেন্স - থ্রিলার",
+        "value": "mystery - thriller"
+      },
+      {
+        "label": "গোয়েন্দা",
+        "value": "detective"
+      }
+    ],
+    "parts": ["121", "233", "444", "534"],
+    "description": "পর্ব-০১ আজ আমার জীবনের অনেক গুরুত্বপূর্ণ একটা দিন কারন আজ আমার বিয়ে।পার্লারে বসে আছি আর দুজন মহিলা আমার সাজগোজ নিয়ে খুব ব্যস্ত।যদিও পার্লারে সাজগোজের কোন ইচ্ছেই আমার ছিলনা কিন্তু মিতুর জোরেই আসা",
+    "author": [],
+    "name": "arman",
+    "username": "arman",
+    "reports": [
+      {
+        "id": "3",
+        "message": "Copied another story",
+        "reporter": "12"
+      }
+    ],
+    "blocked": [
+      {
+        "id": "12"
+      }
+    ],
+    "comments": [
+      {
+        "id": "3",
+        "comment": "Nice Story",
+        "author": "12"
+      }
+    ],
+    "published": {}
+  }
+]

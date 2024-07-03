@@ -8,7 +8,7 @@ export const storiesSlice = createSlice({
     "rating":"",
     "thumbnail":"",
     "cover":"",
-    "subsceribers":[],
+    "subscribers":[],
     "likes":[],
     "tags":[],
     "parts":[],
@@ -19,7 +19,6 @@ export const storiesSlice = createSlice({
     "comments":[],
     "published":0
   },
-  
   reducers: {
     createStory: (state,action) => {
        console.log(action.payload)

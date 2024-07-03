@@ -5,10 +5,10 @@ const token = typeof window !== 'undefined' && localStorage.getItem('token')
 
 const storyApi= createApi({
     reducerPath:'story',
-    baseQuery: fetchBaseQuery({baseUrl:'https://jsonplaceholder.typicode.com'}),
+    baseQuery: fetchBaseQuery({baseUrl:'/'}),
     endpoints:(builder) => ({
         getStory:builder.query({
-            query:(query)=> query,
+            query:(query)=> '/jsons/fake-story.json',
         }),
     }),
 })
