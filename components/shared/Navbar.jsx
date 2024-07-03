@@ -18,7 +18,6 @@ function Navbar() {
   const [showSearch, setShowSearch] = useState(false);
   // user
   const user = useSelector((state) => state.user);
-  console.log(user, "user");
   // input change
   const [input, setInput] = useState("");
 

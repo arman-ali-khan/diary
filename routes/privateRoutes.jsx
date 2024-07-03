@@ -1,12 +1,12 @@
 import Spinner from "@/components/Spinner/Spinner";
-import useGetUser from "@/hooks/useGetUser";
 import { useRouter } from "next/router";
+import { useSelector } from "react-redux";
 
 const PrivateRoutes = ({ children }) => {
   const router = useRouter();
   const token = typeof window !== "undefined" && localStorage.getItem("token");
-  const [user, error, loading, isSuccess] = useGetUser();
-  if (loading) {
+  const user = useSelector((state) => state.user);
+  if (user?.isLoading||!user?.email) {
     return <Spinner />;
   }
 
