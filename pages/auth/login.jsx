@@ -20,13 +20,11 @@ const login =  () =>{
         formState: { errors },
       } = useForm()
 
-
       const [loginUser,{isError,isLoading,isSuccess,data:result,error}] = useLoginUserMutation()
       const handleLogin = (data) =>{
-      
           loginUser(data).then(res=>{
           localStorage.setItem("token", res?.data?.token);
-          if(localStorage.getItem('token')!=='undefined'){
+          if(localStorage.getItem('token')!=='undefined'&& res?.data?.token){
             router.push('/')
           }
         })
@@ -41,7 +39,6 @@ const login =  () =>{
             <input placeholder="Password" {...register('password',{required:true})} className="input rounded-full input-bordered md:w-96 z-30 input-sm" type={showPassword ? 'text':'password'} />
             <span onClick={()=>setShowPassword(!showPassword)} className="px-2 z-40 absolute right-3">{!showPassword ? <IoMdEye />:<IoMdEyeOff />}</span>
             </div>
-
             <div className="flex items-center gap-2">Don't have any account?<Link  className='hover:underline duration-300 text-blue-500 hover:text-blue-600' href="/auth/get-start">Register</Link></div>
             <button className="bg-gradient duration-300 text-white px-4 py-2 gap-3 rounded-full flex items-center justify-center">{isLoading ? <span className='animate-spin'><CgSpinner /></span>:''}{isSuccess?'Logged':isError?'Try again':'Login'}</button>
            <div className="flex items-center gap-3 "> {error?.data?.message}

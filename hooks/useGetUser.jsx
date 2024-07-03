@@ -1,28 +1,38 @@
-import { useGetUserByTokenMutation } from "@/redux/features/api/baseApi";
+import { setUser } from "@/redux/features/usersSlice";
 import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 
 const useGetUser = () => {
-  const [user, setUser] = useState();
-  const [loading,setLoading] = useState(true)
-  const [getUserByToken, { isError, isLoading, isSuccess }] = useGetUserByTokenMutation();
+  const [loading,setLoading] = useState(false)
+  const [error,setError] = useState(null)
+  const user =''
+  const [isSuccess,setIsSuccess] = useState(false)
+  const dispatch = useDispatch()
 
-  const handleGetUser = async () => {
-    setLoading(true)
-    try {
-      const res = await getUserByToken();
-      setUser(res?.data);
-      setLoading(false)
-    } catch (error) {
-      console.error("Failed to fetch user:", error);
-      setLoading(false)
-    }
-  };
+  const token = typeof window !== 'undefined' && localStorage.getItem('token')
 
-  useEffect(() => {
-    handleGetUser();
-  }, []);
+    useEffect(()=>{
+      dispatch(setUser({isLoading:true}))
+      fetch(`${process.env.NEXT_PUBLIC_BASE_API}/users/token`,{
+        method: 'POST',
+          headers: {'Content-Type':'application/json',Authorization:`Bearer ${token}`}
+        })
+        .then(res=> res.json())
+        .then(data => {
+          if(data?.email){
+            dispatch(setUser(data))
+            dispatch(setUser({...data,error:data?.error}))
+            dispatch(setUser({...data,isSuccess:true}))
+          }
+          dispatch(setUser({...data,isLoading:false}))
+        }).catch(err=>{
+          console.error(err);
+          dispatch(setUser({...data,isLoading:false}))
+          dispatch(setUser({...data,isSuccess:false}))
+        })
+    },[token])
 
-  return [user, isError, isLoading,loading, isSuccess];
+  return [user, error, loading, isSuccess];
 };
 
 export default useGetUser;

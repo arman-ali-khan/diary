@@ -19,6 +19,9 @@ export const usersSlice = createSlice({
     work:"",
     education:"",
     createdAt:"",
+    isLoading:false,
+    isSuccess:false,
+    error:null,
   },
   
   reducers: {
@@ -44,6 +47,9 @@ export const usersSlice = createSlice({
       state.email=action.payload?.email,
       state.phone=action.payload?.phone,
       state.gender=action.payload?.gender
+      state.isSuccess=action.payload?.isSuccess
+      state.isLoading=action.payload?.isLoading
+      state.error=action.payload?.error
     }
   },
 })

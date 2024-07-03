@@ -33,7 +33,7 @@ function Footer() {
                 type="text"
                 placeholder="username@site.com"
                 className="input w-full input-bordered join-item" />
-              <button className="btn btn-primary join-item">Subscribe</button>
+              <button className="btn bg-gradient text-white join-item">Subscribe</button>
             </div>
           </fieldset>
         </form>

@@ -14,11 +14,13 @@ const router = useRouter()
 
 const {tab} = router.query
 const userId = router.asPath.split('/')[2]?.split('?')[0]
-console.log(tab,'tab')
+
 
   const [info,setInfo] = useState('story')
+
+
     return (
-        <Layout>
+        <Layout title={'User'}>
   <section className="relative block h-[300px]">
     <div className="absolute top-0 w-full h-full bg-center bg-cover" style={{
             backgroundImage: "url('https://images.unsplash.com/photo-1499336315816-097655dcfbda?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=2710&amp;q=80')"}}>

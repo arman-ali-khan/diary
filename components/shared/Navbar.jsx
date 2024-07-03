@@ -1,21 +1,32 @@
-import useGetUser from "@/hooks/useGetUser";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { useState } from "react";
 import { BsSearch } from "react-icons/bs";
 import { CgClose } from "react-icons/cg";
 import { CiCirclePlus } from "react-icons/ci";
 import { FaBangladeshiTakaSign } from "react-icons/fa6";
+import { useSelector } from "react-redux";
 import Search from "../Sections/Search/Search";
 import SearchResults from "../Sections/Search/SearchResults";
 import Drawer from "./Drawer";
 import SearchModal from "./SearchModal";
 
 function Navbar() {
+  // router
+  const router = useRouter();
+  // show search
   const [showSearch, setShowSearch] = useState(false);
   // user
-  const [user, isError, isLoading, isSuccess] = useGetUser();
+  const user = useSelector((state) => state.user);
+  console.log(user, "user");
   // input change
   const [input, setInput] = useState("");
+
+  // handleLogout
+  const handleLogout = () => {
+    typeof window !== "undefined" && localStorage.removeItem("token");
+    router.reload();
+  };
   return (
     <>
       <div className="navbar !min-h-12 shadow-lg !my-0 sticky top-0 w-full !py-0 z-[1250] bg-base-100">
@@ -127,47 +138,70 @@ function Navbar() {
           </ul>
         </div>
         <div className="navbar-end gap-1 md:gap-3">
-          {user?.username ? (
-            <>
-              <div className="flex items-center gap-1 md:gap-3">
-                <Link
-                  href={"/create"}
-                  className="bg-gradient fixed bottom-14 right-3 sm:relative sm:right-0 sm:bottom-0 ml-1 text-white sm:px-4 sm:py-1 rounded-full"
-                >
-                  <p className="hidden sm:block"> লিখুন</p>
-                  <p className="sm:hidden p-1 text-3xl">
-                    {" "}
-                    <CiCirclePlus />
-                  </p>
-                </Link>
-                <div className="w-fit flex items-center justify-center h-6 text-white rounded-full p-0.5">
-                  <div className="bg-gradient z-30 w-fit flex items-center justify-center gap-1 h-12 rounded-full p-0.5">
-                    <Link className="rounded-full w-12 h-12" href={`/user/12`}>
-                      <img
-                        className="rounded-full w-12 h-12"
-                        src="https://vojislavd.com/ta-template-demo/assets/img/profile.jpg"
-                        alt=""
-                      />
+          {!user?.isLoading ? (
+            user?.email ? (
+              <>
+                <div className="flex items-center gap-1 md:gap-3">
+                  <Link
+                    href={"/create"}
+                    className="bg-gradient fixed bottom-14 right-3 sm:relative sm:right-0 sm:bottom-0 ml-1 text-white sm:px-4 sm:py-1 rounded-full"
+                  >
+                    <p className="hidden sm:block"> লিখুন</p>
+                    <p className="sm:hidden p-1 text-3xl">
+                      {" "}
+                      <CiCirclePlus />
+                    </p>
+                  </Link>
+                  <div className="w-fit flex items-center justify-center h-6 rounded-full p-0.5">
+                    <div className="dropdown z-30  dropdown-bottom">
+                      <div
+                        tabIndex={0}
+                        className="bg-gradient z-30 w-fit flex items-center justify-center gap-1 h-12 rounded-full p-0.5"
+                      >
+                        <a className="rounded-full w-12 h-12">
+                          <img
+                            className="rounded-full w-12 h-12"
+                            src="https://vojislavd.com/ta-template-demo/assets/img/profile.jpg"
+                            alt=""
+                          />
+                        </a>
+                      </div>
+                      <ul
+                        tabIndex={0}
+                        className="dropdown-content menu bg-base-100 rounded-box border z-[1] w-fit p-2 shadow"
+                      >
+                        <li>
+                          <Link href={"/user/12"}>User</Link>
+                        </li>
+                        <li>
+                          <Link href={"/settings"}>Settings</Link>
+                        </li>
+                        <li>
+                          <button onClick={() => handleLogout()}>Logout</button>
+                        </li>
+                      </ul>
+                    </div>
+
+                    <Link
+                      href={`/user/${user?.id || 12}/balance`}
+                      className="pr-2 bg-gradient text-xs rounded-r-full text-white py-1 pl-3 -ml-2 z-10 sm:text-sm font-bold flex items-center"
+                    >
+                      <FaBangladeshiTakaSign />
+                      1000
                     </Link>
                   </div>
-                  <Link
-                    href={`/user/${user?.id || 12}/balance`}
-                    className="pr-2 bg-gradient text-xs rounded-r-full py-1 pl-3 -ml-2 z-10 sm:text-sm font-bold flex items-center"
-                  >
-                    {" "}
-                    <FaBangladeshiTakaSign />
-                    1000
-                  </Link>
                 </div>
-              </div>
-            </>
+              </>
+            ) : (
+              <Link
+                href={"/auth/login"}
+                className="bg-gradient text-white px-4 py-1 rounded-full"
+              >
+                Login
+              </Link>
+            )
           ) : (
-            <Link
-              href={"/auth/login"}
-              className="bg-gradient text-white px-4 py-1 rounded-full"
-            >
-              Login
-            </Link>
+            <div className="h-5 w-5 rounded-full border-2 border-dashed animate-spin border-base-content"></div>
           )}
 
           <button
