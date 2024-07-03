@@ -22,7 +22,7 @@ function Story({story}) {
         </figure></Link>
         <div className="card-body w-full truncate mt-1 !p-0 mb-2 !gap-0">
           <Link className="truncate" href={`/story/12`}>
-          <p style={{lineHeight:'22px',marginTop:'5px'}} data-tip={story?.title} className="card-title !block w-full truncate justify-start text-left text-sm py-0 sm:text-base md:text-lg lg:text-lg !px-2 !m-0">{`${story?.title||'Story Title'}`}</p>
+          <p style={{lineHeight:'22px',marginTop:'5px'}} data-tip={story?.title} className="card-title !block w-full truncate justify-start text-left text-sm py-0 sm:text-base md:text-lg tooltip lg:text-lg !px-2 !m-0">{`${story?.title||'Story Title'}`}</p>
           </Link>
           <div className="flex text-base-content items-center justify-between w-full text-center">
           <p className="text-xs py-0 sm:text-base md:text-sm lg:text-sm !px-1 !m-0">13 ঘণ্টা</p>

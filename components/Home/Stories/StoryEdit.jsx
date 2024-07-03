@@ -10,11 +10,15 @@ function StoryEdit({story}) {
   <div className="card card-compact border rounded-lg w-full shadow-xl">
   <Link href={`/create/story/123`} className="rounded-t-lg overflow-hidden">
     <figure>
-      <img
-      className="h-44 sm:h-56 md:h-72 object-cover w-full"
-        src={story?.thumbnailUrl}
-        alt={story?.title}
-      />
+    {
+          story?.thumbnail?.map(thumbnail=>{
+            return <img key={thumbnail?.id}
+          className="h-44 sm:h-56 md:h-72 object-cover w-full"
+            src={thumbnail?.url}
+            alt={story?.title}
+          />
+          })
+        }
     </figure></Link>
     <div className="card-body mt-1 !p-0 mb-2 !gap-0">
       <Link className="truncate" href={`/create/story/123`}>

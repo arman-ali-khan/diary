@@ -4,6 +4,7 @@ import UserEdit from "@/components/Users/UserEdit";
 import UserFollow from "@/components/Users/UserFollow";
 import UserInfo from "@/components/Users/UserInfo";
 import UserStories from "@/components/Users/UserStories";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
 
@@ -71,6 +72,9 @@ const userId = router.asPath.split('/')[2]?.split('?')[0]
           </div>
           <section className="flex flex-col max-w-96 mx-auto text-center justify-center">
           <h2 className="text-3xl flex justify-center font-bold">Hello Name</h2>
+          <div className="rounded-full bg-gradient w-fit p-0.5 mx-auto my-4">
+          <Link className="px-4 py-1 rounded-full bg-base-100 w-fit flex justify-center mx-auto" href={'/user/12/balance'}>Balance: 123</Link>
+          </div>
           <p className="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet praesentium illum quasi, et molestiae aliquam nostrum quidem magni perspiciatis eius beatae voluptates quae iure sunt. Commodi mollitia quis voluptates voluptatum?</p>
           </section>
           <section className="text-center gap-2 mt-12">

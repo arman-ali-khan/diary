@@ -10,8 +10,15 @@ const storyApi= createApi({
         getStory:builder.query({
             query:(query)=> '/jsons/fake-story.json',
         }),
+        createStory:builder.mutation({
+            query:(part)=>({
+                url:`${process.env.NEXT_PUBLIC_BASE_API}/api/story/part`,
+                method:`POST`,
+                body:part
+            })
+        }),
     }),
 })
 
-export const {useGetStoryQuery}=storyApi
+export const {useGetStoryQuery,useCreateStoryMutation}=storyApi
 export default storyApi

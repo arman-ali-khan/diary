@@ -11,6 +11,7 @@ export const storiesSlice = createSlice({
     "subscribers":[],
     "likes":[],
     "tags":[],
+    "categories":[],
     "parts":[],
     "description":"",
     "author":[],
@@ -21,8 +22,13 @@ export const storiesSlice = createSlice({
   },
   reducers: {
     createStory: (state,action) => {
-       console.log(action.payload)
+       state.title = action.payload?.title
+       state.description = action.payload?.description
+       state.categories = action.payload?.categories
+       state.tags = action.payload?.tags
+       state.parts = action.payload?.parts
     },
+
     updateStory: (state,action) => {
         console.log(action.payload)
     },

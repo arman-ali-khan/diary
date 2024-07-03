@@ -125,7 +125,7 @@ console.log(location,'location')
 
 
         <div className="form-control flex items-end justify-center w-full mt-6">
-          <button className="px-4 py-2 bg-gradient rounded-full w-44">Update</button>
+          <button className="px-4 py-2 bg-gradient rounded-full text-white w-44">Update</button>
         </div>
       </form>
       </div>
