@@ -1,6 +1,11 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 const Pricing = () => {
+  const router= useRouter()
+  // get story id
+  const id = router.asPath
+  console.log(id,'asPatch');
   return (
     <section
         class="
@@ -11,7 +16,7 @@ const Pricing = () => {
        overflow-hidden
        "
       >
-        <div class="">
+        <div class="w-full">
           <div class="flex flex-wrap -mx-4">
             <div class="w-full px-4">
               <div class="text-center mx-auto mb-[60px] lg:mb-20 max-w-[510px]">
@@ -34,9 +39,9 @@ const Pricing = () => {
               </div>
             </div>
           </div>
-          <div class="flex flex-wrap md:flex-nowrap justify-center -mx-4">
+          <div class="grid w-full grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center -mx-4">
             {/* Personal */}
-            <div class="w-1/2 sm:w-56 md:w-72 lg:w-72 md:px-4">
+            <div class="w-full md:px-4">
               <div
                 class="
                    bg-base-100
@@ -98,7 +103,7 @@ const Pricing = () => {
                   </p>
                 </div>
                 <Link
-                  href="/payment?sub=personal"
+                  href={`/payment?sub=personal?next=${id}`}
                   class="
                       w-full
                       block font-semibold
@@ -126,7 +131,7 @@ const Pricing = () => {
               </div>
             </div>
             {/* family */}
-            <div class="w-1/2 sm:w-56 md:w-72 lg:w-72 sm:px-4">
+            <div class="w-full sm:px-4">
               <div
                 class="
                    bg-base-100
@@ -188,7 +193,7 @@ const Pricing = () => {
                   </p>
                 </div>
                 <Link
-                  href="/payment?sub=personal"
+                  href={`/payment?sub=personal?next=${id}`}
                   class="
                       w-full
                       block font-semibold
@@ -216,7 +221,7 @@ const Pricing = () => {
               </div>
             </div>
             {/* enterprise */}
-            <div class="w-full sm:w-56 md:w-72 lg:w-72 sm:px-4">
+            <div class="w-full sm:px-4">
               <div
                 class="
                    bg-base-100
@@ -278,7 +283,7 @@ const Pricing = () => {
                   </p>
                 </div>
                 <Link
-                  href="/payment?sub=personal"
+                  href={`/payment?sub=personal?next=${id}`}
                   class="
                       w-full
                       block font-semibold

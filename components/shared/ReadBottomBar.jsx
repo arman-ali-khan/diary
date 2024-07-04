@@ -1,5 +1,6 @@
 import { TbPremiumRights } from "react-icons/tb";
 import { TiArrowBackOutline, TiArrowForwardOutline } from "react-icons/ti";
+import PricingModal from "./PricingModal";
 
 function ReadBottomBar() {
   return (
@@ -17,11 +18,12 @@ function ReadBottomBar() {
             <TiArrowForwardOutline className="" size={24} />
           </button>
           {/* Premium btn */}
-          <button className="text-right bg-gradient text-white px-2 py-1 rounded-full flex truncate items-center gap-1">
+          <button onClick={()=>document.getElementById('pricing').showModal()} className="text-right bg-gradient text-white px-2 py-1 rounded-full flex truncate items-center gap-1">
             প্যাকেজ কিনুন <TbPremiumRights className="" size={24} />
           </button>
         </div>
       </div>
+      <PricingModal />
     </div>
   );
 }

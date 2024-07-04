@@ -2,6 +2,7 @@ import Layout from "@/Layout/Layout";
 import Card from "@/components/Home/Stories/Card";
 import Footer from "@/components/shared/Footer";
 import { convertToBengaliNumber } from "@/lib/convertToBengaliNumber";
+import { useGetStoryQuery } from "@/redux/features/api/storyApi";
 import { increment } from "@/redux/features/subscribeSlice";
 import Link from "next/link";
 import { useState } from "react";
@@ -37,7 +38,7 @@ function storyId() {
     };
     dispatch(increment(subscribeData));
   };
-
+  const {isError,isFetching,isLoading,isSuccess,data:stories,error} = useGetStoryQuery()
   return (
     <Layout title="অঘোর তান্ত্রিকের অঘোর তান্ত্রিকের অভিশাপ খন্ডনের কাহিনি || Diary">
       <section className="md:p-5 mx-auto relative h-56 rounded-t-xl bg-[darkblue]">
@@ -266,8 +267,8 @@ function storyId() {
             <div className="h-16 bg-base-100 w-full"></div>
             <div className="mx-auto py-4 space-y-6 px-2 lg:px-10 lg:rounded-md bg-base-200 w-full">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-2 2xl:grid-cols-3">
-                {[...Array(12).keys()]?.map((i, part) => {
-                  return <Card i={i} key={i} />;
+                {stories?.map((part,i) => {
+                  return <Card part={part} key={i} />;
                 })}
               </div>
             </div>
