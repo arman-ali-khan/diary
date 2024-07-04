@@ -41,14 +41,14 @@ function storyId() {
   const {isError,isFetching,isLoading,isSuccess,data:stories,error} = useGetStoryQuery()
   return (
     <Layout title="অঘোর তান্ত্রিকের অঘোর তান্ত্রিকের অভিশাপ খন্ডনের কাহিনি || Diary">
-      <section className="md:p-5 mx-auto relative h-56 rounded-t-xl bg-[darkblue]">
+      <section className="md:p-5 mx-auto relative rounded-t-xl bg-[darkblue]">
           {/* <span className="h-1/2 bg-[darkblue] w-full absolute -z-20"></span> */}
           <div className="flex flex-col mx-auto overflow-hidden rounded-xl">
             <div className="w-full bg-base-300 md:flex p-3 justify-between flex-row-reverse">
               <div className="md:min-w-56 w-full md:max-w-60 md:ml-4 h-96 relative">
                 <img
                   className="h-full rounded-xl object-cover w-full"
-                  src="https://static-assets.pratilipi.com/pratilipi_premium/data/309871/cover_image/309871.jpg"
+                  src="https://static-assets.pratilipi.com/series/cover?seriesId=450620&version=888119ad-3e2a-4cef-b79d-20cdbe7a872b"
                   alt=""
                 />
                 <div className="absolute bottom-0 md:hidden right-0">
