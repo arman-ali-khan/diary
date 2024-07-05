@@ -1,12 +1,13 @@
 import { useCreatePartStoryMutation } from "@/redux/features/api/storyApi";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 
 
 const ModalNewPart = ({storyId,refetch}) => {
 //  react hook form
-const {handleSubmit,register} = useForm()
+const {handleSubmit,register,reset} = useForm()
+const buttonRef = useRef(null);
 
 // disabled btn
 const [isDisabled,setIsDisabled] = useState(false)
@@ -19,18 +20,24 @@ const [isDisabled,setIsDisabled] = useState(false)
   // post data'
   const [createNewPard,{isError,isLoading,isSuccess,data}] = useCreatePartStoryMutation()
 
-  const dialog = typeof window !== 'undefined' && document.getElementById('create_part_modal');
 
     const handleCreatePart = async (data) =>{
       setIsDisabled(true)
       const partData = {...data,storyId}
          await createNewPard(partData)
         .then(res=>{
+          // close modal
           if(res?.data){
-            dialog.removeAttribute('open');
+            if (buttonRef.current) {
+              buttonRef.current.click();
+            }
             refetch()
+            reset()
             setIsDisabled(false)
           }
+        })
+        .catch(err=>{
+          setIsDisabled(false)
         })
     }
     return (
@@ -38,7 +45,7 @@ const [isDisabled,setIsDisabled] = useState(false)
         <div className="modal-box">
           <form method="dialog">
             {/* if there is a button in form, it will close the modal */}
-            <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
+            <button ref={buttonRef} className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
               ✕
             </button>
           </form>

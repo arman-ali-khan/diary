@@ -9,6 +9,7 @@ import {
 } from "@/redux/features/api/storyApi";
 import { updateSiteState } from "@/redux/features/siteSlice";
 import { createStory } from "@/redux/features/storiesSlice";
+import Head from "next/head";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { BsCheck2, BsUpload } from "react-icons/bs";
@@ -58,7 +59,8 @@ function partId() {
     refetch,
     isFetching: isFetchingStory,
   } = useGetStoryByIdQuery(storyId);
-  console.log(storyData, "storyData");
+  
+
   useEffect(() => {
     dispatch(createStory(storyData));
   }, [storyData]);
@@ -73,7 +75,7 @@ function partId() {
   };
   return (
     <section className="container mx-auto">
-      <title>Create Story</title>
+      <Head><title>Create Story</title></Head>
       <PostHeader
         setWriteSummary={setWriteSummary}
         setWriteTitle={setWriteTitle}
@@ -154,7 +156,7 @@ function partId() {
                     data-tip="Double click to edit"
                     style={{ height }}
                     onDoubleClick={() => setWriteSummary(true)}
-                    className="px-3 h-fit border py-2 rounded-md min-h-44 sm:tooltip tooltip-top text-left cursor-pointer text-sm text-white disabled:text-white"
+                    className="px-3 h-fit border py-2 rounded-md min-h-44 max-h-44 overflow-hidden overflow-ellipsis sm:tooltip tooltip-top text-left cursor-pointer text-sm text-white disabled:text-white"
                   >
                     {story?.description || "গল্পের Description"}
                   </p>
@@ -218,15 +220,16 @@ function partId() {
           </div>
           <div className="flex justify-end my-3 w-full">
             {/* You can open the modal using document.getElementById('ID').showModal() method */}
-            <button
+            {
+              storyData && <button
               className="px-4 py-2 bg-gradient text-white font-bold rounded-full w-fit"
               onClick={() =>
                 document.getElementById("create_part_modal").showModal()
               }
             >
-              {" "}
               Create New Part
             </button>
+            }
           </div>
           {storyData?.parts ? (
             <section className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-1 my-4 w-full">
