@@ -29,6 +29,7 @@ export const storiesSlice = createSlice({
        state.tags = action.payload?.tags
        state.parts = action.payload?.parts
        state.published = action.payload?.published
+       state.thumbnail = action.payload?.thumbnail
     },
 
     updateStory: (state,action) => {

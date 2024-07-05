@@ -3,9 +3,9 @@ import StoryEdit from "@/components/Home/Stories/StoryEdit";
 import SkeletonStory from "@/components/Spinner/SkeletonStory";
 import Spinner from "@/components/Spinner/Spinner";
 import useGetUser from "@/hooks/useGetUser";
-import { useGetStoryQuery } from "@/redux/features/api/storyApi";
+import { useGetStoriesQuery, useGetStoryQuery } from "@/redux/features/api/storyApi";
 import PrivateRoutes from "@/routes/privateRoutes";
-import Link from "next/link";
+import generateRandomId from "@/utils/randomId";
 import { FaPlus } from "react-icons/fa";
 
 function index() {
@@ -19,6 +19,16 @@ function index() {
   } = useGetStoryQuery("/photos");
   // get user
   const [user, isLoadingUser, isSuccessUser] = useGetUser();
+
+  
+  // create new story id and go to new story route
+  const handleCreateStory = () =>{
+    const id = generateRandomId()
+     router.push(`/create/story/${id}`)
+   }
+
+   // get all storis
+   const {isLoading:isLoadingStories,isSuccess:isSuccessStories,data:storiesData} = useGetStoriesQuery()
   return (
       <Layout title={"Create"}>
     <PrivateRoutes>
@@ -32,9 +42,9 @@ function index() {
               {/* post box */}
               <section className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
                 <div className="card-container flex justify-center items-center w-full relative rounded-t-lg overflow-hidden">
-                  <Link
+                  <a
                     className="card card-compact border rounded-lg w-full flex flex-col justify-center items-center h-full shadow-xl"
-                    href={"/create/story/123"}
+                    onClick={()=>handleCreateStory()}
                   >
                     <img
                       className="h-44 opacity-0 sm:h-56 md:h-72 object-cover w-full"
@@ -46,29 +56,17 @@ function index() {
                       <FaPlus size={55} />
                       <p>নতুন গল্প</p>
                     </div>
-                  </Link>
+                  </a>
                 </div>
-                {isFetching
-                  ? [...Array(6).keys()]?.map((i) => {
+                {isLoadingStories
+                  ? [...Array(4).keys()]?.map((i) => {
                       return <SkeletonStory />;
                     })
-                  : stories?.slice(0, 4)?.map((story, i) => {
+                  : storiesData?.map((story, i) => {
                       return <StoryEdit story={story} key={i} />;
                     })}
               </section>
             </div>
-            {/* aside */}
-            {/* <aside className="w-96 max-w-fit min-w-56 space-y-2 h-fit px-4 md:px-2 ">
-               <StoryPart />
-               <div className="w-full rounded-md border border-zinc-400 p-2">
-                 <button
-                   onClick={() => handleCreateNewPart()}
-                   className="font-bold w-full py-2 text-center flex justify-center items-center gap-2"
-                 >
-                   <FaPlus /> নতুন পর্ব তৈরি করুন
-                 </button>
-               </div>
-             </aside> */}
           </div>
         </section>
        }

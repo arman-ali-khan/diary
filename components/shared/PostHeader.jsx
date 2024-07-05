@@ -4,6 +4,7 @@ import { createStory } from "@/redux/features/storiesSlice";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
+import { BsReply } from "react-icons/bs";
 import { IoSaveOutline } from "react-icons/io5";
 import { LuPencilLine } from "react-icons/lu";
 import { useDispatch, useSelector } from "react-redux";
@@ -46,12 +47,13 @@ function PostHeader({ setWriteTitle, setWriteSummary }) {
 
 
   return (
-    <section className="flex items-center sticky top-0 z-50 gap-12 justify-between px-6 h-12 bg-base-300">
-      <div className="w-full md:w-full">
-        <Link className="btn" href={"/"}>
+    <section className="flex items-center sticky top-0 z-50 md:gap-12 justify-between px-6 h-12 bg-base-300">
+      <div className="w-full flex items-center gap-2 md:w-full">
+      <Link href={'/create'} className="px-2 sm:px-4 flex py-1"><BsReply className="text-lg" /><span className="hidden sm:block">Back to create</span>  </Link>
+        <Link className="px-4 h-5 md:h-8" href={"/"}>
           <img src="/logo.png" className="w-full h-full" alt="" />
-          {/* <h2 className="text-2xl">Logo</h2> */}
         </Link>
+          
       </div>
       <div className="flex items-center gap-7">
         <div className="flex items-center gap-2">
@@ -61,7 +63,7 @@ function PostHeader({ setWriteTitle, setWriteSummary }) {
             className="px-4 py-2 tooltip tooltip-bottom rounded bg-base-100 border border-blue-300 hover:bg-base-200 duration-300 flex items-center gap-1"
           >
             {" "}
-            <IoSaveOutline size={23} />{" "}
+            <IoSaveOutline className="text-sm sm:text-xl md:text-2xl" />{" "}
             <span className="hidden md:block">খসড়া</span>
           </button>
           <button
@@ -70,7 +72,7 @@ function PostHeader({ setWriteTitle, setWriteSummary }) {
             data-tip={siteState?.disabledButton?'লিখুন':'প্রকাশ'}
             className="px-4 py-2 tooltip tooltip-bottom rounded bg-gradient hover:from-[darkorchid] hover:to-[darkblue] hover:duration-300 text-white hover:opacity-85 duration-300 flex items-center disabled:bg-zinc-700 disabled:from-[#565357] gap-1"
           >
-            <LuPencilLine size={23} />{" "}
+            <LuPencilLine className="text-sm sm:text-xl md:text-2xl" />{" "}
             <span className="hidden md:block">প্রকাশ</span>
           </button>
         </div>

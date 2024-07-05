@@ -43,6 +43,7 @@ function partId() {
 
   // get story data form redux
   const story = useSelector((state) => state.stories);
+  console.log(story,'story');
   /// redux
   const dispatch = useDispatch();
 
@@ -73,6 +74,79 @@ function partId() {
     const blobUrl = URL.createObjectURL(file);
     setImageUrl(blobUrl);
   };
+// create image to base64
+const [uploadError, setError] = useState('');
+
+// const handleFileChange = (event) => {
+//   const file = event.target.files[0];
+//   if (file) {
+//     if (file.size > 5 * 1024 * 1024) { // 5 MB in bytes
+//       setError('File size should be less than 5 MB');
+//       dispatch(createStory({...story,thumbnail:story?.thumbnail||''}))
+//       return;
+//     }
+    
+//     setError('');
+//     const reader = new FileReader();
+//     reader.onloadend = () => {
+//       dispatch(createStory({...story,thumbnail:reader.result}))
+//       dispatch(updateSiteState({disabledButton:false}))
+//       console.log(reader.result, 'reader.result');
+//     };
+//     reader.readAsDataURL(file);
+//   }
+// };
+
+const [base64String, setBase64String] = useState('');
+
+const handleFileChange = (event) => {
+  const file = event.target.files[0];
+  if (file) {
+    if (file.size > 5 * 1024 * 1024) { // 5 MB in bytes
+      setError('File size should be less than 5 MB');
+      dispatch(createStory({...story,thumbnail:story?.thumbnail||''}))
+      return;
+    }
+
+    setError('');
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      const img = new Image();
+      img.src = reader.result;
+      img.onload = () => {
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        const MAX_WIDTH = 800; // adjust as necessary
+        const MAX_HEIGHT = 600; // adjust as necessary
+
+        let width = img.width;
+        let height = img.height;
+
+        if (width > height) {
+          if (width > MAX_WIDTH) {
+            height *= MAX_WIDTH / width;
+            width = MAX_WIDTH;
+          }
+        } else {
+          if (height > MAX_HEIGHT) {
+            width *= MAX_HEIGHT / height;
+            height = MAX_HEIGHT;
+          }
+        }
+
+        canvas.width = width;
+        canvas.height = height;
+        ctx.drawImage(img, 0, 0, width, height);
+
+        const resizedBase64 = canvas.toDataURL('image/jpeg', 0.7); // adjust quality as necessary
+        dispatch(createStory({...story,thumbnail:reader.result}))
+      dispatch(updateSiteState({disabledButton:false}))
+        console.log(resizedBase64, 'resizedBase64');
+      };
+    };
+    reader.readAsDataURL(file);
+  }
+};
   return (
     <section className="container mx-auto">
       <Head><title>Create Story</title></Head>
@@ -91,7 +165,7 @@ function partId() {
                 {!writeTitle ? (
                   <p
                     onDoubleClick={() => setWriteTitle(true)}
-                    className="w-44 min-w-fit text-white max-w-96 sm:tooltip border md:w-96 px-4 rounded-md text-left tooltip-top"
+                    className="w-44 min-w-fit text-white max-w-96 text-xs sm:text-sm sm:tooltip border md:w-96 px-4 rounded-md text-left tooltip-top"
                     data-tip="Double click to edit"
                   >
                     {story?.title || "গল্পের নাম"}
@@ -106,7 +180,7 @@ function partId() {
                       dispatch(updateSiteState({ disabledButton: false }));
                     }}
                     disabled={!writeTitle}
-                    className="w-44 text-left min-w-fit max-w-96 md:w-96 px-4 rounded-md truncate disabled:text-white"
+                    className="w-44 text-left min-w-fit max-w-96 text-xs sm:text-sm md:w-96 px-4 rounded-md truncate disabled:text-white"
                     defaultValue={story?.title}
                     placeholder="গল্পের নাম"
                   />
@@ -133,7 +207,7 @@ function partId() {
                 </span>
               </div>
             </h2>
-            <div className="sm:flex z-40 items-center gap-3">
+            <div className="flex md:items-center z-40 gap-3">
               <div className="flex w-full flex-col z-40">
                 {" "}
                 {writeSummary ? (
@@ -146,20 +220,21 @@ function partId() {
                       );
                       dispatch(updateSiteState({ disabledButton: false }));
                     }}
-                    className="px-3 h-fit py-2 rounded-md min-h-44 overflow-hidden  text-sm disabled:text-white"
+                    className="px-3 h-fit py-2 rounded-md min-h-44 text-xs sm:text-sm disabled:text-white"
                     placeholder="গল্পের Description"
                   >
                     {story?.description}
                   </textarea>
                 ) : (
+                  <div className="border rounded-md">
                   <p
                     data-tip="Double click to edit"
                     style={{ height }}
                     onDoubleClick={() => setWriteSummary(true)}
-                    className="px-3 h-fit border py-2 rounded-md min-h-44 max-h-44 overflow-hidden overflow-ellipsis sm:tooltip tooltip-top text-left cursor-pointer text-sm text-white disabled:text-white"
+                    className="px-3 ellipsis text-xs sm:text-sm overflow-hidden text-left cursor-pointer text-white disabled:text-white"
                   >
                     {story?.description || "গল্পের Description"}
-                  </p>
+                  </p></div>
                 )}
                 <span
                   onClick={() => setWriteSummary(!writeSummary)}
@@ -178,37 +253,37 @@ function partId() {
                 </span>
               </div>
               {/* Featured Image */}
-              <div className="w-64 h-full">
-                <h2 className="text-white font-bold">কভার ছবি আপলোড করুন</h2>
+              <div className="w-24 sm:w-44 md:w-64 overflow-hidden h-32 sm:h-64 md:h-72 max-w-44 relative">
+                <h2 className="text-white font-bold text-xs hidden md:block sm:text-sm md:text-base">কভার ছবি আপলোড করুন</h2>
                 {/* Image */}
-                {imageUrl ? (
+                {story?.thumbnail ? (
                   <div className="flex w-full relative">
                     <button
-                      onClick={() => setImageUrl("")}
-                      className="absolute bg-base-200 text-rose-500 hover:bg-red-200 rounded-full p-2 duration-300 text-xl right-4 top-4"
+                      onClick={() => dispatch(createStory({...story,thumbnail:''}))}
+                      className="absolute bg-base-200 text-rose-500 hover:bg-red-200 rounded-full p-0.5 sm:p-2 duration-300 text-xs md:text-xl right-1 top-1 sm:right-4 sm:top-4"
                     >
                       <CgClose />
                     </button>
                     <img
-                      src={imageUrl}
+                      src={story?.thumbnail}
                       alt="Uploaded"
-                      className="border border-blue-400 h-64 w-full rounded-md object-cover border-dotted p-1"
+                      className="border border-blue-400 h-full w-full rounded-md object-cover border-dotted sm:p-1"
                       style={{ maxWidth: "100%" }}
                     />
                   </div>
                 ) : (
-                  ""
+                  <p className="text-error text-xs absolute bottom-2 left-1">{uploadError && uploadError}</p>
                 )}
-                {imageUrl ? (
-                  ""
+                {story?.thumbnail ? (
+                  <></>
                 ) : (
                   <label className="bg-base-100 flex items-center flex-col cursor-pointer duration-300 justify-center border-2 hover:border-dashed rounded-md border-blue-300 h-64 w-full">
-                    <span className="text-4xl flex justify-center">
+                    <span className="text-xs sm:text-sm md:text-xl flex justify-center">
                       <BsUpload />
                     </span>
                     <input
                       accept="image/*"
-                      onChange={handleImageUpload}
+                      onChange={handleFileChange}
                       hidden
                       type="file"
                     />

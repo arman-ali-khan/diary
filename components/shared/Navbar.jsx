@@ -1,4 +1,3 @@
-import generateRandomId from "@/utils/randomId";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
@@ -28,11 +27,6 @@ function Navbar() {
     router.reload();
   };
 
-  // create new story id and go to new story route
-  const handleCreateStory = () =>{
-   const id = generateRandomId()
-    router.push(`/create/story/${id}`)
-  }
   return (
     <>
       <div className="navbar !min-h-12 shadow-lg !my-0 sticky top-0 w-full !py-0 z-[1250] bg-base-100">
@@ -148,17 +142,16 @@ function Navbar() {
             user?.email ? (
               <>
                 <div className="flex items-center gap-1 md:gap-3">
-                  <a
-                  onClick={()=>handleCreateStory()}
+                  <Link
+                  href="/create"
                     data-tip={'গল্প লিখুন'}
                     className="bg-gradient cursor-pointer fixed bottom-14 right-3 sm:relative sm:right-0 sm:bottom-0 ml-1 text-white sm:px-4 sm:py-1 rounded-full"
                   >
                     <p className="hidden sm:block"> লিখুন</p>
                     <p className="sm:hidden p-1 text-3xl">
-                      {" "}
                       <CiCirclePlus />
                     </p>
-                  </a>
+                  </Link>
                   <div className="w-fit flex items-center justify-center h-6 rounded-full p-0.5">
                     <div className="dropdown z-30  dropdown-bottom">
                       <div

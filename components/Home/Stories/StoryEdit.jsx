@@ -8,16 +8,19 @@ function StoryEdit({story}) {
  {convertToBengaliNumber(3.5)} <input type="radio" name="rating-3" className="mask text-xs w-4 inline-block mask-star bg-orange-400" defaultChecked />
 </div>
   <div className="card card-compact border rounded-lg w-full shadow-xl">
-  <Link href={`/create/story/123`} className="rounded-t-lg overflow-hidden">
+  <Link href={`/create/story/${story?.storyId}`} className="rounded-t-lg overflow-hidden">
     <figure>
-    {
-          story?.thumbnail?.map(thumbnail=>{
-            return <img key={thumbnail?.id}
+    {story?.thumbnail?
+      <img
           className="h-44 sm:h-56 md:h-72 object-cover w-full"
-            src={thumbnail?.url}
+            src={story?.thumbnail}
             alt={story?.title}
           />
-          })
+          :
+          <img
+          className="h-44 sm:h-56 md:h-72 object-cover w-full"
+            src={'https://static-assets.pratilipi.com/series/cover?seriesId=234959&version=69f25b62-8251-475e-a35e-338c0ff1520f'}
+          />
         }
     </figure></Link>
     <div className="card-body mt-1 !p-0 mb-2 !gap-0">
