@@ -6,9 +6,12 @@ import useGetUser from "@/hooks/useGetUser";
 import { useGetStoriesQuery, useGetStoryQuery } from "@/redux/features/api/storyApi";
 import PrivateRoutes from "@/routes/privateRoutes";
 import generateRandomId from "@/utils/randomId";
+import { useRouter } from "next/router";
 import { FaPlus } from "react-icons/fa";
 
 function index() {
+  // router
+  const router = useRouter()
   const {
     isError,
     isFetching,
