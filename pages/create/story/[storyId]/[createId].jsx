@@ -9,8 +9,7 @@ import { useParams } from "next/navigation";
 import { useRouter } from "next/router";
 import "quill/dist/quill.bubble.css"; // Add css for snow theme
 import { useEffect, useState } from "react";
-import { BsReply, BsUpload } from "react-icons/bs";
-import { CgClose } from "react-icons/cg";
+import { BsReply } from "react-icons/bs";
 // or import 'quill/dist/quill.bubble.css'; // Add css for bubble theme
 
 const page = () => {
@@ -79,18 +78,8 @@ const page = () => {
   const pathId = router.asPath;
   const storyId = pathId?.split("/")[3];
 
-  // create new part
-  const handleCreateNewPart = () => {
-    router.push(`/create/story/${storyId}`);
-  };
+ 
 
-  const [imageUrl, setImageUrl] = useState("");
-
-  const handleImageUpload = (event) => {
-    const file = event.target.files[0];
-    const blobUrl = URL.createObjectURL(file);
-    setImageUrl(blobUrl);
-  };
   const [tags, setTags] = useState(["hhh"]);
   const [tagValue, setTagValue] = useState("");
   // tags
@@ -168,45 +157,7 @@ const page = () => {
         </div>
         {/* aside */}
         <aside className="md:w-96 w-full gap-4 flex flex-col sm:flex-row md:flex-col max-w-full min-w-56 space-y-4 h-fit px-4 md:px-2 ">
-          {/* Featured Image */}
-          <div className="w-full">
-            <h2>কভার ছবি আপলোড করুন</h2>
-            {/* Image */}
-            {imageUrl ? (
-              <div className="flex w-full relative">
-                <button
-                  onClick={() => setImageUrl("")}
-                  className="absolute bg-base-200 text-rose-500 hover:bg-red-200 rounded-full p-2 duration-300 text-xl right-4 top-4"
-                >
-                  <CgClose />
-                </button>
-                <img
-                  src={imageUrl}
-                  alt="Uploaded"
-                  className="border border-blue-400 border-dotted p-1"
-                  style={{ maxWidth: "100%" }}
-                />
-              </div>
-            ) : (
-              ""
-            )}
-            {imageUrl ? (
-              ""
-            ) : (
-              <label className="bg-base-100 flex items-center flex-col cursor-pointer duration-300 justify-center border-2 hover:border-dashed rounded-md border-blue-300 h-44 w-full">
-                <span className="text-4xl flex justify-center">
-                  <BsUpload />
-                </span>
-                <input
-                  accept="image/*"
-                  onChange={handleImageUpload}
-                  hidden
-                  type="file"
-                />
-                <p>কভার ছবি আপলোড করুন</p>
-              </label>
-            )}
-          </div>
+         
           <div className="w-full">
             {/* Categories */}
             <div>

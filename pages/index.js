@@ -13,7 +13,7 @@ export default function Home() {
      <Hero />
       <Stories />
       <Stories />
-           <div className="mx-12"> <Pricing /></div>
+           <div className="sm:mx-12"> <Pricing /></div>
             <RandomStories />
             <Stories />
             </div>

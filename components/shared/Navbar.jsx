@@ -1,3 +1,4 @@
+import generateRandomId from "@/utils/randomId";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
@@ -26,6 +27,12 @@ function Navbar() {
     typeof window !== "undefined" && localStorage.removeItem("token");
     router.reload();
   };
+
+  // create new story id and go to new story route
+  const handleCreateStory = () =>{
+   const id = generateRandomId()
+    router.push(`/create/story/${id}`)
+  }
   return (
     <>
       <div className="navbar !min-h-12 shadow-lg !my-0 sticky top-0 w-full !py-0 z-[1250] bg-base-100">
@@ -53,7 +60,7 @@ function Navbar() {
             </label>
           </div>
           <Link href="/" className="btn btn-sm md:btn-md btn-ghost text">
-            Logo
+            <img className="w-full h-full" src="/logo.png" />
           </Link>
         </div>
         <div className="navbar-center hidden sm:flex">
@@ -141,16 +148,17 @@ function Navbar() {
             user?.email ? (
               <>
                 <div className="flex items-center gap-1 md:gap-3">
-                  <Link
-                    href={"/create"}
-                    className="bg-gradient fixed bottom-14 right-3 sm:relative sm:right-0 sm:bottom-0 ml-1 text-white sm:px-4 sm:py-1 rounded-full"
+                  <a
+                  onClick={()=>handleCreateStory()}
+                    data-tip={'গল্প লিখুন'}
+                    className="bg-gradient cursor-pointer fixed bottom-14 right-3 sm:relative sm:right-0 sm:bottom-0 ml-1 text-white sm:px-4 sm:py-1 rounded-full"
                   >
                     <p className="hidden sm:block"> লিখুন</p>
                     <p className="sm:hidden p-1 text-3xl">
                       {" "}
                       <CiCirclePlus />
                     </p>
-                  </Link>
+                  </a>
                   <div className="w-fit flex items-center justify-center h-6 rounded-full p-0.5">
                     <div className="dropdown z-30  dropdown-bottom">
                       <div
@@ -172,9 +180,9 @@ function Navbar() {
                         <li>
                           <Link href={"/user/12"}>User</Link>
                         </li>
-                        <li>
+                        {/* <li>
                           <Link href={"/settings"}>Settings</Link>
-                        </li>
+                        </li> */}
                         <li>
                           <button onClick={() => handleLogout()}>Logout</button>
                         </li>

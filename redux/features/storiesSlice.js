@@ -18,7 +18,8 @@ export const storiesSlice = createSlice({
     "reports":[],
     "blocked":[],
     "comments":[],
-    "published":0
+    "published":0,
+    storyId:''
   },
   reducers: {
     createStory: (state,action) => {
@@ -27,6 +28,7 @@ export const storiesSlice = createSlice({
        state.categories = action.payload?.categories
        state.tags = action.payload?.tags
        state.parts = action.payload?.parts
+       state.published = action.payload?.published
     },
 
     updateStory: (state,action) => {

@@ -39,7 +39,7 @@ const Pricing = () => {
               </div>
             </div>
           </div>
-          <div class="grid w-full grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center -mx-4">
+          <div class="grid mx-auto w-full grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center sm:-mx-4">
             {/* Personal */}
             <div class="w-full md:px-4">
               <div

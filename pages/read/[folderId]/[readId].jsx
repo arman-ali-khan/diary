@@ -258,7 +258,7 @@ function readId() {
               {/* Page content here */}
               <button data-tip='Create review'
                 onClick={() => setShowReview(true)}
-                className="bg-gradient fixed bottom-3 right-12 z-50  rounded-full tooltip tooltip-open cursor-pointer text-white px-2 py-1 gap-1 flex text-xl items-center"
+                className="bg-gradient fixed bottom-3 right-12 z-50  rounded-full cursor-pointer text-white px-2 py-1 gap-1 flex text-xl items-center"
               >
                 <BsStarHalf />
               </button>

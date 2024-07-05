@@ -1,12 +1,15 @@
-import { useCreateStoryMutation } from "@/redux/features/api/storyApi";
-import { createStory } from "@/redux/features/storiesSlice";
+import { useCreatePartStoryMutation } from "@/redux/features/api/storyApi";
 import { useState } from "react";
+import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 
 
-const ModalNewPart = () => {
-    const [title,setTitle] = useState('')
-    const [summary,setSummary] = useState('')
+const ModalNewPart = ({storyId,refetch}) => {
+//  react hook form
+const {handleSubmit,register} = useForm()
+
+// disabled btn
+const [isDisabled,setIsDisabled] = useState(false)
 
       // get story data form redux
   const story = useSelector(state=>state.stories)
@@ -14,17 +17,24 @@ const ModalNewPart = () => {
   const dispatch = useDispatch()
 
   // post data'
-  const [createNewPard,{isError,isLoading,isSuccess,data}] = useCreateStoryMutation()
+  const [createNewPard,{isError,isLoading,isSuccess,data}] = useCreatePartStoryMutation()
 
+  const dialog = typeof window !== 'undefined' && document.getElementById('create_part_modal');
 
-    const handleCreatePart = async () =>{
-         await createNewPard()
+    const handleCreatePart = async (data) =>{
+      setIsDisabled(true)
+      const partData = {...data,storyId}
+         await createNewPard(partData)
         .then(res=>{
-            console.log(res,'data story part')
+          if(res?.data){
+            dialog.removeAttribute('open');
+            refetch()
+            setIsDisabled(false)
+          }
         })
     }
     return (
-      <dialog id="my_modal_3" className="modal">
+      <dialog id="create_part_modal" className="modal">
         <div className="modal-box">
           <form method="dialog">
             {/* if there is a button in form, it will close the modal */}
@@ -33,10 +43,10 @@ const ModalNewPart = () => {
             </button>
           </form>
           <h3 className="font-bold text-lg mb-4">Create New Part</h3>
-          <div>
+          <form onSubmit={handleSubmit(handleCreatePart)}>
             <label htmlFor="title">Title</label>
             <input
-            onChange={(e)=>dispatch(createStory({...story,parts:[...story?.parts,{title:e.target.value}]}))}
+            {...register('title',{required:true})}
               id="title"
               type="text"
               placeholder="Title"
@@ -44,18 +54,18 @@ const ModalNewPart = () => {
             />
             <label htmlFor="summary">Summary</label>
             <textarea
-            onChange={(e)=>dispatch(createStory({...story,parts:[...story?.parts,{summary:e.target.value}]}))}
+            {...register('summary',{required:true})}
               id="summary"
               type="text"
               placeholder="Summary"
               className="textarea textarea-bordered w-full"
             />
             <div className="flex justify-end items-end p-2">
-              <button onClick={ ()=> handleCreatePart()} className="px-4 py-2 rounded-full bg-gradient text-white font-bold">
+              <button disabled={isDisabled} className="px-4 disabled:animate-pulse py-2 rounded-full bg-gradient text-white font-bold">
                 Create
               </button>
             </div>
-          </div>
+          </form>
         </div>
       </dialog>
     );

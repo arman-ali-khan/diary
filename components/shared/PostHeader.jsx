@@ -1,26 +1,82 @@
+import { useCreateStoryMutation, useGetStoryByIdQuery } from "@/redux/features/api/storyApi";
+import { updateSiteState } from "@/redux/features/siteSlice";
+import { createStory } from "@/redux/features/storiesSlice";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import { useState } from "react";
 import { IoSaveOutline } from "react-icons/io5";
 import { LuPencilLine } from "react-icons/lu";
-function PostHeader() {
-    return (
-        <section className="flex items-center sticky top-0 z-50 gap-12 justify-between px-6 h-12 bg-base-300">
-            <div className="w-full md:w-full">
-            <Link href={'/'}>
-                {/* <img src="/logo.svg" className="w-12 h-12" alt="" /> */}
-                <h2 className="text-2xl">Logo</h2>
-                </Link>
-            </div>
-            
-            <div className="flex items-center gap-7">
-            {/* <button data-tip="মুছুন" className="px-4 py-2 rounded bg-rose-100 hover:bg-rose-500 hover:text-white text-rose-500 tooltip tooltip-bottom duration-300 flex items-center gap-1"> <MdDeleteOutline size={23} /><span className="hidden  md:block">মুছুন</span></button> */}
-                <div className="flex items-center gap-2">
-                <button data-tip="খসড়া" className="px-4 py-2 tooltip tooltip-bottom rounded bg-base-100 border border-blue-300 hover:bg-base-200 duration-300 flex items-center gap-1"> <IoSaveOutline size={23} /> <span className="hidden md:block">খসড়া</span></button>
-                <button data-tip="প্রকাশ" className="px-4 py-2 tooltip tooltip-bottom rounded bg-gradient hover:from-[darkorchid] hover:to-[darkblue] hover:duration-300 text-white hover:opacity-85 duration-300 flex items-center gap-1"> <LuPencilLine size={23} /> <span className="hidden md:block">প্রকাশ</span></button>
-                </div>
-              
-            </div>
-        </section>
-    );
+import { useDispatch, useSelector } from "react-redux";
+function PostHeader({ setWriteTitle, setWriteSummary }) {
+    // router 
+    const router = useRouter()
+  // redux
+  const dispatch = useDispatch();
+  const story = useSelector((state) => state.stories);
+  // get site state
+  const siteState = useSelector((state)=>state.sites)
+
+  // is disabled publish btn
+  const [disabled,setDisabled] = useState(true)
+
+  // handle draft
+  const handleDraft = () => {
+    dispatch(createStory({ ...story, published: 0 }));
+  };
+  // mutation
+  const [createStoryFinal] = useCreateStoryMutation();
+  // handle create story
+
+  // create id
+  const storyId = router.asPath?.split('/')[3]
+
+  // get story by id
+  const {isError,isFetching,isLoading,isSuccess,data:storyData,refetch} = useGetStoryByIdQuery(storyId)
+
+  const handleCreateStory = () => {
+    createStoryFinal({ ...story, published: 1,storyId}).then((res) => {
+      console.log(res.data,'data')
+      setWriteTitle(false);
+      setWriteSummary(false);
+      dispatch(updateSiteState({disabledButton:true}))
+      setDisabled(true)
+      refetch();
+    });
+  };
+
+
+  return (
+    <section className="flex items-center sticky top-0 z-50 gap-12 justify-between px-6 h-12 bg-base-300">
+      <div className="w-full md:w-full">
+        <Link className="btn" href={"/"}>
+          <img src="/logo.png" className="w-full h-full" alt="" />
+          {/* <h2 className="text-2xl">Logo</h2> */}
+        </Link>
+      </div>
+      <div className="flex items-center gap-7">
+        <div className="flex items-center gap-2">
+          <button
+            onClick={() => handleDraft()}
+            data-tip="খসড়া"
+            className="px-4 py-2 tooltip tooltip-bottom rounded bg-base-100 border border-blue-300 hover:bg-base-200 duration-300 flex items-center gap-1"
+          >
+            {" "}
+            <IoSaveOutline size={23} />{" "}
+            <span className="hidden md:block">খসড়া</span>
+          </button>
+          <button
+          disabled={siteState?.disabledButton}
+            onClick={() => handleCreateStory()}
+            data-tip={siteState?.disabledButton?'লিখুন':'প্রকাশ'}
+            className="px-4 py-2 tooltip tooltip-bottom rounded bg-gradient hover:from-[darkorchid] hover:to-[darkblue] hover:duration-300 text-white hover:opacity-85 duration-300 flex items-center disabled:bg-zinc-700 disabled:from-[#565357] gap-1"
+          >
+            <LuPencilLine size={23} />{" "}
+            <span className="hidden md:block">প্রকাশ</span>
+          </button>
+        </div>
+      </div>
+    </section>
+  );
 }
 
 export default PostHeader;

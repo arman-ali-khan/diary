@@ -54,7 +54,7 @@ function storyId() {
                 <div className="absolute bottom-0 md:hidden right-0">
                   <button className="p-0.5 rounded-br-md">
                     <p className="items-center flex rounded gap-1 backdrop-blur-lg text-[#fff] px-3 py-2 w-full">
-                      <span className="hidden lg:block">রেটিং</span>{" "}
+                      <span className="hidden lg:block">রেটিং</span>
                       <span className="lg:hidden">
                         <FaStarHalfAlt />
                       </span>{" "}
