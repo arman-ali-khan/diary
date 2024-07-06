@@ -1,4 +1,7 @@
+import { updateSiteState } from '@/redux/features/siteSlice';
+import { createStory } from '@/redux/features/storiesSlice';
 import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import makeAnimated from 'react-select/animated';
 import CreatableSelect from 'react-select/creatable';
 
@@ -48,9 +51,21 @@ const CreateCategory = () => {
       useEffect(()=>{
         setTheme(localStorage.getItem('theme'))
       },[])
+
+      // redux
+      const dispatch = useDispatch()
+      const story = useSelector(state=>state.stories)
+      // handle dispatch
+      const handleDispatch = data =>{
+       
+        dispatch(createStory({...story,categories:data}))
+        dispatch(updateSiteState({disabledButton:false}))
+      }
+      console.log(story,'aaa');
+      const defaultValue =story?.categories
     return (
         <div className='w-full'>
-            <CreatableSelect  styles={theme==='dark' ? colourStyles:''} components={animatedComponents} className='w-full' isClearable isMulti options={options} />
+            <CreatableSelect onChange={e=>handleDispatch(e)} value={defaultValue} styles={theme==='dark' ? colourStyles:''} components={animatedComponents} className='w-full' isClearable isMulti options={options} />
         </div>
     );
 }

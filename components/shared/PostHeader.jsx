@@ -1,4 +1,4 @@
-import { useCreateStoryMutation, useGetStoryByIdQuery } from "@/redux/features/api/storyApi";
+import { useCreateStoryMutation, useGetStoryByIdQuery, useUpdatePartByIdMutation } from "@/redux/features/api/storyApi";
 import { updateSiteState } from "@/redux/features/siteSlice";
 import { createStory } from "@/redux/features/storiesSlice";
 import Link from "next/link";
@@ -14,6 +14,7 @@ function PostHeader({ setWriteTitle, setWriteSummary }) {
   // redux
   const dispatch = useDispatch();
   const story = useSelector((state) => state.stories);
+  const part = useSelector((state) => state.part);
   // get site state
   const siteState = useSelector((state)=>state.sites)
 
@@ -26,10 +27,12 @@ function PostHeader({ setWriteTitle, setWriteSummary }) {
   };
   // mutation
   const [createStoryFinal] = useCreateStoryMutation();
+  const [updatePartById] = useUpdatePartByIdMutation();
   // handle create story
 
   // create id
   const storyId = router.asPath?.split('/')[3]
+  const storyPart = router.asPath?.split('/')[4]
 
   // get story by id
   const {isError,isFetching,isLoading,isSuccess,data:storyData,refetch} = useGetStoryByIdQuery(storyId)
@@ -42,6 +45,13 @@ function PostHeader({ setWriteTitle, setWriteSummary }) {
       dispatch(updateSiteState({disabledButton:true}))
       setDisabled(true)
       refetch();
+    });
+  };
+
+  const handleUpdatePart = () => {
+    updatePartById({part:part,id:storyPart}).then((res) => {
+      console.log(res.data,'data')
+      dispatch(updateSiteState({disabledButton:true}))
     });
   };
 
@@ -66,6 +76,17 @@ function PostHeader({ setWriteTitle, setWriteSummary }) {
             <IoSaveOutline className="text-sm sm:text-xl md:text-2xl" />{" "}
             <span className="hidden md:block">খসড়া</span>
           </button>
+          {
+            storyPart ? 
+            <button
+          disabled={siteState?.disabledButton}
+            onClick={() => handleUpdatePart()}
+            data-tip={siteState?.disabledButton?'লিখুন':'আপডেট'}
+            className="px-4 py-2 tooltip tooltip-bottom rounded bg-gradient hover:from-[darkorchid] hover:to-[darkblue] hover:duration-300 text-white hover:opacity-85 duration-300 flex items-center disabled:bg-zinc-700 disabled:from-[#565357] gap-1"
+          >
+            <LuPencilLine className="text-sm sm:text-xl md:text-2xl" />{" "}
+            <span className="hidden md:block">আপডেট</span>
+          </button>:
           <button
           disabled={siteState?.disabledButton}
             onClick={() => handleCreateStory()}
@@ -75,6 +96,8 @@ function PostHeader({ setWriteTitle, setWriteSummary }) {
             <LuPencilLine className="text-sm sm:text-xl md:text-2xl" />{" "}
             <span className="hidden md:block">প্রকাশ</span>
           </button>
+          }
+         
         </div>
       </div>
     </section>

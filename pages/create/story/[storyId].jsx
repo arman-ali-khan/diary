@@ -253,7 +253,7 @@ const handleFileChange = (event) => {
                     </span>
                   )}
                 </span>
-                <div className="w-full max-w-[500] sm:flex gap-2 text-white items-center">
+                <div className="w-full sm:flex gap-2 text-white items-center">
             {/* Categories */}
             <div className="w-full">
               <h2 className="font-bold text-xs sm:text-sm">ক্যাটাগরি পছন্দ করুনঃ</h2>

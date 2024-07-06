@@ -11,7 +11,7 @@ export const storiesSlice = createSlice({
     "subscribers":[],
     "likes":[],
     "tags":[],
-    "categories":[],
+    "categories":"",
     "parts":[],
     "description":"",
     "author":[],

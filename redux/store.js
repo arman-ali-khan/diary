@@ -1,6 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import baseApi from "./features/api/baseApi";
 import storyApi from "./features/api/storyApi";
+import partSlice from "./features/partSlice";
 import siteSlice from "./features/siteSlice";
 import storiesSlice from "./features/storiesSlice";
 import storyStateSlice from "./features/story/storyStateSlice";
@@ -14,6 +15,7 @@ export default configureStore({
     stories: storiesSlice,
     user: usersSlice,
     storyState:storyStateSlice,
+    part:partSlice,
     [baseApi.reducerPath]:baseApi.reducer,
     [storyApi.reducerPath]:storyApi.reducer
   },
