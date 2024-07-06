@@ -1,8 +1,6 @@
 "use client";
 import { useQuill } from "react-quilljs";
 
-import CreateCategory from "@/components/Create/CreateCategory";
-import CreateTags from "@/components/Create/CreateTags";
 import PostHeader from "@/components/shared/PostHeader";
 import Link from "next/link";
 import { useParams } from "next/navigation";
@@ -158,22 +156,7 @@ const page = () => {
         {/* aside */}
         <aside className="md:w-96 w-full gap-4 flex flex-col sm:flex-row md:flex-col max-w-full min-w-56 space-y-4 h-fit px-4 md:px-2 ">
          
-          <div className="w-full">
-            {/* Categories */}
-            <div>
-              <h2>ক্যাটাগরি পছন্দ করুনঃ</h2>
-              <div className="flex flex-wrap items-center">
-                <CreateCategory />
-              </div>
-            </div>
-            {/* Tags */}
-            <div>
-              <h2>ট্যাগ লিখুনঃ</h2>
-              <div className="flex flex-wrap items-center">
-                <CreateTags />
-              </div>
-            </div>
-          </div>
+        
         </aside>
       </div>
     </section>

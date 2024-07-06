@@ -1,5 +1,7 @@
 "use client";
+import CreateCategory from "@/components/Create/CreateCategory";
 import CreateStoryPard from "@/components/Create/CreateStoryPart";
+import CreateTags from "@/components/Create/CreateTags";
 import PostHeader from "@/components/shared/PostHeader";
 import ModalNewPart from "@/components/shared/StoryPartModal";
 import Spinner from "@/components/Spinner/Spinner";
@@ -231,7 +233,7 @@ const handleFileChange = (event) => {
                     data-tip="Double click to edit"
                     style={{ height }}
                     onDoubleClick={() => setWriteSummary(true)}
-                    className="px-3 ellipsis text-xs sm:text-sm overflow-hidden text-left cursor-pointer text-white disabled:text-white"
+                    className="px-3 ellipsis min-h-32 text-xs sm:text-sm overflow-hidden text-left cursor-pointer text-white disabled:text-white"
                   >
                     {story?.description || "গল্পের Description"}
                   </p></div>
@@ -251,10 +253,26 @@ const handleFileChange = (event) => {
                     </span>
                   )}
                 </span>
+                <div className="w-full max-w-[500] sm:flex gap-2 text-white items-center">
+            {/* Categories */}
+            <div className="w-full">
+              <h2 className="font-bold text-xs sm:text-sm">ক্যাটাগরি পছন্দ করুনঃ</h2>
+              <div className="flex flex-wrap items-center">
+                <CreateCategory />
+              </div>
+            </div>
+            {/* Tags */}
+            <div className="w-full">
+              <h2 className="font-bold text-xs sm:text-sm">ট্যাগ লিখুনঃ</h2>
+              <div className="flex flex-wrap items-center">
+                <CreateTags />
+              </div>
+            </div>
+          </div>
               </div>
               {/* Featured Image */}
               <div className="w-24 sm:w-44 md:w-64 overflow-hidden h-32 sm:h-64 md:h-72 max-w-44 relative">
-                <h2 className="text-white font-bold text-xs hidden md:block sm:text-sm md:text-base">কভার ছবি আপলোড করুন</h2>
+                <h2 className="text-white  font-bold text-xs hidden md:block sm:text-sm text-center md:text-base">কভার ছবি আপলোড করুন</h2>
                 {/* Image */}
                 {story?.thumbnail ? (
                   <div className="flex w-full relative">
@@ -277,7 +295,7 @@ const handleFileChange = (event) => {
                 {story?.thumbnail ? (
                   <></>
                 ) : (
-                  <label className="bg-base-100 flex items-center flex-col cursor-pointer duration-300 justify-center border-2 hover:border-dashed rounded-md border-blue-300 h-64 w-full">
+                  <label className="bg-base-100 flex items-center flex-col cursor-pointer duration-300 justify-center border-2 hover:border-dashed rounded-md border-blue-300 h-full w-full">
                     <span className="text-xs sm:text-sm md:text-xl flex justify-center">
                       <BsUpload />
                     </span>
@@ -287,7 +305,7 @@ const handleFileChange = (event) => {
                       hidden
                       type="file"
                     />
-                    <p>কভার ছবি আপলোড করুন</p>
+                    <p className="truncate hidden sm:flex text-xs sm:text-sm">কভার ছবি আপলোড করুন</p>
                   </label>
                 )}
               </div>
