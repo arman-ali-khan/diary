@@ -4,81 +4,58 @@ import Spinner from "@/components/Spinner/Spinner";
 import { useGetStoryPartByIdQuery } from "@/redux/features/api/storyApi";
 import { updatePart } from "@/redux/features/partSlice";
 import { updateSiteState } from "@/redux/features/siteSlice";
+// import ReactQuill from 'react-quill';
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useRouter } from "next/router";
 import "quill/dist/quill.bubble.css"; // Add css for snow theme
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { BsReply } from "react-icons/bs";
-import { useQuill } from "react-quilljs";
+import 'react-quill/dist/quill.snow.css';
 import { useDispatch, useSelector } from "react-redux";
 // or import 'quill/dist/quill.bubble.css'; // Add css for bubble theme
+const toolbarOptions = [
+  [{ 'header': [1, 2, false] }],
+  ['bold', 'italic', 'blockquote'],
+  ['link'],
+  [{ 'list': 'ordered'}, { 'list': 'bullet' }]
+];
+
+const ReactQuill = dynamic(() => import('react-quill'), {
+  ssr: false,
+});
+
 
 const page = () => {
   // redux
   const dispatch = useDispatch();
 
+  
+  
   // get part data
   const part = useSelector((state) => state.part);
+
   // react quill
-  const theme = "bubble";
-  const modules = {
-    toolbar: [
-      [
-        "bold",
-        "italic",
-        "underline",
-        "strike",
-        "image",
-        "list",
-        "header",
-        "clean",
-      ],
-    ],
-  };
+  const theme = "snow"; //bubble
 
   const placeholder = "লিখুন...";
 
-  const formats = [
-    "bold",
-    "italic",
-    "underline",
-    "strike",
-    "image",
-    "list",
-    "header",
-    "clean",
-  ];
 
-  const { quill, quillRef } = useQuill({
-    theme,
-    modules,
-    formats,
-    placeholder,
-  });
+  // const { quill, quillRef } = useQuill({
+  //   theme,
+  //   modules,
+  //   formats,
+  //   placeholder,
+  // });
 
   // part description
   // const description = part?.description && parse(part?.description)
-console.log(part?.description,'part?.description');
+console.log(part,'part?.description');
   // const defaultContent = typeof window !== "undefined" &&
   //   JSON.parse(localStorage.getItem("content"));
-  quill?.clipboard.dangerouslyPasteHTML(JSON.parse(part?.description));
+  // quill?.clipboard.dangerouslyPasteHTML(JSON.parse(part?.description));
   
-  useEffect(() => {
-    if (quill) {
-      quill.on("text-change", (delta, oldDelta, source) => {
-        const content = quill.root.innerHTML;
-        // console.log(quill.getText()); // Get text only
-        // console.log(quill.getContents()); // Get delta contents
-      
-        dispatch(updatePart({ ...part, description: JSON.stringify(content) }));
-        dispatch(updateSiteState({ disabledButton: false }));
-
-        // console.log(quill.root.innerHTML); // Get innerHTML using quill
-        // console.log(quillRef.current.firstChild.innerHTML,'quillRef.current.firstChild.innerHTML'); // Get innerHTML using quillRef
-      });
-    }
-  }, [quill]);
 
 
   // router
@@ -95,19 +72,33 @@ console.log(part?.description,'part?.description');
   // get story part by id
   const {
     isError,
-    isLoading,
-    data: partData,
+    isLoading,isFetching,
+    data: partData,refetch
   } = useGetStoryPartByIdQuery({ storyId, partId });
 
   useEffect(() => {
     dispatch(updatePart(partData));
   }, [storyId, partId, partData]);
+  // get part description
+  const description = part?.description &&storyId&&partId&& partData && JSON.parse(part?.description)
+
+  // value
+  const [value,setValue] = useState('')
+  // handle update content
+  const handleUpdateContent  = (e) =>{
+    try {
+      dispatch(updatePart({...part, description:JSON.stringify(e)}))
+      dispatch(updateSiteState({ disabledButton: false }))
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   return (
     <section className="container mx-auto">
       <title>Create Story</title>
       {/* Story header */}
-      <PostHeader />
+      <PostHeader refetchPart={refetch} />
       <div className="flex truncate items-center px-2 mx-2 sm:mx-4 md:mx-6 gap-3 my-3 sm:my-5 md:my-12">
         <Link
           href={`/create/story/${storyId}`}
@@ -124,7 +115,7 @@ console.log(part?.description,'part?.description');
         </h2>
       </div>
       {/* Story header  end */}
-      {isLoading ? (
+      { isFetching || isLoading ? (
         <Spinner />
       ) : (
         <div className="flex flex-col-reverse md:flex-row w-full gap-3 mt-12 mb-12">
@@ -163,11 +154,22 @@ console.log(part?.description,'part?.description');
             </div>
 
             {/* post box */}
-            <div className="md:container bg-gradient p-0.5 md:p-1 rounded-md md:rounded-xl h-[400px] md:h-[600px] md:min-h-[500px] md:max-h-[900px] md:w-[800px] md:max-w-full md:min-w-[300px]">
-              <div
+            <div className="md:container bg-gradient p-0.5 md:p-1 rounded-md md:rounded-xl h-[400px] md:h-[600px] md:min-h-full md:max-h-full md:w-[800px] md:max-w-full md:min-w-[300px]">
+              {/* <div
                 className="text-xs md:text-base bg-base-100 md:min-h-[500px] md:max-h-[800px] h-[400px] md:h-[600px] border rounded md:rounded-lg"
                 ref={quillRef}
-              />
+              /> */}
+              <ReactQuill
+               modules={{
+          toolbar: toolbarOptions,
+        }}
+              className="text-xs md:text-base bg-base-100 h-full border rounded md:rounded-lg"
+              theme={theme}
+              formats={[
+          'header', 'bold', 'italic', 'blockquote', 'link', 'list'
+        ]}
+              value={description}
+              onChange={(e)=>handleUpdateContent(e)} />
             </div>
           </div>
           {/* aside */}
@@ -190,12 +192,12 @@ console.log(part?.description,'part?.description');
               <div className="w-full">
                 <textarea
                   onChange={(e) => {
-                    dispatch(updatePart({ ...part, summary: e.target.value }));
+                    dispatch(updatePart({ ...part, summary: JSON.stringify(e.target.value) }));
                     dispatch(updateSiteState({ disabledButton: false }));
                   }}
                   className="textarea w-full h-56 textarea-bordered"
                 >
-                  {partData?.summary}
+                  {JSON.parse(partData?.summary)}
                 </textarea>
               </div>
             </div>

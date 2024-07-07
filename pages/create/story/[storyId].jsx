@@ -161,13 +161,14 @@ const handleFileChange = (event) => {
         <Spinner />
       ) : (
         <>
-          <div className="p-4 bg-gradient rounded-b-xl">
+          <div className="p-4 bg-gradient h-full items-center sm:items-baseline flex flex-col sm:flex-row w-full gap-3 justify-between rounded-b-xl">
+          <div className="w-full">
             <h2 className="text-left flex-col sm:flex-row font-black flex items-center gap-3">
               <div className="flex w-full items-center flex-wrap gap-2">
                 {!writeTitle ? (
                   <p
                     onDoubleClick={() => setWriteTitle(true)}
-                    className="w-44 min-w-fit text-white max-w-96 text-xs sm:text-sm sm:tooltip border md:w-96 px-4 rounded-md text-left tooltip-top"
+                    className="w-44 min-w-fit text-white max-w-96 py-1 sm:py-2 text-xs sm:text-sm sm:tooltip border md:w-96 px-4 rounded-md text-left tooltip-top"
                     data-tip="Double click to edit"
                   >
                     {story?.title || "গল্পের নাম"}
@@ -182,7 +183,7 @@ const handleFileChange = (event) => {
                       dispatch(updateSiteState({ disabledButton: false }));
                     }}
                     disabled={!writeTitle}
-                    className="w-44 text-left min-w-fit max-w-96 text-xs sm:text-sm md:w-96 px-4 rounded-md truncate disabled:text-white"
+                    className="w-44 text-left min-w-fit max-w-96 text-xs sm:text-sm md:w-96 py-1 sm:py-2 px-4 rounded-md truncate disabled:text-white"
                     defaultValue={story?.title}
                     placeholder="গল্পের নাম"
                   />
@@ -270,12 +271,15 @@ const handleFileChange = (event) => {
             </div>
           </div>
               </div>
-              {/* Featured Image */}
-              <div className="w-24 sm:w-44 md:w-64 overflow-hidden h-32 sm:h-64 md:h-72 max-w-44 relative">
-                <h2 className="text-white  font-bold text-xs hidden md:block sm:text-sm text-center md:text-base">কভার ছবি আপলোড করুন</h2>
+             
+            </div>
+            </div>
+             {/* Featured Image */}
+             <div className="w-24 sm:w-44 md:w-64 h-32 sm:h-64 md:h-64 max-w-44 relative">
+                <h2 className="text-white truncate font-bold text-xs  md:block sm:text-sm text-center md:text-base">কভার ছবি আপলোড করুন</h2>
                 {/* Image */}
                 {story?.thumbnail ? (
-                  <div className="flex w-full relative">
+                  <div className="flex w-full h-full relative">
                     <button
                       onClick={() => dispatch(createStory({...story,thumbnail:''}))}
                       className="absolute bg-base-200 text-rose-500 hover:bg-red-200 rounded-full p-0.5 sm:p-2 duration-300 text-xs md:text-xl right-1 top-1 sm:right-4 sm:top-4"
@@ -309,7 +313,6 @@ const handleFileChange = (event) => {
                   </label>
                 )}
               </div>
-            </div>
           </div>
           <div className="flex justify-end my-3 w-full">
             {/* You can open the modal using document.getElementById('ID').showModal() method */}
@@ -331,8 +334,8 @@ const handleFileChange = (event) => {
               ))}
             </section>
           ) : (
-            <div className="flex justify-center py-12 text-2xl">
-              <h2 className="">No part has been created yet</h2>
+            <div className="flex justify-center py-12 w-full text-xs sm:text-sm md:text-2xl">
+              <h2 className="text-center">{storyData?.title ? 'No part has been created yet':'Create story first'}</h2>
             </div>
           )}
         </>

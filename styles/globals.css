@@ -126,7 +126,24 @@ input.tab.border-black.w-full {
     font-size: 17px;
   }
 }
-button.ql-list {
+
+/* .ql-toolbar {
+  display: flex;
+  width: 375px;
+} */
+
+/* .ql-bubble .ql-tooltip {
+  width: 355px !important;
+} */
+
+.ql-editor a {
+  color: blue;
+}
+
+.ql-editor {
+  height: -webkit-fill-available !important;
+}
+/* button.ql-list {
   background-image: url("/list.svg") !important;
   background-size: contain !important;
   background-repeat: no-repeat !important;
@@ -171,7 +188,7 @@ button.ql-header.ql-active {
   background-size: contain !important;
   background-repeat: no-repeat !important;
   padding: 12px;
-}
+} */
 html {
   font-family: SolaimanLipi, cursive;
 }

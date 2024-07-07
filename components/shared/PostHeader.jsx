@@ -8,7 +8,7 @@ import { BsReply } from "react-icons/bs";
 import { IoSaveOutline } from "react-icons/io5";
 import { LuPencilLine } from "react-icons/lu";
 import { useDispatch, useSelector } from "react-redux";
-function PostHeader({ setWriteTitle, setWriteSummary }) {
+function PostHeader({ setWriteTitle, setWriteSummary,refetchPart }) {
     // router 
     const router = useRouter()
   // redux
@@ -52,6 +52,7 @@ function PostHeader({ setWriteTitle, setWriteSummary }) {
     updatePartById({part:part,id:storyPart}).then((res) => {
       console.log(res.data,'data')
       dispatch(updateSiteState({disabledButton:true}))
+      refetchPart()
     });
   };
 
