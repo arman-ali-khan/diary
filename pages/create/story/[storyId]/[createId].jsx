@@ -1,11 +1,12 @@
 "use client";
 import PostHeader from "@/components/shared/PostHeader";
 import Spinner from "@/components/Spinner/Spinner";
-import { useGetStoryPartByIdQuery } from "@/redux/features/api/storyApi";
+import { useGetStoryByIdQuery, useGetStoryPartByIdQuery } from "@/redux/features/api/storyApi";
 import { updatePart } from "@/redux/features/partSlice";
 import { updateSiteState } from "@/redux/features/siteSlice";
 // import ReactQuill from 'react-quill';
 import dynamic from "next/dynamic";
+import Head from "next/head";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useRouter } from "next/router";
@@ -31,31 +32,22 @@ const page = () => {
   // redux
   const dispatch = useDispatch();
 
-  
-  
   // get part data
   const part = useSelector((state) => state.part);
-
+  // story data
+  
+// Function to test string
+function isJSON(str) {
+  try {
+      return JSON.parse(str) && !!str;
+  } catch (e) {
+      return false;
+  }
+}
   // react quill
   const theme = "snow"; //bubble
 
   const placeholder = "লিখুন...";
-
-
-  // const { quill, quillRef } = useQuill({
-  //   theme,
-  //   modules,
-  //   formats,
-  //   placeholder,
-  // });
-
-  // part description
-  // const description = part?.description && parse(part?.description)
-console.log(part,'part?.description');
-  // const defaultContent = typeof window !== "undefined" &&
-  //   JSON.parse(localStorage.getItem("content"));
-  // quill?.clipboard.dangerouslyPasteHTML(JSON.parse(part?.description));
-  
 
 
   // router
@@ -68,6 +60,9 @@ console.log(part,'part?.description');
   const pathId = router.asPath;
   const storyId = pathId?.split("/")[3];
   const partId = pathId?.split("/")[4];
+
+  // get story data
+  const {data:story} = useGetStoryByIdQuery(storyId)
 
   // get story part by id
   const {
@@ -96,24 +91,23 @@ console.log(part,'part?.description');
 
   return (
     <section className="container mx-auto">
-      <title>Create Story</title>
+      <Head><title>{partData?.title || 'Create Part'}</title></Head>
       {/* Story header */}
       <PostHeader refetchPart={refetch} />
-      <div className="flex truncate items-center px-2 mx-2 sm:mx-4 md:mx-6 gap-3 my-3 sm:my-5 md:my-12">
+      {storyId ?
+        <div className="flex truncate items-center px-2 mx-2 sm:mx-4 md:mx-6 gap-3 my-3 sm:my-5 md:my-12">
         <Link
           href={`/create/story/${storyId}`}
-          className="px-3 md:px-4 md:py-2 py-1 rounded-md bg-base-100 shadow-xl border flex items-center gap-2"
+          className="px-3 md:px-4 md:py-2 py-1 rounded-md bg-base-100 shadow-xl flex items-center gap-2"
         >
           <BsReply />
           Back
         </Link>
         <h2 className="truncate text-xl font-bold">
-          {" "}
-          গল্প সম্পুর্ন বাংলা ভাষায় লিখতে হবে । ছবি আপলোড করার আগে যে কোন কিছু
-          (দরকারি কিছু নয় এমন) লিখে সিলেক্ট করুন তার পর ছবির আইকনে ক্লিক করে ছবি
-          বাছাই করুন ।
+         {story?.title}
         </h2>
-      </div>
+      </div>:''
+      }
       {/* Story header  end */}
       { isFetching || isLoading ? (
         <Spinner />
@@ -154,7 +148,7 @@ console.log(part,'part?.description');
             </div>
 
             {/* post box */}
-            <div className="md:container bg-gradient p-0.5 md:p-1 rounded-md md:rounded-xl h-[400px] md:h-[600px] md:min-h-full md:max-h-full md:w-[800px] md:max-w-full md:min-w-[300px]">
+            <div className="md:container bg-gradient p-0.5 md:p-1 rounded-md md:rounded-xl h-[400px] md:h-[600px] md:min-h-full md:max-h-full md:w-[800px] md:max-w-full overflow-hidden md:min-w-[300px]">
               {/* <div
                 className="text-xs md:text-base bg-base-100 md:min-h-[500px] md:max-h-[800px] h-[400px] md:h-[600px] border rounded md:rounded-lg"
                 ref={quillRef}
@@ -192,12 +186,12 @@ console.log(part,'part?.description');
               <div className="w-full">
                 <textarea
                   onChange={(e) => {
-                    dispatch(updatePart({ ...part, summary: JSON.stringify(e.target.value) }));
+                    dispatch(updatePart({ ...part, summary: JSON.stringify() }));
                     dispatch(updateSiteState({ disabledButton: false }));
                   }}
                   className="textarea w-full h-56 textarea-bordered"
                 >
-                  {JSON.parse(partData?.summary)}
+                  {isJSON(partData?.summary) ? JSON.parse(partData?.summary):partData?.summary}
                 </textarea>
               </div>
             </div>

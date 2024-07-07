@@ -23,6 +23,7 @@ const storyApi= createApi({
         createPartStory:builder.mutation({
             query:(part)=>({
                 url:`${process.env.NEXT_PUBLIC_BASE_API}/stories/part`,
+                headers: {'Content-Type':'application/json',Authorization:`Bearer ${token}`},
                 method:`POST`,
                 body:part
             })
@@ -30,6 +31,7 @@ const storyApi= createApi({
         updatePartById:builder.mutation({
             query:({part,id})=>({
                 url:`${process.env.NEXT_PUBLIC_BASE_API}/stories/part/${id}`,
+                headers: {'Content-Type':'application/json',Authorization:`Bearer ${token}`},
                 method:`PUT`,
                 body:part
             })
@@ -37,6 +39,7 @@ const storyApi= createApi({
         createStory:builder.mutation({
             query:(story)=>({
                 url:`${process.env.NEXT_PUBLIC_BASE_API}/stories`,
+                headers: {'Content-Type':'application/json',Authorization:`Bearer ${token}`},
                 method:`PUT`,
                 body:story
             })

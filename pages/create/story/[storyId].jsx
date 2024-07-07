@@ -45,7 +45,6 @@ function partId() {
 
   // get story data form redux
   const story = useSelector((state) => state.stories);
-  console.log(story,'story');
   /// redux
   const dispatch = useDispatch();
 
@@ -76,79 +75,46 @@ function partId() {
     const blobUrl = URL.createObjectURL(file);
     setImageUrl(blobUrl);
   };
-// create image to base64
-const [uploadError, setError] = useState('');
+  
 
-// const handleFileChange = (event) => {
-//   const file = event.target.files[0];
-//   if (file) {
-//     if (file.size > 5 * 1024 * 1024) { // 5 MB in bytes
-//       setError('File size should be less than 5 MB');
-//       dispatch(createStory({...story,thumbnail:story?.thumbnail||''}))
-//       return;
-//     }
-    
-//     setError('');
-//     const reader = new FileReader();
-//     reader.onloadend = () => {
-//       dispatch(createStory({...story,thumbnail:reader.result}))
-//       dispatch(updateSiteState({disabledButton:false}))
-//       console.log(reader.result, 'reader.result');
-//     };
-//     reader.readAsDataURL(file);
-//   }
-// };
 
-const [base64String, setBase64String] = useState('');
 
-const handleFileChange = (event) => {
-  const file = event.target.files[0];
-  if (file) {
-    if (file.size > 5 * 1024 * 1024) { // 5 MB in bytes
-      setError('File size should be less than 5 MB');
-      dispatch(createStory({...story,thumbnail:story?.thumbnail||''}))
-      return;
+
+// upload thumbnail
+const [uploadStatus, setUploadStatus] = useState('');
+const [uploadedFile, setUploadedFile] = useState(null);
+
+
+const handleFileChange = async (e) => {
+  const file = e.target.files[0]
+  if (!file) return;
+
+  const formData = new FormData();
+  formData.append('file', file);
+
+  try {
+    const response = await fetch('/api/upload', {
+      method: 'POST',
+      body: formData,
+    });
+
+    const result = await response.json();
+
+    if (response.ok) {
+      setUploadStatus('File uploaded successfully');
+      setUploadedFile(result);
+      const id = result?.id
+      dispatch(createStory({...story,thumbnail:id}))
+      dispatch(updateSiteState({ disabledButton: false }));
+    } else {
+      setUploadStatus('File upload failed');
     }
-
-    setError('');
-    const reader = new FileReader();
-    reader.onloadend = () => {
-      const img = new Image();
-      img.src = reader.result;
-      img.onload = () => {
-        const canvas = document.createElement('canvas');
-        const ctx = canvas.getContext('2d');
-        const MAX_WIDTH = 800; // adjust as necessary
-        const MAX_HEIGHT = 600; // adjust as necessary
-
-        let width = img.width;
-        let height = img.height;
-
-        if (width > height) {
-          if (width > MAX_WIDTH) {
-            height *= MAX_WIDTH / width;
-            width = MAX_WIDTH;
-          }
-        } else {
-          if (height > MAX_HEIGHT) {
-            width *= MAX_HEIGHT / height;
-            height = MAX_HEIGHT;
-          }
-        }
-
-        canvas.width = width;
-        canvas.height = height;
-        ctx.drawImage(img, 0, 0, width, height);
-
-        const resizedBase64 = canvas.toDataURL('image/jpeg', 0.7); // adjust quality as necessary
-        dispatch(createStory({...story,thumbnail:reader.result}))
-      dispatch(updateSiteState({disabledButton:false}))
-        console.log(resizedBase64, 'resizedBase64');
-      };
-    };
-    reader.readAsDataURL(file);
+  } catch (error) {
+    console.error('Error uploading file:', error);
+    setUploadStatus('File upload failed');
   }
 };
+
   return (
     <section className="container mx-auto">
       <Head><title>Create Story</title></Head>
@@ -281,20 +247,23 @@ const handleFileChange = (event) => {
                 {story?.thumbnail ? (
                   <div className="flex w-full h-full relative">
                     <button
-                      onClick={() => dispatch(createStory({...story,thumbnail:''}))}
+                      onClick={() => {
+                        dispatch(createStory({...story,thumbnail:''}))
+                        dispatch(updateSiteState({ disabledButton: false }));
+                      }}
                       className="absolute bg-base-200 text-rose-500 hover:bg-red-200 rounded-full p-0.5 sm:p-2 duration-300 text-xs md:text-xl right-1 top-1 sm:right-4 sm:top-4"
                     >
                       <CgClose />
                     </button>
                     <img
-                      src={story?.thumbnail}
+                      src={`/uploads/${story?.thumbnail}`}
                       alt="Uploaded"
                       className="border border-blue-400 h-full w-full rounded-md object-cover border-dotted sm:p-1"
                       style={{ maxWidth: "100%" }}
                     />
                   </div>
                 ) : (
-                  <p className="text-error text-xs absolute bottom-2 left-1">{uploadError && uploadError}</p>
+                  <p className="text-error text-xs absolute bottom-2 left-1">{uploadStatus && uploadStatus}</p>
                 )}
                 {story?.thumbnail ? (
                   <></>

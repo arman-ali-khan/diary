@@ -63,7 +63,7 @@ function index() {
                 </div>
                 {isLoadingStories
                   ? [...Array(4).keys()]?.map((i) => {
-                      return <SkeletonStory />;
+                      return <SkeletonStory key={i} />;
                     })
                   : storiesData?.map((story, i) => {
                       return <StoryEdit story={story} key={i} />;

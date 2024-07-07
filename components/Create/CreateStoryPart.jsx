@@ -11,7 +11,7 @@ const CreateStoryPard = ({ part }) => {
         onMouseEnter={() => setShowAction(true)}
         onMouseLeave={() => setShowAction(false)}
         onClick={() => setShowAction(!showAction)}
-        className="relative w-full h-full border overflow-ellipsis overflow-hidden flex-wrap border-zinc-400 rounded-md p-2"
+        className="relative w-full h-full border overflow-ellipsis min-h-32 overflow-hidden flex-wrap border-zinc-400 rounded-md p-2"
       >
         <a>
           <h2 className="truncate text-lg font-bold">{part?.title}</h2>

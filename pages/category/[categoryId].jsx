@@ -36,7 +36,7 @@ function CategoryId() {
           <section className="relative -mt-12 container mx-auto">
        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
        {
-           isFetching ? [...Array(6).keys()]?.map((i)=>{ return <SkeletonStory />}) 
+           isFetching ? [...Array(6).keys()]?.map((i)=>{ return <SkeletonStory key={i} />}) 
            :
             stories?.slice(0,12)?.map((story,i)=>{
                 return    <Story key={i} story={story} />
