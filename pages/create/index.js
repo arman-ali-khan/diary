@@ -2,20 +2,20 @@ import Layout from "@/Layout/Layout";
 import StoryEdit from "@/components/Home/Stories/StoryEdit";
 import SkeletonStory from "@/components/Spinner/SkeletonStory";
 import Spinner from "@/components/Spinner/Spinner";
-import useGetUser from "@/hooks/useGetUser";
-import { useGetStoriesQuery } from "@/redux/features/api/storyApi";
+import { useGetStoriesByEmailCategoryTagQuery, useGetStoriesQuery } from "@/redux/features/api/storyApi";
 import PrivateRoutes from "@/routes/privateRoutes";
 import generateRandomId from "@/utils/randomId";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { FaPlus } from "react-icons/fa";
+import { useSelector } from "react-redux";
 
 function index() {
   // router
   const router = useRouter()
 
   // get user
-  const [user, isLoadingUser, isSuccessUser] = useGetUser();
+  const user = useSelector(state=>state.user)
 
   
   // create new story id and go to new story route
@@ -26,14 +26,18 @@ function index() {
 
    // get all storis
    const {isLoading:isLoadingStories,isSuccess:isSuccessStories,data:storiesData,refetch,isFetching:isFetchingStories} = useGetStoriesQuery()
+console.log(user,'user');
+   // get story by email
+   const {data:emailStory,isLoading,isFetching} = useGetStoriesByEmailCategoryTagQuery({email:user?.email})
+   console.log(emailStory,'email');
 
    useEffect(()=>{
     refetch()
-   },[isLoadingStories,isFetchingStories])
+   },[user?.email])
   return (
       <Layout title={"Create"}>
     <PrivateRoutes>
-       {isLoadingUser ?<Spinner />:
+       {!user ?<Spinner />:
         <section className="container mx-auto">
           <div className="flex flex-col-reverse md:flex-row w-full gap-3 mt-12 mb-12">
             {/* instruction */}
@@ -58,11 +62,11 @@ function index() {
                     </div>
                   </a>
                 </div>
-                {isLoadingStories
+                {isFetching
                   ? [...Array(4).keys()]?.map((i) => {
                       return <SkeletonStory key={i} />;
                     })
-                  : storiesData?.map((story, i) => {
+                  : emailStory?.map((story, i) => {
                       return <StoryEdit story={story} key={i} />;
                     })}
               </section>

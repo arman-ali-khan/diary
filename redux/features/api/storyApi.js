@@ -5,24 +5,27 @@ const token = typeof window !== 'undefined' && localStorage.getItem('token')
 
 const storyApi= createApi({
     reducerPath:'story',
-    baseQuery: fetchBaseQuery({baseUrl:'/'}),
+    baseQuery: fetchBaseQuery({baseUrl:process.env.NEXT_PUBLIC_BASE_API}),
     endpoints:(builder) => ({
         getStory:builder.query({
-            query:(query)=> '/jsons/fake-story.json',
+            query:(query)=> '/stories',
+        }),
+        getStoriesByEmailCategoryTag:builder.query({
+            query:({email,category,tag})=> `/stories?email=${email}&category=${category}&tag=${tag}`,
         }),
         getStories:builder.query({
-            query:()=> `${process.env.NEXT_PUBLIC_BASE_API}/stories`,
+            query:()=> `/stories`,
         }),
         getStoryById:builder.query({
-            query:(query)=> `${process.env.NEXT_PUBLIC_BASE_API}/stories/${query}`,
+            query:(query)=> `/stories/${query}`,
         }),
         // get story part
         getStoryPartById:builder.query({
-            query:({storyId,partId})=> `${process.env.NEXT_PUBLIC_BASE_API}/stories/part/${storyId}?partId=${partId}`,
+            query:({storyId,partId})=> `/stories/part/${storyId}?partId=${partId}`,
         }),
         createPartStory:builder.mutation({
             query:(part)=>({
-                url:`${process.env.NEXT_PUBLIC_BASE_API}/stories/part`,
+                url:`/stories/part`,
                 headers: {'Content-Type':'application/json',Authorization:`Bearer ${token}`},
                 method:`POST`,
                 body:part
@@ -30,7 +33,7 @@ const storyApi= createApi({
         }),
         updatePartById:builder.mutation({
             query:({part,id})=>({
-                url:`${process.env.NEXT_PUBLIC_BASE_API}/stories/part/${id}`,
+                url:`/stories/part/${id}`,
                 headers: {'Content-Type':'application/json',Authorization:`Bearer ${token}`},
                 method:`PUT`,
                 body:part
@@ -38,7 +41,7 @@ const storyApi= createApi({
         }),
         createStory:builder.mutation({
             query:(story)=>({
-                url:`${process.env.NEXT_PUBLIC_BASE_API}/stories`,
+                url:`/stories`,
                 headers: {'Content-Type':'application/json',Authorization:`Bearer ${token}`},
                 method:`PUT`,
                 body:story
@@ -47,5 +50,5 @@ const storyApi= createApi({
     }),
 })
 
-export const {useGetStoryQuery,useCreateStoryMutation,useCreatePartStoryMutation,useGetStoryByIdQuery,useGetStoriesQuery,useGetStoryPartByIdQuery,useUpdatePartByIdMutation}=storyApi
+export const {useGetStoryQuery,useCreateStoryMutation,useCreatePartStoryMutation,useGetStoryByIdQuery,useGetStoriesQuery,useGetStoryPartByIdQuery,useUpdatePartByIdMutation,useGetStoriesByEmailCategoryTagQuery}=storyApi
 export default storyApi
