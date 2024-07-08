@@ -7,9 +7,6 @@ const storyApi= createApi({
     reducerPath:'story',
     baseQuery: fetchBaseQuery({baseUrl:process.env.NEXT_PUBLIC_BASE_API}),
     endpoints:(builder) => ({
-        getStory:builder.query({
-            query:(query)=> '/stories',
-        }),
         getStoriesByEmailCategoryTag:builder.query({
             query:({email,category,tag})=> `/stories?email=${email}&category=${category}&tag=${tag}`,
         }),
@@ -50,5 +47,5 @@ const storyApi= createApi({
     }),
 })
 
-export const {useGetStoryQuery,useCreateStoryMutation,useCreatePartStoryMutation,useGetStoryByIdQuery,useGetStoriesQuery,useGetStoryPartByIdQuery,useUpdatePartByIdMutation,useGetStoriesByEmailCategoryTagQuery}=storyApi
+export const {useCreateStoryMutation,useCreatePartStoryMutation,useGetStoryByIdQuery,useGetStoriesQuery,useGetStoryPartByIdQuery,useUpdatePartByIdMutation,useGetStoriesByEmailCategoryTagQuery}=storyApi
 export default storyApi

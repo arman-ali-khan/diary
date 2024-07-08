@@ -6,8 +6,8 @@ import PostHeader from "@/components/shared/PostHeader";
 import ModalNewPart from "@/components/shared/StoryPartModal";
 import Spinner from "@/components/Spinner/Spinner";
 import {
-  useGetStoryByIdQuery,
-  useGetStoryQuery,
+  useGetStoriesQuery,
+  useGetStoryByIdQuery
 } from "@/redux/features/api/storyApi";
 import { updateSiteState } from "@/redux/features/siteSlice";
 import { createStory } from "@/redux/features/storiesSlice";
@@ -41,7 +41,7 @@ function partId() {
     isSuccess,
     data: stories,
     error,
-  } = useGetStoryQuery("/posts");
+  } = useGetStoriesQuery("/posts");
 
   // get story data form redux
   const story = useSelector((state) => state.stories);

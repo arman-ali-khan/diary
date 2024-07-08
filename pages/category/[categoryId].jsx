@@ -2,10 +2,10 @@ import Layout from "@/Layout/Layout";
 import Story from "@/components/Home/Stories/Story";
 import Pagination from "@/components/Pagination/Pagination";
 import SkeletonStory from "@/components/Spinner/SkeletonStory";
-import { useGetStoryQuery } from "@/redux/features/api/storyApi";
+import { useGetStoriesQuery } from "@/redux/features/api/storyApi";
 
 function CategoryId() {
-  const {isError,isFetching,isLoading,isSuccess,data:stories,error} = useGetStoryQuery('/photos')
+  const {isError,isFetching,isLoading,isSuccess,data:stories,error} = useGetStoriesQuery('/photos')
     return (
       <Layout title={'Category "Horror Stories"'}>
       {/* category banner */}

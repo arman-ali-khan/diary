@@ -1,12 +1,12 @@
 import Pagination from "@/components/Pagination/Pagination";
 import SkeletonStory from "@/components/Spinner/SkeletonStory";
-import { useGetStoryQuery } from "@/redux/features/api/storyApi";
+import { useGetStoriesQuery } from "@/redux/features/api/storyApi";
 import { useState } from "react";
 import { MdSignalWifi0Bar, MdSignalWifi4Bar } from "react-icons/md";
 import SingleBlog from "./SingleBlog";
 
 function Blogs() {
-  const {isError,isFetching,isLoading,isSuccess,data:stories,error} = useGetStoryQuery('/photos')
+  const {isError,isFetching,isLoading,isSuccess,data:stories,error} = useGetStoriesQuery('/photos')
 
   // follow
   const [follow,setFollow]  = useState(false)

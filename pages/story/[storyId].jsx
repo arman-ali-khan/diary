@@ -2,9 +2,10 @@ import Layout from "@/Layout/Layout";
 import Card from "@/components/Home/Stories/Card";
 import Footer from "@/components/shared/Footer";
 import { convertToBengaliNumber } from "@/lib/convertToBengaliNumber";
-import { useGetStoryQuery } from "@/redux/features/api/storyApi";
+import { useGetStoryByIdQuery } from "@/redux/features/api/storyApi";
 import { increment } from "@/redux/features/subscribeSlice";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { CgEye } from "react-icons/cg";
@@ -17,6 +18,8 @@ import { TbHeart, TbHeartBroken } from "react-icons/tb";
 import { useDispatch, useSelector } from "react-redux";
 
 function storyId() {
+  // router
+  const router = useRouter()
   // subscribe state
   const subscribes = useSelector((state) => state.subscribe);
   console.log(subscribes?.subscribes, "subscribes");
@@ -38,19 +41,27 @@ function storyId() {
     };
     dispatch(increment(subscribeData));
   };
-  const {isError,isFetching,isLoading,isSuccess,data:stories,error} = useGetStoryQuery()
+// get story id
+const storyId = router.asPath?.split('/')[2]
+console.log(storyId,'id')
+  const {isError,isFetching,isLoading,isSuccess,data:story,error} = useGetStoryByIdQuery(storyId)
+
   return (
-    <Layout title="অঘোর তান্ত্রিকের অঘোর তান্ত্রিকের অভিশাপ খন্ডনের কাহিনি || Diary">
+    <Layout title={`${story?.title||'Story Page'} || Diary`}>
       <section className="md:p-5 mx-auto relative rounded-t-xl bg-[darkblue]">
           {/* <span className="h-1/2 bg-[darkblue] w-full absolute -z-20"></span> */}
           <div className="flex flex-col mx-auto overflow-hidden rounded-xl">
             <div className="w-full bg-base-300 md:flex p-3 justify-between flex-row-reverse">
               <div className="md:min-w-56 w-full md:max-w-60 md:ml-4 h-96 relative">
+              {
+                isFetching ? <div className="md:min-w-56 w-full mr-4 md:max-w-60 bg-base-200 md:ml-4 h-96 skeleton border shadow-xl"></div>
+                :
                 <img
                   className="h-full rounded-xl object-cover w-full"
-                  src="https://static-assets.pratilipi.com/series/cover?seriesId=450620&version=888119ad-3e2a-4cef-b79d-20cdbe7a872b"
-                  alt=""
+                  src={`/uploads/${story?.thumbnail}`}
+                  alt={story?.title}
                 />
+              }
                 <div className="absolute bottom-0 md:hidden right-0">
                   <button className="p-0.5 rounded-br-md">
                     <p className="items-center flex rounded gap-1 backdrop-blur-lg text-[#fff] px-3 py-2 w-full">
@@ -66,30 +77,25 @@ function storyId() {
               <div className="text-left relative max-w-full min-w-56 lg:max-w-3xl w-full">
                 <ul className="my-4 ml-3">
                   <li className="flex flex-wrap items-center gap-3">
-                    <Link
+                  { isFetching ? <> {[...Array(3).keys()]?.map((item,i)=><div className="w-24 h-6 border shadow-md skeleton rounded-full bg-base-200"></div>)}</>
+                  :
+                    story?.categories?.length ? story?.categories?.map((category,i)=>{
+                      return   <Link key={i}
                       className="border border-zinc-400 rounded-full px-2"
-                      href={`#`}
+                      href={`/category/${category?.value}`}
                     >
-                      উপন্যাস
+                      {category?.label}
                     </Link>
-                    <Link
-                      className="border border-zinc-400 rounded-full px-2"
-                      href={`#`}
-                    >
-                      সাসপেন্স - থ্রিলার
-                    </Link>
-                    <Link
-                      className="border border-zinc-400 rounded-full px-2"
-                      href={`#`}
-                    >
-                      প্রেম
-                    </Link>
+                    })
+                    :
+                    <div className=""></div>
+                  }
                   </li>
                 </ul>
 
                 <div className="flex items-center">
                   <h2 className="text-xl w-full font-bold sm:text-xl truncate md:text-2xl">
-                    অঘোর তান্ত্রিকের অঘোর তান্ত্রিকের অভিশাপ খন্ডনের কাহিনি
+                    {story?.title}
                   </h2>
                   {subscribed ? (
                     <button
@@ -199,7 +205,10 @@ function storyId() {
                   </div>
                 </div>
                 {/* User Info */}
-                <div className="my-4 flex   border-2 border-[darkblue] rounded-xl p-3 w-full max-w-2xl justify-between items-center">
+                {
+                  isFetching ? <div className="rounded-xl p-3 w-full max-w-2xl skeleton bg-base-200 shadow-md my-4 h-20"></div>
+                  :
+                  <div className="my-4 flex   border-2 border-[darkblue] rounded-xl p-3 w-full max-w-2xl justify-between items-center">
                   <div className="w-full gap-2 flex items-center h-12">
                     <img
                       className="w-12 h-full rounded-full"
@@ -208,7 +217,7 @@ function storyId() {
                     />
                     <div className="flex flex-col">
                       <h2 className="font-bold truncate text-xs md:text-lg">
-                        রত্না হালদার Ratna Halder
+                        {story?.author}
                       </h2>
                       <p className="text-xs md:text-base">
                         {convertToBengaliNumber(12)}লা অনুসরণকারী
@@ -244,21 +253,16 @@ function storyId() {
                     )}
                   </div>
                 </div>
-                {/* Summary */}
+                }
+                {/* description */} 
+                {
+                    isFetching ? <div className="skeleton h-36 w-full bg-base-200 border shadow-md rounded-md"></div>
+                    :
                 <div className="summary mt-6 lg:mt-3 lg:absolute bottom-0">
-                  <p className="select-warning" onCopy={handleCopy}>
-                    {`একটা দুস্টু-মিষ্টি, টক-ঝাল প্রেম কাহিনী। চেন্নাইয়ের
-                  তিরুচিরাপল্লী'র আলেকজান্দ্রিয়ার মেয়ে মৌরি ভালোবাসার মানে যখন
-                  খুঁজতে যায় ততদিনে ওর বিয়ে ঠিক যায় চেন্নাইয়ের রড কম্পানির মালিক
-                  তথা সেরা ধনী লোকের একটা দুস্টু-মিষ্টি, টক-ঝাল প্রেম কাহিনী। চেন্নাইয়ের
-                  তিরুচিরাপল্লী'র আলেকজান্দ্রিয়ার মেয়ে মৌরি ভালোবাসার মানে যখন
-                  খুঁজতে যায় ততদিনে ওর বিয়ে ঠিক যায় চেন্নাইয়ের রড কম্পানির মালিক
-                  তথা সেরা ধনী লোকের`
-                      .split(" ")
-                      .slice(0, 200)
-                      .join(" ")}
+                    <p className="select-warning ellipsis" onCopy={handleCopy}>
+                    {story?.description}
                   </p>
-                </div>
+                </div> }
               </div>
             </div>
 
@@ -267,8 +271,10 @@ function storyId() {
             <div className="h-16 bg-base-100 w-full"></div>
             <div className="mx-auto py-4 space-y-6 px-2 lg:px-10 lg:rounded-md bg-base-200 w-full">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-2 2xl:grid-cols-3">
-                {stories?.map((part,i) => {
-                  return <Card part={part} key={i} />;
+                {isFetching||isLoading ? <>{[...Array(4).keys()]?.map((item,i)=><div key={i} className="w-full h-24 bg-base-200 rounded-md border skeleton shadow-md"></div>)}</>
+                :
+                  story?.parts?.map((part,i) => {
+                  return <Card part={part} key={i} id={i+1} />;
                 })}
               </div>
             </div>

@@ -1,11 +1,11 @@
-import { useGetStoryQuery } from "@/redux/features/api/storyApi";
+import { useGetStoriesQuery } from "@/redux/features/api/storyApi";
 import Story from "../Home/Stories/Story";
 import SkeletonStory from "../Spinner/SkeletonStory";
 
 
 
 function UserStories() {
-  const {isError,isFetching,isLoading,isSuccess,data:stories,error} = useGetStoryQuery('/photos')
+  const {isError,isFetching,isLoading,isSuccess,data:stories,error} = useGetStoriesQuery('/photos')
   console.log(stories,'stories',isLoading,isError,error)
     return (
         <section className="relative w-full">

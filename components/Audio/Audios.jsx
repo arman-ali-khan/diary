@@ -1,11 +1,11 @@
 import Pagination from "@/components/Pagination/Pagination";
 import SkeletonStory from "@/components/Spinner/SkeletonStory";
-import { useGetStoryQuery } from "@/redux/features/api/storyApi";
+import { useGetStoriesQuery } from "@/redux/features/api/storyApi";
 import Hero from "../Home/Hero/Hero";
 import SingleAudio from "./SingleAudio";
 
 function Audios() {
-  const {isError,isFetching,isLoading,isSuccess,data:stories,error} = useGetStoryQuery('/photos')
+  const {isError,isFetching,isLoading,isSuccess,data:stories,error} = useGetStoriesQuery('')
 
     return (
       <>
