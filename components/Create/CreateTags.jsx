@@ -9,9 +9,13 @@ const CreateTags = () => {
     const animatedComponents = makeAnimated();
 
     const options = [
-        { value: 'chocolate', label: 'Chocolate',style:{color:'red'} },
-        { value: 'strawberry', label: 'Strawberry',style:{color:'red'} },
-        { value: 'vanilla', label: 'Vanilla',style:{color:'red'} }
+        { value: 'horror', label: 'ভৌতিক',style:{color:'red'} },
+        { value: 'mystery', label: 'রহস্য',style:{color:'red'} },
+        { value: 'detective', label: 'গোয়েন্দা',style:{color:'red'} },
+        { value: 'funny', label: 'হাস্যকর',style:{color:'red'} },
+        { value: 'love', label: 'প্রেম',style:{color:'red'} },
+        { value: 'action', label: 'অ্যাকশন',style:{color:'red'} },
+        { value: 'thriller', label: 'থ্রিলার',style:{color:'red'} },
       ]
 
 
@@ -64,7 +68,7 @@ const CreateTags = () => {
        const defaultValue =story?.tags
     return (
         <div className='w-full'>
-            <CreatableSelect onChange={e=>handleDispatch(e)}  styles={theme==='dark' ? colourStyles:''} value={defaultValue} components={animatedComponents} className='w-full' isClearable isMulti options={options} />
+            <CreatableSelect onChange={e=>handleDispatch(e)}  styles={theme==='dark' ? colourStyles:''} value={defaultValue} components={animatedComponents} className='w-full text-black' isClearable isMulti options={options} />
         </div>
     );
 }

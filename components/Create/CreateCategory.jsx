@@ -9,9 +9,19 @@ const CreateCategory = () => {
     const animatedComponents = makeAnimated();
 
     const options = [
-        { value: 'chocolate', label: 'Chocolate',style:{color:'red'} },
-        { value: 'strawberry', label: 'Strawberry',style:{color:'red'} },
-        { value: 'vanilla', label: 'Vanilla',style:{color:'red'} }
+        { value: 'horror', label: 'ভৌতিক গল্প',style:{color:'red'}},
+        { value: 'romance', label: 'ভালোবাসার গল্প',style:{color:'red'}},
+        { value: 'thriller', label: 'থ্রিলার গল্প',style:{color:'red'}},
+        { value: 'mystery', label: 'রহস্য গল্প',style:{color:'red'}},
+        { value: 'short', label: 'ছোটগল্প গল্প',style:{color:'red'}},
+        { value: 'big', label: 'বড় গল্প',style:{color:'red'}},
+        { value: 'funny', label: 'হাস্যকৌতুক গল্প',style:{color:'red'}},
+        { value: 'drama', label: 'নাটক',style:{color:'red'}},
+        { value: 'travel', label: 'ভ্রমণকাহিনী',style:{color:'red'}},
+        { value: 'memoirs', label: 'স্মৃতিকথা',style:{color:'red'}},
+        { value: 'children', label: 'শিশু সাহিত্য',style:{color:'red'}},
+        { value: 'historical', label: 'ঐতিহাসিক',style:{color:'red'}},
+        { value: 'novel', label: 'উপন্যাস',style:{color:'red'}},
       ]
 
 
@@ -50,7 +60,7 @@ const CreateCategory = () => {
      
       useEffect(()=>{
         setTheme(localStorage.getItem('theme'))
-      },[])
+      },[theme])
 
       // redux
       const dispatch = useDispatch()
@@ -65,7 +75,7 @@ const CreateCategory = () => {
       const defaultValue =story?.categories
     return (
         <div className='w-full'>
-            <CreatableSelect onChange={e=>handleDispatch(e)} value={defaultValue} styles={theme==='dark' ? colourStyles:''} components={animatedComponents} className='w-full' isClearable isMulti options={options} />
+            <CreatableSelect onChange={e=>handleDispatch(e)} value={defaultValue} styles={theme==='dark' ? colourStyles:''} components={animatedComponents} className='w-full text-black' isClearable isMulti options={options} />
         </div>
     );
 }

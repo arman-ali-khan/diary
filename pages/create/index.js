@@ -3,23 +3,17 @@ import StoryEdit from "@/components/Home/Stories/StoryEdit";
 import SkeletonStory from "@/components/Spinner/SkeletonStory";
 import Spinner from "@/components/Spinner/Spinner";
 import useGetUser from "@/hooks/useGetUser";
-import { useGetStoriesQuery, useGetStoryQuery } from "@/redux/features/api/storyApi";
+import { useGetStoriesQuery } from "@/redux/features/api/storyApi";
 import PrivateRoutes from "@/routes/privateRoutes";
 import generateRandomId from "@/utils/randomId";
 import { useRouter } from "next/router";
+import { useEffect } from "react";
 import { FaPlus } from "react-icons/fa";
 
 function index() {
   // router
   const router = useRouter()
-  const {
-    isError,
-    isFetching,
-    isLoading,
-    isSuccess,
-    data: stories,
-    error,
-  } = useGetStoryQuery("/photos");
+
   // get user
   const [user, isLoadingUser, isSuccessUser] = useGetUser();
 
@@ -31,7 +25,11 @@ function index() {
    }
 
    // get all storis
-   const {isLoading:isLoadingStories,isSuccess:isSuccessStories,data:storiesData} = useGetStoriesQuery()
+   const {isLoading:isLoadingStories,isSuccess:isSuccessStories,data:storiesData,refetch,isFetching:isFetchingStories} = useGetStoriesQuery()
+
+   useEffect(()=>{
+    refetch()
+   },[isLoadingStories,isFetchingStories])
   return (
       <Layout title={"Create"}>
     <PrivateRoutes>
@@ -41,7 +39,6 @@ function index() {
             {/* instruction */}
             <div className="w-full md:ml-12">
               <h2 className="font-bold text-xl">আমার গল্প গুলো</h2>
-
               {/* post box */}
               <section className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
                 <div className="card-container flex justify-center items-center w-full relative rounded-t-lg overflow-hidden">
